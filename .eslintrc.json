@@ -18,5 +18,8 @@
         "pragma": "React",
         "version": "detect"
       }
+    },
+    "env": {
+      "browser": true
     }
   }
