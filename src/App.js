@@ -15,7 +15,7 @@ const App = () => (
           <Link to="/"><span role="img" aria-label="Home">🏠</span></Link>
         </li>
         <li>
-          <Link to="/about"><span role="img" aria-label="About">🦸‍♀️🦸‍♂️</span></Link>
+          <Link to="/about"><span role="img" aria-label="About">😂</span></Link>
         </li>
         <li>
           <Link to="/heroes"><span role="img" aria-label="Heroes">🔥</span></Link>
