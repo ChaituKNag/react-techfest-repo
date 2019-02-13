@@ -12,13 +12,13 @@ const App = () => (
     <div>
       <ul>
         <li>
-          <Link to="/">🏠</Link>
+          <Link to="/"><span role="img" aria-label="Home">🏠</span></Link>
         </li>
         <li>
-          <Link to="/about">🦸‍♀️🦸‍♂️</Link>
+          <Link to="/about"><span role="img" aria-label="About">🦸‍♀️🦸‍♂️</span></Link>
         </li>
         <li>
-          <Link to="/heroes">🔥</Link>
+          <Link to="/heroes"><span role="img" aria-label="Heroes">🔥</span></Link>
         </li>
       </ul>
 
