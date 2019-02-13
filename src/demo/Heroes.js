@@ -23,11 +23,11 @@ const Heroes = ({ match }) => (
                 const { heroId } = match.params; 
                 switch(heroId) {
                     case 'ironman': 
-                        return <Hero message="How many did we win!"/>
+                        return <Hero message="How many did we win! 🤷‍"/>
                     case 'drstrange': 
-                        return <Hero message="One"/>
+                        return <Hero message="We're in the Endgame now! 🎢"/>
                     case 'blackpanther':
-                        return <Hero message="Wakanda Forever"/>
+                        return <Hero message="Wakanda Forever 🤪"/>
                     default: return null;
                 }
             }

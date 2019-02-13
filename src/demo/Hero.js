@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 const Hero = ({ message }) => (
     <div>
-        <h3>{`Our superhero said: ${message}`}</h3>
+        <h3>Our superhero said</h3>
+        <p style={{fontSize: '48px'}}>{message}</p>
     </div>
 );
 
