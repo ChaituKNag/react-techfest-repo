@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Hero from './Hero';
+import Hero from '../Hero';
 
 const Heroes = ({ match }) => (
     <div>
