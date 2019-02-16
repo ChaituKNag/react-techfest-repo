@@ -2,10 +2,10 @@
     &__list {
         &--item {
             display: block;
+        }
 
-            &.completed {
-                text-decoration: line-through;
-            }
+        .completed &--title {
+            text-decoration: line-through;
         }
     }
 

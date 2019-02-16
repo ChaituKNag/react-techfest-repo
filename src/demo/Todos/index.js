@@ -45,6 +45,8 @@ export class Todos extends Component {
     render() {
         return (
             <div>
+                <h2>Todos Container</h2>
+                <p>Compare this with /todos-hooks to understand code quality improvement with hooks.</p>
                 <form onSubmit={ this.handleSubmit.bind(this)}>
                     <input type="text" name="todosInput" placeholder="Add Todo" value={this.state.title} onChange={ this.handleChange.bind(this)} /><button type="submit">Add</button>
                     <ul onClick={
@@ -54,15 +56,15 @@ export class Todos extends Component {
                             this.props.todos.map(todo => {
                                 if(todo.completed) {
                                     return (
-                                        <li key={todo.id} id={todo.id} className="todos__list--item completed">
-                                            {todo.title}
+                                        <li key={todo.id} className="todos__list--item completed">
+                                            <span id={todo.id} className="todos__list--title">{todo.title}</span>
                                             <span className="todos__delete" onClick={() => this.props.removeTodo(todo.id)}>[x]</span>
                                         </li>
                                     )
                                 } else {
                                     return (
-                                        <li key={todo.id} id={todo.id} className="todos__list--item">
-                                            {todo.title}
+                                        <li key={todo.id} className="todos__list--item">
+                                            <span id={todo.id} className="todos__list--title">{todo.title}</span>
                                             <span className="todos__delete" onClick={() => this.props.removeTodo(todo.id)}>[x]</span>
                                         </li>
                                     )
