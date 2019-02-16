@@ -1,0 +1,16 @@
+.todo-hooks {
+    &__list {
+        &--item {
+            display: block;
+
+            .completed {
+                text-decoration: line-through;
+            }
+
+        }
+    }
+    &__delete {
+        color: red;
+        cursor: pointer;
+    }
+}
