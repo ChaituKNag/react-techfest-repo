@@ -1,0 +1,17 @@
+.todos {
+    &__list {
+        &--item {
+            display: block;
+
+            &.completed {
+                text-decoration: line-through;
+            }
+        }
+    }
+
+    &__delete {
+        text-decoration: none;
+        color: red;
+        cursor: pointer;
+    }
+}
