@@ -25,7 +25,7 @@ class Home extends React.Component {
             <div>
                 <h2>Home</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt qui quam facilis ratione saepe rem necessitatibus nobis, laborum similique? Consectetur.</p>
-                { this.state.users.length && 
+                { this.state.users && 
                     <div>
                         <h2>Users Listed</h2>
                         <ul>
@@ -37,10 +37,10 @@ class Home extends React.Component {
                                                                 )
                                                     )
                             }
+                            { !this.state.users.length && <p>Loading users...</p> }
                         </ul>
                     </div>
                 }
-                { !this.state.users.length && <p>Loading users...</p> }
             </div>
         );
     }
