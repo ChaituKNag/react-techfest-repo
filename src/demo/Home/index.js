@@ -37,10 +37,11 @@ class Home extends React.Component {
                                                                 )
                                                     )
                             }
-                            { !this.state.users.length && <p>Loading users...</p> }
+                            
                         </ul>
                     </div>
                 }
+                { !this.state.users.length && <p>Loading users...</p> }
             </div>
         );
     }
