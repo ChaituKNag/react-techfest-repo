@@ -1,8 +1,8 @@
 import axios from 'axios'
-import { GET_USER } from '../constants/config'
+import { DOMAIN, GET_USER } from '../constants/config'
 
 export const getUser = (id) => (
   axios.get(
-    `${GET_USER}/${id}`
+    `${DOMAIN}${GET_USER}/${id}`
   )
 )
