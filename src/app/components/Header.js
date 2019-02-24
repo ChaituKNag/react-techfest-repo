@@ -1,8 +1,46 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux'
-import { fetchUser } from '../../store/actions/user'
-import { selectUserDetails } from '../../store/selectors'
+import styled from 'styled-components';
+import Search from '../components/base/Search';
+import { connect } from 'react-redux';
+import { fetchUser } from '../../store/actions/user';
+import { selectUserDetails } from '../../store/selectors';
+import { media } from '../../styles/variables';
+import { HeaderTag } from '../components/base/HeaderTag';
+import { charcoal } from '../../styles/colors';
+
+const HeaderWrapper = styled.div`
+  align-items: center;
+  background-color: ${charcoal};
+  color: #F2BD00;
+  display: flex;
+  padding: 20px 60px;
+  ${media.tablet`padding: 20px 30px;`} ${media.mobile`padding: 20px 15px;`};
+`
+
+const Title = styled.div`
+  p{
+    font-size: 1.125em;
+    font-weight: 400;
+    margin: 0;
+  }
+`
+
+const ActionGroup = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 0.5;
+  .icon {
+    margin-right: 20px;
+    font-size: 40px;
+  }
+`
+
+const UserIcon = styled.img`
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+`
 
 class Header extends PureComponent{
 
@@ -11,13 +49,20 @@ class Header extends PureComponent{
   }
 
   render(){
+
+    const { details : { profileImageUrl, name } } = this.props.user;
     return (
-      <div>
-        This is the header of the app
-        Getting data from store <br/>
-        Name = {this.props.user.details.name}<br/>
-        Loading = {this.props.user.loading ? 'True' : 'False'}
-      </div>
+      <HeaderWrapper>
+        <Title>
+          <HeaderTag as='h1'>E-Commerce</HeaderTag>
+          <p>Platform</p>
+        </Title>
+        <Search />
+        <ActionGroup>
+          <span className="icon icon-basket"></span>
+          <UserIcon src={profileImageUrl} alt={name} />
+        </ActionGroup>
+      </HeaderWrapper>
     )
 
   }
@@ -36,12 +81,10 @@ Header.propTypes = {
   getUser: PropTypes.func
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return ({
-    user: selectUserDetails(state),
-    ...ownProps
-    })
-}
+const mapStateToProps = (state, ownProps) => ({
+  user: selectUserDetails(state),
+  ...ownProps
+})
 
   
 export default connect(

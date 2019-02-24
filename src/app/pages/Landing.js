@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from '../components/base/Container';
-import Banner from '../components/Banner'
+import Banner from '../components/Banner';
 
 const Landing = () => (
     <div>
