@@ -14,10 +14,10 @@ const defaultState = () => ({
 const fetchUserInit = () => () => ({ loading: true, fetchError: null, details: {} })
 
 const fetchUserSuccess = () => (payload) => {
-  return ({ loading: false, details: payload })
+  return ({ loading: false, fetchError: null, details: payload })
 }
 
-const fetchUserError = () => (payload) => ({ loading: false, fetchError: payload.error, user: {} })
+const fetchUserError = () => (payload) => ({ loading: false, fetchError: payload.error, details: {} })
 
 export const user = reducerOf({
   [FETCH_USER_INIT]: fetchUserInit,
