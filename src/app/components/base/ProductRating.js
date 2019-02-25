@@ -23,7 +23,7 @@ const ProductRating = ({ rating, numberOfRaters }) => {
   return (
     <div>
       {stars.map((star, index) => <Star className="icon icon-star" checked={star} key={index} />)}
-      <Raters>({numberOfRaters})</Raters>
+      { numberOfRaters && <Raters>({numberOfRaters})</Raters> }
     </div>
   )
 }

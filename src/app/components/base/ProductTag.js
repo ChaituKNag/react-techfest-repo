@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 import { red, white } from '../../../styles/colors';
+import { fontWeightLight } from '../../../styles/variables';
 
 const ProductTag = styled.span`
   color: ${white};
   display: inline-block;
   background-color: ${red};
-  min-width: 175px;
-  padding: 10px 20px;
+  min-width: 135px;
+  padding: 5px 15px;
+  font-weight: ${fontWeightLight};
 `
 
 export default ProductTag

@@ -5,8 +5,8 @@ import Search from '../components/base/Search';
 import { connect } from 'react-redux';
 import { fetchUser } from '../../store/actions/user';
 import { selectUserDetails } from '../../store/selectors';
-import { media } from '../../styles/variables';
-import { HeaderTag } from '../components/base/HeaderTag';
+import { media, fontWeightMedium } from '../../styles/variables';
+import HeaderTag from '../components/base/HeaderTag';
 import { charcoal } from '../../styles/colors';
 
 const HeaderWrapper = styled.div`
@@ -20,7 +20,7 @@ const HeaderWrapper = styled.div`
 
 const SubTitle = styled.div`
     font-size: 1.125em;
-    font-weight: 400;
+    font-weight: ${fontWeightMedium};
     margin: 0;
 `
 
