@@ -72,7 +72,7 @@ export default class Header extends React.Component {
                                 </Collapse>
                             </Navbar>
                             <ListComponent listData={this.listData}></ListComponent>
-                            <Cta ctaColor="danger" ctaText="Button" ctaType="button" ctaType="submit"></Cta>
+                            <Cta ctaColor="danger" ctaText="Button" ctaType="button"></Cta>
                         </Col>
                     </Row>
                 </Container>
