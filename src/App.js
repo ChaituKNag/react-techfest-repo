@@ -6,23 +6,30 @@ import {
   About,
   Heroes,
   Todos,
-  TodosHooks
+  TodosHooks,
+  HeaderComponent,
+  FooterComponent,
+  PLPComponent,
+  PDPComponent,
+  CartComponent
 } from './demo';
 import store from './store';
 
 
 const App = () => (
-  <Provider store={store}>
-    <Router>
-      <div>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/heroes" component={Heroes} />
-        <Route path="/todos" exact component={Todos} />
-        <Route path="/todos-hooks" component={TodosHooks} />
-      </div>
-    </Router>
-  </Provider>
+  <div>
+    <HeaderComponent/>
+    <Provider store={store}>
+      <Router>
+        <div>
+          <Route exact path="/" component={PLPComponent} />
+          <Route path="/PDP" component={PDPComponent} />
+          <Route path="/cart" component={CartComponent} />
+        </div>
+      </Router>
+    </Provider>
+    <FooterComponent/>
+  </div>
 );
 
 

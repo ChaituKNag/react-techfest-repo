@@ -1,8 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import HeaderComponent from '../Header';
-import FooterComponent from '../footer';
+
 
 
 class Home extends React.Component {
@@ -41,9 +40,7 @@ class Home extends React.Component {
          }
         return (
            <div>
-               <HeaderComponent/>
                {pageContent}
-               <FooterComponent/>
                </div>
         );
     }
