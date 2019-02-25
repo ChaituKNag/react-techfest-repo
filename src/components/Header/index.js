@@ -77,7 +77,7 @@ export default class Header extends React.Component {
                             </Navbar>
                             <ListComponent listData={this.listData}></ListComponent>
                             <Cta ctaColor="danger" ctaText="Button" ctaType="button"></Cta>
-                            <Rating></Rating>
+                            <Rating maxRating="5" avgRating="4.3"></Rating>
                         </Col>
                     </Row>
                 </Container>
