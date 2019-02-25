@@ -19,6 +19,7 @@ import Image from '../common/Image';
 import Icon from '../common/Icon';
 import InputComponent from '../common/InputComponent';
 import ListComponent from '../common/ListComponent';
+import Cta from '../common/Cta';
 import { faShoppingCart } from '../common/FontIcons';
 
 export default class Header extends React.Component {
@@ -43,12 +44,12 @@ export default class Header extends React.Component {
                     <Row>
                         <Col>
                             <Navbar color="light" light expand="md">
-                                <NavbarBrand href=""><Link to="/"><span role="img" aria-label="Home">E-commerce</span></Link></NavbarBrand>
+                                <Link to="/"><span role="img" aria-label="Home">E-commerce</span></Link>
                                 <NavbarToggler onClick={this.toggle} />
                                 <Collapse isOpen={this.state.isOpen} navbar>
                                     <Nav className="ml-auto" navbar>
                                         <NavItem>
-                                            <NavLink href=""><Link to="/cart"><Icon iconName={faShoppingCart}></Icon></Link></NavLink>
+                                            <Link to="/cart"><Icon iconName={faShoppingCart}></Icon></Link>
                                         </NavItem>
                                         <UncontrolledDropdown nav inNavbar>
                                             <DropdownToggle nav caret>
@@ -71,6 +72,7 @@ export default class Header extends React.Component {
                                 </Collapse>
                             </Navbar>
                             <ListComponent listData={this.listData}></ListComponent>
+                            <Cta ctaColor="danger" ctaText="Button" ctaType="button" ctaType="submit"></Cta>
                         </Col>
                     </Row>
                 </Container>
