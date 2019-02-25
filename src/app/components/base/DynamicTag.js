@@ -1,7 +1,7 @@
 import { createElement as h } from 'react'
 import styled from 'styled-components'
 
-export const withDynamicTag = Component => {
+const withDynamicTag = Component => {
   const bucket = Object.create(null)
 
   const DynamicTag = props => {
@@ -27,3 +27,5 @@ export const withDynamicTag = Component => {
 
   return DynamicTag
 }
+
+export default withDynamicTag
