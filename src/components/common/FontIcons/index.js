@@ -1,1 +1,0 @@
-export { faShoppingCart, faSearch, faChevronRight, faChevronDown, faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';

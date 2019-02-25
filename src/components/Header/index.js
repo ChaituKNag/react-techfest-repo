@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import {
     Container, Row, Col,
     Collapse,
@@ -21,6 +21,7 @@ import InputComponent from '../common/InputComponent';
 import ListComponent from '../common/ListComponent';
 import Cta from '../common/Cta';
 import { faShoppingCart } from '../common/FontIcons';
+import Rating from '../common/Rating';
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -52,7 +53,7 @@ export default class Header extends React.Component {
                                             <InputComponent inputType="text" inputPlaceholder="Search"></InputComponent>
                                         </NavItem>
                                         <NavItem>
-                                            <Link to="/cart"><Icon iconName={faShoppingCart}></Icon></Link>
+                                            <Link to="/cart"><Icon iconName="shopping-cart" iconType="solid"></Icon></Link>
                                         </NavItem>
                                         <UncontrolledDropdown nav inNavbar>
                                             <DropdownToggle nav caret>
@@ -76,6 +77,7 @@ export default class Header extends React.Component {
                             </Navbar>
                             <ListComponent listData={this.listData}></ListComponent>
                             <Cta ctaColor="danger" ctaText="Button" ctaType="button"></Cta>
+                            <Rating></Rating>
                         </Col>
                     </Row>
                 </Container>
