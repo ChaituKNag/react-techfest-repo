@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Provider } from 'react-redux';
+import 'semantic-ui-css/semantic.min.css';
 
-import { Header, Footer, Cart, ProductsList } from './components';
+import { Header, Footer, Cart, ProductsList, ProductDetails } from './components';
 
 import store from './store';
 
@@ -21,6 +22,7 @@ const App = () => (
         </ul>
         <Header />
         <Route exact path="/" component={ProductsList} />
+        <Route path="/product/:productId" component={ProductDetails}/>
         <Route path="/cart" component={Cart} />
         <Footer />
       </div>
