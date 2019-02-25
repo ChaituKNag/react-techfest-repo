@@ -1,11 +1,16 @@
 import React from 'react';
 import axios from 'axios';
 
+import HeaderComponent from '../Header';
+import FooterComponent from '../Footer';
+
+
 class Home extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            users: []
+            users: [],
+            pageContent:'plp'
         }
     }
     componentDidMount(){
@@ -21,28 +26,25 @@ class Home extends React.Component {
             });
     }
     render() {
+
+        const pageContentState = this.state.pageContent;
+        let pageContent;
+
+        if(pageContentState==='plp'){
+            pageContent=<div>plp</div>;
+         }
+         if(pageContentState==='pdp'){
+            pageContent=<div>pdp</div>;
+         }
+         if(pageContentState==='cart'){
+            pageContent=<div>cart</div>;
+         }
         return (
-            <div>
-                <h2>Home</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt qui quam facilis ratione saepe rem necessitatibus nobis, laborum similique? Consectetur.</p>
-                { this.state.users && 
-                    <div>
-                        <h2>Users Listed</h2>
-                        <ul>
-                            {
-                                this.state.users.map((user, index) => (
-                                                                    <li key={index}>
-                                                                        {user.name}
-                                                                    </li>
-                                                                )
-                                                    )
-                            }
-                            
-                        </ul>
-                    </div>
-                }
-                { !this.state.users.length && <p>Loading users...</p> }
-            </div>
+           <div>
+               <HeaderComponent/>
+               {pageContent}
+               <FooterComponent/>
+               </div>
         );
     }
 };
