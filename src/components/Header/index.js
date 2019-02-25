@@ -49,6 +49,9 @@ export default class Header extends React.Component {
                                 <Collapse isOpen={this.state.isOpen} navbar>
                                     <Nav className="ml-auto" navbar>
                                         <NavItem>
+                                            <InputComponent inputType="text" inputPlaceholder="Search"></InputComponent>
+                                        </NavItem>
+                                        <NavItem>
                                             <Link to="/cart"><Icon iconName={faShoppingCart}></Icon></Link>
                                         </NavItem>
                                         <UncontrolledDropdown nav inNavbar>
