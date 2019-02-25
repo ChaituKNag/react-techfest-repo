@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { getSuggestionsData } from "../../actions/SearchActions";
@@ -19,12 +19,12 @@ import {
   DropdownItem
 } from "reactstrap";
 
-import Image from "../common/Image";
-import Icon from "../common/Icon";
-import InputComponent from "../common/InputComponent";
-import ListComponent from "../common/ListComponent";
-import Cta from "../common/Cta";
-import { faShoppingCart } from "../common/FontIcons";
+import Image from '../common/Image';
+import Icon from '../common/Icon';
+import InputComponent from '../common/InputComponent';
+import ListComponent from '../common/ListComponent';
+import Cta from '../common/Cta';
+import Rating from '../common/Rating';
 
 class Header extends React.Component {
   constructor(props) {
@@ -80,7 +80,7 @@ class Header extends React.Component {
                     </NavItem>
                     <NavItem>
                       <Link to="/cart">
-                        <Icon iconName={faShoppingCart} />
+                        <Icon iconName="shopping-cart" iconType="solid"/>
                       </Link>
                     </NavItem>
                     <UncontrolledDropdown nav inNavbar>
@@ -99,6 +99,7 @@ class Header extends React.Component {
               </Navbar>
               <ListComponent listData={this.listData} />
               <Cta ctaColor="danger" ctaText="Button" ctaType="button" />
+              <Rating maxRating="5" avgRating="4.3"></Rating>
             </Col>
           </Row>
         </Container>
