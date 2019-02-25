@@ -18,12 +18,10 @@ const HeaderWrapper = styled.div`
   ${media.tablet`padding: 20px 30px;`} ${media.mobile`padding: 20px 15px;`};
 `
 
-const Title = styled.div`
-  p{
+const SubTitle = styled.div`
     font-size: 1.125em;
     font-weight: 400;
     margin: 0;
-  }
 `
 
 const ActionGroup = styled.div`
@@ -53,10 +51,10 @@ class Header extends PureComponent{
     const { details : { profileImageUrl, name } } = this.props.user;
     return (
       <HeaderWrapper>
-        <Title>
+        <div>
           <HeaderTag as='h1'>E-Commerce</HeaderTag>
-          <p>Platform</p>
-        </Title>
+          <SubTitle>Platform</SubTitle>
+        </div>
         <Search />
         <ActionGroup>
           <span className="icon icon-basket"></span>
