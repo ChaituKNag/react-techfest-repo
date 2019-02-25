@@ -1,7 +1,7 @@
 import React, {
     Component
 } from "react";
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 import { getProductData } from '../../actions/PdpActions';
 
@@ -18,13 +18,14 @@ class ProductDetails extends Component {
     }
 
     render() {
-        return(
+        const { imageUrl, name, price, rating } = this.props.productData;
+        return (
             <div>
                 <div>
-                    <img src={this.props.productData.imageUrl} alt="sample" />
-                    <p>{this.props.productData.name}</p>
-                    <p>{this.props.productData.price}</p> 
-                    <p>{this.props.productData.rating}</p>                
+                    <img src={imageUrl} alt="sample" />
+                    <p>{name}</p>
+                    <p>{price}</p> 
+                    <p>{rating}</p>                
                 </div>
             </div>
         );
@@ -32,7 +33,6 @@ class ProductDetails extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state);
     return {
         productData: state.productData
     };
