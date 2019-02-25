@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import {
     Container, Row, Col,
     Collapse,
@@ -17,7 +18,8 @@ import {
 import Image from '../common/Image';
 import Icon from '../common/Icon';
 import InputComponent from '../common/InputComponent';
-import { faStar } from '../common/FontIcons';
+import ListComponent from '../common/ListComponent';
+import { faShoppingCart } from '../common/FontIcons';
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -27,6 +29,7 @@ export default class Header extends React.Component {
         this.state = {
             isOpen: false
         };
+        this.listData = ['one', 'two', 'three'];
     }
     toggle() {
         this.setState({
@@ -40,15 +43,12 @@ export default class Header extends React.Component {
                     <Row>
                         <Col>
                             <Navbar color="light" light expand="md">
-                                <NavbarBrand href="/">reactstrap</NavbarBrand>
+                                <NavbarBrand href=""><Link to="/"><span role="img" aria-label="Home">E-commerce</span></Link></NavbarBrand>
                                 <NavbarToggler onClick={this.toggle} />
                                 <Collapse isOpen={this.state.isOpen} navbar>
                                     <Nav className="ml-auto" navbar>
                                         <NavItem>
-                                            <NavLink href="/components/">Components</NavLink>
-                                        </NavItem>
-                                        <NavItem>
-                                            <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                                            <NavLink href=""><Link to="/cart"><Icon iconName={faShoppingCart}></Icon></Link></NavLink>
                                         </NavItem>
                                         <UncontrolledDropdown nav inNavbar>
                                             <DropdownToggle nav caret>
@@ -56,7 +56,7 @@ export default class Header extends React.Component {
                                             </DropdownToggle>
                                             <DropdownMenu right>
                                                 <DropdownItem>
-                                                    Option 1 <Icon iconName={faStar}></Icon>
+                                                    Option 1
                                                 </DropdownItem>
                                                 <DropdownItem>
                                                     Option 2
@@ -70,6 +70,7 @@ export default class Header extends React.Component {
                                     </Nav>
                                 </Collapse>
                             </Navbar>
+                            <ListComponent listData={this.listData}></ListComponent>
                         </Col>
                     </Row>
                 </Container>

@@ -11,7 +11,7 @@ const App = () => (
   <Provider store={store}>
     <Router>
       <div>
-        <ul>
+        <ul className="navigation">
           <li>
             <Link to="/"><span role="img" aria-label="Home">🏠</span></Link>
           </li>
