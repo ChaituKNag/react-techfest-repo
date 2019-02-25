@@ -1,0 +1,20 @@
+.star-filled{
+  color:#F2BD00;
+}
+
+.star-unfilled{
+  color:#444444;
+}
+
+.fa-stack i.fa-star {
+  color:transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #F2BD00;
+}
+
+.fa-stack i.fa-star-half {
+  color:#F2BD00;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #F2BD00;
+  margin-left: -4px;
+}

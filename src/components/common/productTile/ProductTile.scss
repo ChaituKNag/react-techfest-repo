@@ -1,0 +1,50 @@
+.card{
+  
+    .best-seller{
+      display: inline-block;
+      // width: 80px;
+      line-height: 22px;
+      // height: 24px;
+      background: #DE182C;
+      color: #fff;
+      padding: 2px 6px;
+      margin-top:20px;
+      margin-left: -1px;
+    }
+
+  
+
+  .card-img-top{
+    width: 100%;
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+    padding: .5rem;
+    height: 10rem;
+  }
+
+  .slds-card__body{
+    .card-title{
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+    p.sub-tag{
+      font-size: 12px;
+      font-weight: 300;
+      color: #515151;
+    }
+
+  }
+}
+
+.disc-rate{
+  color:#B12704;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.org-rate{
+  text-decoration: line-through;
+  color: #555;
+  font-size: 14px;
+}
