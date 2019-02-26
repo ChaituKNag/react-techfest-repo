@@ -42,7 +42,6 @@ class ProductDetails extends Component {
             avgRating={rating}
             className="text-warning"
           />{" "}
-          {rating}
         </div>
         <Cta
           ctaColor="warning"
