@@ -15,9 +15,9 @@ class CardComponent extends React.Component {
                 </Link>
                 <CardBody>
                 <CardTitle>{this.props.name}</CardTitle>
-                <CardSubtitle>{this.props.category.name}</CardSubtitle>
+                <CardSubtitle className="text-muted">{this.props.category.name}</CardSubtitle>
                 <CardText>{this.props.price}</CardText>
-                <Rating maxRating="5" avgRating={this.props.rating}></Rating>
+                <Rating maxRating={5} avgRating={this.props.rating} className="text-warning"></Rating>
                 </CardBody>
             </Card>
         );

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
 import { getProductData, addToCart } from "../../actions/PdpActions";
 import Cta from "../common/Cta";
+import Rating from '../common/Rating';
 
 class ProductDetails extends Component {
     componentDidMount() {
@@ -22,7 +22,7 @@ class ProductDetails extends Component {
                     <img src={imageUrl} alt="sample" />
                     <p>{name}</p>
                     <p>{price}</p>
-                    <p>{rating}</p>
+                    <Rating maxRating={5} avgRating={rating} className="text-warning"></Rating> {rating}
                 </div>
                 <Cta
                     ctaColor="warning"
