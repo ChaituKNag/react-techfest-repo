@@ -1,0 +1,81 @@
+@import "../../Styles/index.scss";
+
+.main-container{
+    background-color: $grey5;
+
+    .pdp-container{
+        display: flex;
+        padding-top: 30px;
+        margin: 0 auto;
+        max-width: 1200px; 
+
+        .image-section{
+
+            .btn-container{
+                text-align: center;
+                padding: 15px;
+
+                button{
+                    border: none;
+                    padding: 12px 60px;
+                    border-radius: 3px;
+                    background: $yellow3;
+                    @include font(Helvetica, 16px, bold, $grey2);
+                }
+                button:hover{
+                    cursor: pointer;
+                    background: $yellow4;
+                }
+            }
+        }
+
+        .description-section{
+            padding: 0 0 30px 40px;
+
+            .product-name{
+                padding-bottom: 10px; 
+                @include font(Helvetica, 24px, bold, $grey2);
+            }
+
+            .product-rating{
+                padding-bottom: 30px; 
+                @include font(Helvetica, 14px, normal, $grey6);
+            }
+
+            .product-desc{
+                padding-bottom: 30px; 
+                @include font(Helvetica, 16px, normal, $grey7);
+
+                .heading{
+                    @include font(Helvetica, 16px, bold, $grey2);
+                    padding-bottom: 20px;
+                }
+
+                ul{
+                    margin: 0;
+                    display: list-item;
+                    padding-left: 20px;
+                    
+                    li{
+                        display: list-item;
+                        list-style: disc;
+                        font-size: 14px;
+                        line-height: 25px;
+                    }
+                }
+                ul.dashed {
+                    list-style-type: none;
+                    padding-left: 0;
+                }
+                ul.dashed > li {
+                    display: block;
+                    text-indent: -5px;
+                }
+                ul.dashed > li:before {
+                    content: "-    ";
+                    text-indent: -5px;
+                }
+            }
+        }
+    }
+}
