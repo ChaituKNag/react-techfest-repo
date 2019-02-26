@@ -9,7 +9,8 @@
             text-decoration: none;
         }
         .navbar-toggler {
-            .navbar-toggler-icon {
+            outline: 0;
+            .fa-bars {
                 color: $logo_color;
             }
         }
@@ -50,14 +51,37 @@
         .navbar-collapse {
             .navbar-nav {
                 .nav-item {
+                    @media (max-width: 767px) {
+                        position: relative;
+                        margin-top: 20px;
+                    }
                     .search-mobile {
+                        background-color: $suggestions_bg;
+                        padding-left: 40px;
+                        color: $suggestions_text;
                         @media (min-width: 768px) {
                             display: none;
                         }
-                        + .search-suggestions {
-                            @media (min-width: 768px) {
-                                display: none;
-                            }
+                    }
+                    .search-suggestions-mobile {
+                        position: absolute;
+                        top: 45px;
+                        background-color: $suggestions_bg;
+                        color: $suggestions_text;
+                        padding: 10px 15px;
+                        z-index: 1;
+                        @media (min-width: 768px) {
+                            display: none;
+                        }
+                    }
+                    .fa-search {
+                        position: absolute;
+                        top: 8px;
+                        font-size: 24px;
+                        left: 10px;
+                        color: $header_text;
+                        @media (min-width: 768px) {
+                            display: none;
                         }
                     }
                     a {
@@ -85,11 +109,21 @@
                             height: 40px;
                             margin-left: 20px;
                             padding: 0;
+                            @media (max-width: 767px) {
+                                margin-left: 0;
+                                display: inline-block;
+                            }
                             img {
                                 border-radius: 50%;
                                 width: 100%;
                                 height: auto;
                             }
+                        }
+                    }
+                    &.dropdown {
+                        @media (max-width: 767px) {
+                            margin-top: -50px;
+                            text-align: right;
                         }
                     }
                 }

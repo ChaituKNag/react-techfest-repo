@@ -44,8 +44,8 @@ class Header extends React.Component {
   }
   getSuggestions(e) {
     const searchInput = e.target.value;
-    if(searchInput.length > 2) {
-        this.props.getSearchSuggestions(e.target.value);
+    if (searchInput.length > 2) {
+      this.props.getSearchSuggestions(e.target.value);
     }
   }
 
@@ -64,23 +64,25 @@ class Header extends React.Component {
                 </Link>
                 <ul className="list-inline search-desktop">
                   <li>
-                          <InputComponent
-                                className="search"
-                                inputType="search"
-                                inputPlaceholder="Search item or keyword"
-                                onChangeHandler={this.getSuggestions.bind(this)}
-                              />
-                            <i className='fas fa-search'></i>
-                              {suggestionsList.length > 0 && (
-                    <ul className="search-suggestions list-unstyled">
-                      {suggestionsList.map(suggestion => (
-                        <li key={suggestion.id}>{suggestion.name}</li>
-                      ))}
-                    </ul>
-                  )}
+                    <InputComponent
+                      className="search"
+                      inputType="search"
+                      inputPlaceholder="Search item or keyword"
+                      onChangeHandler={this.getSuggestions.bind(this)}
+                    />
+                    <Icon iconName="search" iconType="solid" />
+                    {suggestionsList.length > 0 && (
+                      <ul className="search-suggestions list-unstyled">
+                        {suggestionsList.map(suggestion => (
+                          <li key={suggestion.id}>{suggestion.name}</li>
+                        ))}
+                      </ul>
+                    )}
                   </li>
                 </ul>
-                <NavbarToggler onClick={this.toggle} />
+                <button type="button" className="navbar-toggler" onClick={this.toggle}>
+                  <Icon iconName="bars" iconType="solid" />
+                </button>
                 <Collapse isOpen={this.state.isOpen} navbar>
                   <Nav className="ml-auto" navbar>
                     <NavItem>
@@ -90,17 +92,18 @@ class Header extends React.Component {
                         inputPlaceholder="Search item or keyword"
                         onChangeHandler={this.getSuggestions.bind(this)}
                       />
+                      <Icon iconName="search" iconType="solid" />
                       {suggestionsList.length > 0 && (
-						<ul className="search-suggestions list-unstyled">
-							{suggestionsList.map(suggestion => (
-								<li key={suggestion.id}>{suggestion.name}</li>
-							))}
-						</ul>
-					)}
+                        <ul className="search-suggestions-mobile list-unstyled">
+                          {suggestionsList.map(suggestion => (
+                            <li key={suggestion.id}>{suggestion.name}</li>
+                          ))}
+                        </ul>
+                      )}
                     </NavItem>
                     <NavItem>
                       <Link to="/cart">
-                        <Icon iconName="shopping-cart" iconType="solid"/>
+                        <Icon iconName="shopping-cart" iconType="solid" />
                         <span className="cart-count">1</span>
                       </Link>
                     </NavItem>
