@@ -1,0 +1,57 @@
+@import "../../Styles/index.scss";
+
+.header-container{
+    background-color: $grey2;
+    .header-content{
+        margin: 0 auto;
+        max-width: 1200px;
+        padding: 15px 0;
+        @include font(Helvetica, 25px, normal, $yellow2);
+        .header-left-content{
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 50px;
+            a{
+            color: $yellow2;
+            text-decoration: none;
+            font-weight: bold;
+            }
+            .additional-info{
+                font-size: 10px;
+            }
+        }
+
+        .header-middle-content{
+            display: inline-block;
+            vertical-align: middle;
+            border: 2px solid $grey3;
+            border-radius: 4px;
+            margin-right: 100px;
+            .search-bar{
+                min-width: 600px;
+                min-height: 35px;
+                background-color: $grey2;
+                color: $grey4;
+                border: 0;
+                padding-left: 35px;
+            }
+            .search-icon{
+            color: $grey4;
+            position: relative;
+            left: 30px;
+            font-size: 20px;
+            }
+            input:focus{
+                outline: none;
+            }
+        }
+
+        .header-right-content{
+            display: inline-block;
+            vertical-align: middle;
+            .cart-icon{
+                margin-right: 30px;
+            }
+        }
+    }
+}
