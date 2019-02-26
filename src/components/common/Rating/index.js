@@ -28,11 +28,6 @@ export default class Rating extends React.Component {
         return (
             <ul className="list-inline">
                 {this.createList()}
-                {/* <li className="list-inline-item"><Icon iconName="star" iconType="solid"></Icon></li>
-                <li className="list-inline-item"><Icon iconName="star" iconType="solid"></Icon></li>
-                <li className="list-inline-item"><Icon iconName="star" iconType="solid"></Icon></li>
-                <li className="list-inline-item"><Icon iconName="star-half-alt" iconType="solid"></Icon></li>
-                <li className="list-inline-item"><Icon iconName="star" iconType="regular"></Icon></li> */}
             </ul>
         );
     }

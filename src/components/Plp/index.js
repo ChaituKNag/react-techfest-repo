@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { Container } from 'reactstrap';
 
 import { CardComponent } from "../common";
 import { getProductsList } from "../../actions/PlpActions";
+import GridComponent from "../common/GridComponent";
 
 class ProductsList extends Component {
   componentDidMount() {
@@ -13,13 +14,9 @@ class ProductsList extends Component {
   render() {
     const productsList = this.props.productsList || [];
     return (
-      <div>
-        {productsList.length > 0 ?  productsList.map(product => (
-          <Link to={`/product/${product.id}`} key={product.id}>
-            <CardComponent {...product} />
-          </Link>
-        )) : <p>Loading productsList...</p> }
-      </div>
+      <Container>
+        <GridComponent productsList={productsList}></GridComponent> 
+      </Container>
     );
   }
 }
