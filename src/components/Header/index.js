@@ -70,7 +70,7 @@ class Header extends React.Component {
                                 inputPlaceholder="Search item or keyword"
                                 onChangeHandler={this.getSuggestions.bind(this)}
                               />
-                            <i class='fas fa-search'></i>
+                            <i className='fas fa-search'></i>
                               {suggestionsList.length > 0 && (
                     <ul className="search-suggestions list-unstyled">
                       {suggestionsList.map(suggestion => (
