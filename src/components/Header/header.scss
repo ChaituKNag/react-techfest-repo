@@ -1,0 +1,99 @@
+@import '../../styles/variables.scss';
+
+.header {
+    background-color: $header_bg;
+    .navbar {
+        background-color: $header_bg !important;
+        a {
+            color: $logo_color;
+            text-decoration: none;
+        }
+        .navbar-toggler {
+            .navbar-toggler-icon {
+                color: $logo_color;
+            }
+        }
+        .search-desktop {
+            margin-bottom: 0;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            li {
+                .search {
+                    background-color: $header_bg;
+                    color: $header_text;
+                    outline: 0;
+                    box-shadow: none;
+                    padding-left: 40px;
+                    border-radius: 0;
+                }
+                .fa-search {
+                    position: absolute;
+                    top: 8px;
+                    font-size: 24px;
+                    left: 10px;
+                    color: $header_text;
+                }
+                .search-suggestions {
+                    position: absolute;
+                    top: 45px;
+                    background-color: $suggestions_bg;
+                    color: $suggestions_text;
+                    padding: 10px 15px;
+                }
+            }
+            @media (max-width: 767px) {
+                display: none;
+            }
+        }
+        .navbar-collapse {
+            .navbar-nav {
+                .nav-item {
+                    .search-mobile {
+                        @media (min-width: 768px) {
+                            display: none;
+                        }
+                        + .search-suggestions {
+                            @media (min-width: 768px) {
+                                display: none;
+                            }
+                        }
+                    }
+                    a {
+                        color: $logo_color;
+                        position: relative;
+                        .fa-shopping-cart {
+                            font-size: 24px;
+                            line-height: 40px;
+                        }
+                        .cart-count {
+                            position: absolute;
+                            top: -15px;
+                            background: $white;
+                            border-radius: 50%;
+                            width: 15px;
+                            height: 15px;
+                            left: 17px;
+                            line-height: 15px;
+                            font-size: 10px;
+                            text-align: center;
+                            color: $black;
+                        }
+                        &.user-img {
+                            width: 40px;
+                            height: 40px;
+                            margin-left: 20px;
+                            padding: 0;
+                            img {
+                                border-radius: 50%;
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

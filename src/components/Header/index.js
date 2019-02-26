@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
+import './header.scss';
 
 import { getSuggestionsData } from "../../actions/SearchActions";
 
@@ -61,17 +62,36 @@ class Header extends React.Component {
                     E-commerce
                   </span>
                 </Link>
+                <ul className="list-inline search-desktop">
+                  <li>
+                          <InputComponent
+                                className="search"
+                                inputType="search"
+                                inputPlaceholder="Search item or keyword"
+                                onChangeHandler={this.getSuggestions.bind(this)}
+                              />
+                            <i class='fas fa-search'></i>
+                              {suggestionsList.length > 0 && (
+                    <ul className="search-suggestions list-unstyled">
+                      {suggestionsList.map(suggestion => (
+                        <li key={suggestion.id}>{suggestion.name}</li>
+                      ))}
+                    </ul>
+                  )}
+                  </li>
+                </ul>
                 <NavbarToggler onClick={this.toggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
                   <Nav className="ml-auto" navbar>
                     <NavItem>
                       <InputComponent
+                        className="search-mobile"
                         inputType="search"
-                        inputPlaceholder="Search"
+                        inputPlaceholder="Search item or keyword"
                         onChangeHandler={this.getSuggestions.bind(this)}
                       />
                       {suggestionsList.length > 0 && (
-						<ul className="applied-voucher-list">
+						<ul className="search-suggestions list-unstyled">
 							{suggestionsList.map(suggestion => (
 								<li key={suggestion.id}>{suggestion.name}</li>
 							))}
@@ -81,11 +101,12 @@ class Header extends React.Component {
                     <NavItem>
                       <Link to="/cart">
                         <Icon iconName="shopping-cart" iconType="solid"/>
+                        <span className="cart-count">1</span>
                       </Link>
                     </NavItem>
                     <UncontrolledDropdown nav inNavbar>
-                      <DropdownToggle nav caret>
-                        Options
+                      <DropdownToggle nav caret className="user-img">
+                        <Image imageSrc="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=monsterid&f=y" imageAlt="user icon" className="img-responsive"></Image>
                       </DropdownToggle>
                       <DropdownMenu right>
                         <DropdownItem>Option 1</DropdownItem>
@@ -97,9 +118,6 @@ class Header extends React.Component {
                   </Nav>
                 </Collapse>
               </Navbar>
-              <ListComponent listData={this.listData} />
-              <Cta ctaColor="danger" ctaText="Button" ctaType="button" />
-              <Rating maxRating="5" avgRating="4.3"></Rating>
             </Col>
           </Row>
         </Container>

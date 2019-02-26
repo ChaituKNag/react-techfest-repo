@@ -11,14 +11,6 @@ const App = () => (
   <Provider store={store}>
     <Router>
       <div>
-        <ul className="navigation">
-          <li>
-            <Link to="/"><span role="img" aria-label="Home">🏠</span></Link>
-          </li>
-          <li>
-            <Link to="/cart"><span role="img" aria-label="Todos Hooks">💩 Cart</span></Link>
-          </li>
-        </ul>
         <Header />
         <Route exact path="/" component={ProductsList} />
         <Route path="/product/:productId" component={ProductDetails}/>
