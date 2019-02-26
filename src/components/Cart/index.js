@@ -18,7 +18,7 @@ class Cart extends Component {
         return(
             <div className="cart-page">
                 <Container>
-                    <p className="cart-title">Shopping cart</p>
+                    <h4 className="cart-title">Shopping cart</h4>
                     <GridComponent productsList={cartData} listView={true} isCart={true}></GridComponent>
                     <div className="price-section">
                         <Cta ctaColor="warning" ctaText="Continue Shopping" ctaType="link" ctaPath="/"></Cta>
