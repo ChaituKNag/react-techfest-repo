@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { mustard, charcoal, white } from '../../../styles/colors';
-import { PRIMARY } from '../../../constants/porperties';
+import { PRIMARY } from '../../../constants/properties';
 import { fontWeightBold } from '../../../styles/variables';
 
 const Button = styled.div`
