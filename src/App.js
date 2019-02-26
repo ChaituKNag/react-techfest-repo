@@ -23,7 +23,7 @@ const App = () => (
         <Header />
 
         <Route exact path="/" component={Landing} />
-        <Route path="/details" component={Details} />
+        <Route path="/product/:id" component={Details} />
         <Route path="/cart" component={Cart} />
         <Footer />
       </div>
