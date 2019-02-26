@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from '../components/base/Container';
-import ProductDetails from '../components/ProductDetails';
+import ProductDetails from '../components/Products/ProductDetails';
 
 const Details = ({ match }) => (
     <Container>

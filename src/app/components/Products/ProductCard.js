@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { white } from '../../../styles/colors';
 import ProductTag from './ProductTag';
 import ProductRating from './ProductRating';
-import HeaderTag from './HeaderTag';
+import HeaderTag from '../base/HeaderTag';
 import { fontWeightMedium } from '../../../styles/variables';
 
 const Wrapper = styled.div`

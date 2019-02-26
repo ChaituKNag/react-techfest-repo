@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { selectPage } from '../../../store/selectors'
-import { aluminium, charcoal, mustard } from '../../../styles/colors';
-import { fontWeightLight, fontWeightBold, fontWeightMedium } from '../../../styles/variables';
-import { setPageNumber } from '../../../store/actions/page';
+import { selectPage } from '../../store/selectors'
+import { aluminium, charcoal, mustard } from '../../styles/colors';
+import { fontWeightLight, fontWeightBold, fontWeightMedium } from '../../styles/variables';
+import { setPageNumber } from '../../store/actions/page';
 
 const Wrapper = styled.div`
   display: flex;

@@ -2,12 +2,13 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { selectProductDetails, selectProductDescription } from '../../store/selectors';
-import { fetchProductDescription } from '../../store/actions/product';
-import Button from './base/Button';
-import { PRIMARY } from '../../constants/porperties';
-import ProductRating from './base/ProductRating';
-import HeaderTag from './base/HeaderTag'
+import { selectProductDetails, selectProductDescription } from '../../../store/selectors';
+import { fetchProductDescription } from '../../../store/actions/product';
+
+import Button from '../base/Button';
+import { PRIMARY } from '../../../constants/properties';
+import ProductRating from './ProductRating';
+import HeaderTag from '../base/HeaderTag'
 
 const Wrapper = styled.section`
   display: flex;
