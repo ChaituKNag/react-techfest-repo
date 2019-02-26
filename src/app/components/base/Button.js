@@ -8,6 +8,7 @@ const Button = styled.div`
   background-color: ${ props => (props.type === PRIMARY ? mustard : white) };
   border-radius: 5px;
   border: 1px solid ${mustard};
+  cursor: pointer;
   color: ${charcoal};
   font-weight: ${fontWeightBold};
   padding: 10px;

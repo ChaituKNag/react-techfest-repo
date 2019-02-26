@@ -14,8 +14,8 @@ const HeaderWrapper = styled.div`
   background-color: ${charcoal};
   color: #F2BD00;
   display: flex;
-  padding: 20px 60px;
-  ${media.tablet`padding: 20px 30px;`} ${media.mobile`padding: 20px 15px;`};
+  padding: 15px 30px;
+  ${media.mobile`padding: 15px;`};
 `
 
 const SubTitle = styled.div`
@@ -27,16 +27,17 @@ const SubTitle = styled.div`
 const ActionGroup = styled.div`
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   flex-grow: 0.5;
   .icon {
     margin-right: 20px;
-    font-size: 40px;
+    font-size: 36px;
   }
 `
 
 const UserIcon = styled.img`
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
 `
 
@@ -52,7 +53,7 @@ class Header extends PureComponent{
     return (
       <HeaderWrapper>
         <div>
-          <HeaderTag as='h1'>E-Commerce</HeaderTag>
+          <HeaderTag as='h2'>E-Commerce</HeaderTag>
           <SubTitle>Platform</SubTitle>
         </div>
         <Search />

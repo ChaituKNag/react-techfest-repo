@@ -9,9 +9,9 @@ const SearchBox = styled.div`
   position: relative;
   flex-grow: 1.5;
   .icon {
-    left: 20px;
+    left: 15px;
     position: absolute;
-    top: 20px;
+    top: 12px;
   }
 `
 
@@ -21,7 +21,7 @@ const SearchField = styled.input`
   border: 1px solid ${platinum};
   color: ${aluminium};
   outline: none;
-  padding: 20px 25px 20px 50px;
+  padding: 12px 20px 12px 40px;
   width: 100%;
   &: focus{
     outline: none;
