@@ -4,5 +4,31 @@
     margin: 20px 0 30px 0;
     .card {
         margin-bottom: 20px;
+        flex: 1 0 auto;
+        
+        a {
+            padding: 20px 10px 0;
+            display: inline-block;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            
+            a {
+                padding: 0;
+            }
+        }
+
+        .card-img-top {
+            min-height: 200px;
+            max-height: 200px;
+        }
+    }
+
+    .row > [class*='col-'] {
+        display: flex;
+        flex-direction: column;
     }
 }

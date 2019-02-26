@@ -14,7 +14,9 @@ class CardComponent extends React.Component {
                     <Image imageSrc={this.props.imageUrl} imageAlt={this.props.name} className="img-fluid card-img-top"></Image> 
                 </Link>
                 <CardBody>
-                <CardTitle>{this.props.name}</CardTitle>
+                <Link to={`/product/${this.props.id}`}>
+                    <CardTitle>{this.props.name}</CardTitle>
+                </Link>
                 <CardSubtitle className="text-muted">{this.props.category.name}</CardSubtitle>
                 <CardText>{this.props.price}</CardText>
                 <Rating maxRating={5} avgRating={this.props.rating} className="text-warning"></Rating>
