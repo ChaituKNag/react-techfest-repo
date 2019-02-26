@@ -11,23 +11,21 @@ import {
 import "./index.scss";
 
 class GridComponent extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
+    const { listView, isCart, productsList } = this.props;
     return (
-      <section className="product-grid">
+      <section className={`product-grid ${listView ? 'list-view': ''}`}>
         <Row>
-          {this.props.productsList.length > 0 ? (
-            this.props.productsList.map(product => (
-              <Col md={4} key={product.id}>
+          {productsList.length > 0 ? (
+            productsList.map(product => 
+              <Col md={listView ? 12 : 4} key={product.id}>
                 <CardComponent {...product} />
               </Col>
             ))
-          ) : (
+           : 
             <p>Loading productsList...</p>
-          )}
+          }
+          {!isCart ? 
           <Col md={12}>
             <Pagination aria-label="Page navigation example">
               <PaginationItem disabled>
@@ -59,6 +57,7 @@ class GridComponent extends React.Component {
               </PaginationItem>
             </Pagination>
           </Col>
+          : null}
         </Row>
       </section>
     );

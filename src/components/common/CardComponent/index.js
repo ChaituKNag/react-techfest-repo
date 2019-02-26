@@ -8,18 +8,20 @@ import { Card, CardImg, CardText, CardBody,
 
 class CardComponent extends React.Component {
     render() {
+        const { id, imageUrl, name, category, price, rating } = this.props.product || this.props;
         return (
             <Card>
-                <Link to={`/product/${this.props.id}`}>
-                    <Image imageSrc={this.props.imageUrl} imageAlt={this.props.name} className="img-fluid card-img-top"></Image> 
+                <Link to={`/product/${id}`}>
+                    <Image imageSrc={imageUrl} imageAlt={name} className="img-fluid card-img-top"></Image> 
                 </Link>
                 <CardBody>
-                <Link to={`/product/${this.props.id}`}>
-                    <CardTitle>{this.props.name}</CardTitle>
+                <Link to={`/product/${id}`}>
+                    <CardTitle>{name}</CardTitle>
                 </Link>
-                <CardSubtitle className="text-muted">{this.props.category.name}</CardSubtitle>
-                <CardText>{this.props.price}</CardText>
-                <Rating maxRating={5} avgRating={this.props.rating} className="text-warning"></Rating>
+                {category && category.name ? (<CardSubtitle className="text-muted">{category.name}</CardSubtitle>) : null }
+                
+                <CardText>{price}</CardText>
+                <Rating maxRating={5} avgRating={rating} className="text-warning"></Rating>
                 </CardBody>
             </Card>
         );

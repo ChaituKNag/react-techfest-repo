@@ -32,4 +32,16 @@
         display: flex;
         flex-direction: column;
     }
+
+    &.list-view {
+        .card {
+            flex-direction: row;
+
+            .card-img-top {
+                width: auto;
+                min-height: auto;
+                max-width: 200px;
+            }
+        }
+    }
 }

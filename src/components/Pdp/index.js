@@ -20,10 +20,6 @@ class ProductDetails extends Component {
     }
 
     const { match, productData } = this.props;
-
-    /**
-     * new Project in town ?
-     */
     if (productData.id != match.params.productId) {
       this.props.getProductData(match.params.productId);
     }
@@ -67,8 +63,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getProductData: productData => {
-      dispatch(getProductData(productData));
+    getProductData: id => {
+      dispatch(getProductData(id));
     },
     addProductToCart: productData => {
       dispatch(addToCart(productData));

@@ -1,0 +1,19 @@
+@import '../../styles/variables.scss';
+
+.cart-page {
+    .cart-title {
+        margin-top: 20px;
+    }
+
+    .price-section {
+        text-align: right;
+        margin-top: 20px;
+
+        a {
+            border: 1px solid #ffc107;
+            margin-right: 10px;
+            padding: 9px 20px;
+            color: $black;
+        }
+    }
+}

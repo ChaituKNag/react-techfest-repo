@@ -38,6 +38,14 @@ class Header extends React.Component {
     this.listData = ["one", "two", "three"];
   }
 
+  componentDidUpdate() {
+console.log(arguments);
+  }
+
+  componentWillReceiveProps() {
+    console.log(arguments);
+  }
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
