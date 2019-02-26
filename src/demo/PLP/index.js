@@ -1,13 +1,48 @@
 import React, {Component} from 'react';
+import ProductCardComponent from './ProductCardComponent';
+import axios from 'axios';
+import endPointUrl from '../../AppConsts/EndpointUrls.js';
 
 import './index.scss';
 
+
 export default class PLPComponent extends Component{
 
+    constructor(){
+        super();
+        this.state={
+            productList:[]
+        }
+    }
+
+    componentDidMount(){
+
+        let plpObj = this;
+        axios.get(endPointUrl.productsList)
+            .then(response => {
+                console.log('response-->',response);
+                plpObj.setState({
+                    productList: response.data
+                })
+            })
+            .catch(
+                error => {
+                    throw(error);
+                }
+            )
+
+    }
+
     render(){
+        let productsList=[];
+        for(let i=0; i<this.state.productList.length;i++){
+            productsList.push(
+                <ProductCardComponent product={this.state.productList[i]} key={i}/>)
+        }
+
         return(
         <div>
-            PLP component.
+            {productsList}
             </div>
             )
     }
