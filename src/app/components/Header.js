@@ -44,7 +44,7 @@ const UserIcon = styled.img`
 class Header extends PureComponent{
 
   componentDidMount(){
-    this.props.fetchUser(1);
+    this.props.fetchUser(2);
   }
 
   render(){
