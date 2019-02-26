@@ -1,19 +1,21 @@
+@import "../../../Styles/index.scss";
+
 .product{
     display:inline-block;
-    background-color:#FFF;
+    background-color:$white;
     position:relative;
     min-width:33%;
     max-width:33%;
     min-height:300px;
     max-height:300px;
-    border:1px solid #000;
+    border:1px solid $black;
     padding: 10px;
     margin:20px;
     cursor:pointer;
     &-tag{
         position:absolute;
-        background-color:red;
-        color:white;
+        background-color:$red;
+        color:$white;
         font-size: 10px;
         left:0;
         width:80px;
@@ -24,14 +26,10 @@
         position: absolute;
         width:100%;
         height:100px;
-    //    background-image:url('https://images-na.ssl-images-amazon.com/images/I/81QkPz%2BagLL._SX679_.jpg');
-    //    background-repeat:no-repeat;
-    //    background-position:center;
-    //    background-size:contain;
-       top: 50%;
-       left:50%;
-       margin-left:-50%;
-       margin-top:-50px;
+        top: 50%;
+        left:50%;
+        margin-left:-50%;
+        margin-top:-50px;
 
     }
     &-label-container{
