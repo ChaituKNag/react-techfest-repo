@@ -1,20 +1,17 @@
-import React, {
-    Component
-} from "react";
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import { getProductData } from '../../actions/PdpActions';
+import { getProductData, addToCart } from "../../actions/PdpActions";
+import Cta from "../common/Cta";
 
 class ProductDetails extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            productDetails: {}
-        };
-    }
     componentDidMount() {
-        const { dispatch, match } = this.props;
-        dispatch(getProductData(match.params.productId));
+        const { match } = this.props;
+        this.props.getProductData(match.params.productId);
+    }
+
+    addToCart() { 
+        this.props.addProductToCart(this.props.productData);
     }
 
     render() {
@@ -24,9 +21,15 @@ class ProductDetails extends Component {
                 <div>
                     <img src={imageUrl} alt="sample" />
                     <p>{name}</p>
-                    <p>{price}</p> 
-                    <p>{rating}</p>                
+                    <p>{price}</p>
+                    <p>{rating}</p>
                 </div>
+                <Cta
+                    ctaColor="warning"
+                    ctaText="Buy Now"
+                    ctaType="button"
+                    onClickHandler={this.addToCart.bind(this)}
+                />
             </div>
         );
     }
@@ -34,8 +37,19 @@ class ProductDetails extends Component {
 
 const mapStateToProps = state => {
     return {
-        productData: state.productData
+        productData: state.pdpData.productData
     };
-  };
+};
 
-export default connect(mapStateToProps)(ProductDetails);
+const mapDispatchToProps = dispatch => {
+    return {
+        getProductData: (productData) => {
+            dispatch(getProductData(productData));
+        },
+        addProductToCart: (productData) => {
+            dispatch(addToCart(productData));
+        }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);

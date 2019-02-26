@@ -11,7 +11,7 @@ const productData = (previousState=initalState, action) => {
         case DISPLAY_PRODUCT_DATA:
             return {
                 ...previousState,
-                ...action.payload.productData
+                productData: action.payload.productData
             };
         default: 
             return previousState;
