@@ -10,6 +10,11 @@ class ProductDetails extends Component {
         this.props.getProductData(match.params.productId);
     }
 
+   componentWillReceiveProps(nextProps) {
+        const { match } = nextProps;
+        this.props.getProductData(match.params.productId);
+   }
+
     addToCart() { 
         this.props.addProductToCart(this.props.productData);
     }

@@ -4,9 +4,20 @@
     background-color: $header_bg;
     .navbar {
         background-color: $header_bg !important;
+        z-index: 1;
         a {
             color: $logo_color;
             text-decoration: none;
+            line-height: normal;
+
+            p {
+                margin-bottom: 0;
+                font-size: 24px;
+            }
+
+            span {
+                font-size: 16px;
+            }
         }
         .navbar-toggler {
             outline: 0;
@@ -41,7 +52,12 @@
                     top: 45px;
                     background-color: $suggestions_bg;
                     color: $suggestions_text;
-                    padding: 10px 15px;
+                    width: 100%;
+                    padding-bottom: 5px;
+
+                    li {
+                        padding: 5px 15px;
+                    }
                 }
             }
             @media (max-width: 767px) {

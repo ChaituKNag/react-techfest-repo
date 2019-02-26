@@ -37,16 +37,14 @@ class Header extends React.Component {
     };
     this.listData = ["one", "two", "three"];
   }
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
   getSuggestions(e) {
-    const searchInput = e.target.value;
-    if (searchInput.length > 2) {
-      this.props.getSearchSuggestions(e.target.value);
-    }
+    this.props.getSearchSuggestions(e.target.value);
   }
 
   render() {
@@ -58,9 +56,8 @@ class Header extends React.Component {
             <Col>
               <Navbar color="light" light expand="md">
                 <Link to="/">
-                  <span role="img" aria-label="Home">
-                    E-commerce
-                  </span>
+                  <p>E-commerce</p>
+                  <span>Platform</span>
                 </Link>
                 <ul className="list-inline search-desktop">
                   <li>
@@ -74,7 +71,7 @@ class Header extends React.Component {
                     {suggestionsList.length > 0 && (
                       <ul className="search-suggestions list-unstyled">
                         {suggestionsList.map(suggestion => (
-                          <li key={suggestion.id}>{suggestion.name}</li>
+                          <li key={suggestion.id}><Link to={`/product/${suggestion.id}`}>{suggestion.name}</Link></li>
                         ))}
                       </ul>
                     )}
