@@ -17,5 +17,5 @@ export const media = Object.keys(sizes).reduce((acc, label) => {
 }, {})
 
 export const fontWeightLight = 200;
-export const fontWeightMedium = 500;
+export const fontWeightMedium = 400;
 export const fontWeightBold = 700;
