@@ -6,6 +6,8 @@ import ModalComponent from "../ModalComponent";
 import Image from "../Image";
 import Rating from "../Rating";
 import Cta from '../Cta';
+import Price from '../Price';
+
 import "./index.scss";
 
 class CardComponent extends React.Component {
@@ -31,7 +33,7 @@ class CardComponent extends React.Component {
             <CardSubtitle className="text-muted">{category.name}</CardSubtitle>
           ) : null}
 
-          <CardText>{price}</CardText>
+          <Price currency="$" price={price}/>
           <Rating maxRating={5} avgRating={rating} className="text-warning" />
         </div>
         <div className="action-btns">

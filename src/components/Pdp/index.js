@@ -7,6 +7,7 @@ import Cta from "../common/Cta";
 import Rating from "../common/Rating";
 import Image from "../common/Image";
 import ListComponent from '../common/ListComponent';
+import Price from '../common/Price';
 
 import './pdp.scss';
 
@@ -52,7 +53,7 @@ class ProductDetails extends Component {
           </Col>
           <Col md={8} className="product-details-section">
             <p className="product-title">{name}</p>
-            <p className="product-price">{price}</p>
+            <p className="product-price"><Price price={price} currency="$"></Price></p>
             <Rating maxRating={5} avgRating={rating} className="text-warning" />
             <ListComponent listData={productDescription} className="product-description"/>
             <ListComponent listData={specifications} className="product-features" listHeader="Specifications"/>
