@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'reactstrap';
 import { getProductsList } from "../../actions/PlpActions";
 import GridComponent from "../common/GridComponent";
 import Banner from "../Banner";
+import Accordion from "../common/Accordion";
 
 class ProductsList extends Component {
   componentDidMount() {
@@ -17,7 +18,9 @@ class ProductsList extends Component {
       <Container>
         <Banner></Banner>
         <Row>
-          <Col md={3}></Col>
+          <Col md={3}>
+            <Accordion></Accordion>
+          </Col>
           <Col md={9}>
             <GridComponent productsList={productsList}></GridComponent> 
           </Col>
