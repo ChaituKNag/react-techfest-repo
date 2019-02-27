@@ -2,6 +2,7 @@ import React from 'react';
 import Image from '../Image';
 import Rating from '../Rating';
 import { Link } from "react-router-dom";
+import './index.scss';
 
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
@@ -15,7 +16,7 @@ class CardComponent extends React.Component {
                     <Image imageSrc={imageUrl} imageAlt={name} className="img-fluid card-img-top"></Image> 
                 </Link>
                 <CardBody>
-                <Link to={`/product/${id}`}>
+                <Link to={`/product/${id}`} className="product-title">
                     <CardTitle>{name}</CardTitle>
                 </Link>
                 {category && category.name ? (<CardSubtitle className="text-muted">{category.name}</CardSubtitle>) : null }
