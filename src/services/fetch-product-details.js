@@ -12,3 +12,9 @@ export const getProductDescription = (id) => (
     `${DOMAIN}${GET_PRODUCT_DESCRIPTION}/${id}`
   )
 )
+
+export const getAllProducts = () => (
+  axios.get(
+    `${DOMAIN}${GET_PRODUCT_DETAILS}`
+  )
+)

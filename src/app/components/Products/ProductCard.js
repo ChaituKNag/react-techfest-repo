@@ -38,7 +38,7 @@ const ProductCard = ({name, imageUrl, bestSelling, subText, numberOfRaters, rati
   <Wrapper>
     { bestSelling && <ProductTag>Best Selling</ProductTag> }
     <ProductImage>
-      <img src={imageUrl} />
+      <img src={imageUrl} alt={name}/>
     </ProductImage>
     <ProductDetail>
       <HeaderTag as='h4'>{name}</HeaderTag>
