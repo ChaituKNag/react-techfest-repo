@@ -1,0 +1,12 @@
+@import '../../../styles/variables.scss';
+
+.logo {
+    color: $logo_color;
+    text-decoration: none;
+    line-height: normal;
+    display: inline-block;
+    p {
+        margin-bottom: 0;
+        font-size: 24px;
+    }
+}

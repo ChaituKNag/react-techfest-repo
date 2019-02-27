@@ -1,0 +1,25 @@
+@import '../../styles/variables.scss';
+
+.footer-container {
+    height: 80px;
+    background-color: $footer_bg;
+    .logo {
+        margin-top: 5px;
+    }
+    .footer-navigation {
+        margin-bottom: 0;
+        font-size: 12px;
+        .list-inline-item {
+            a {
+                color: $footer_links;
+                border-right: 1px solid $footer_links;
+                padding-right: 5px;
+            }
+            &:last-child {
+                a {
+                    border-right: 0;
+                }
+            }
+        } 
+    }
+}

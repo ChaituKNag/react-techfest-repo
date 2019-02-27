@@ -35,6 +35,10 @@
             transform: translateX(-50%);
             width: 65%;
             margin-left: 3%;
+            @media (min-width: 768px) and (max-width: 991px) {
+                width: 55%;
+                margin-left: 5%;
+            }
 
             li {
                 .search {

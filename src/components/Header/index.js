@@ -23,9 +23,7 @@ import {
 import Image from "../common/Image";
 import Icon from "../common/Icon";
 import InputComponent from "../common/InputComponent";
-import ListComponent from "../common/ListComponent";
-import Cta from "../common/Cta";
-import Rating from "../common/Rating";
+import LogoComponent from '../common/LogoComponent';
 
 class Header extends React.Component {
   constructor(props) {
@@ -63,10 +61,7 @@ console.log(arguments);
           <Row>
             <Col>
               <Navbar color="light" light expand="md">
-                <Link to="/">
-                  <p>E-commerce</p>
-                  <span>Platform</span>
-                </Link>
+                <LogoComponent></LogoComponent>
                 <ul className="list-inline search-desktop">
                   <li>
                     <InputComponent
