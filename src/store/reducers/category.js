@@ -33,7 +33,7 @@ const processResponse = (payload) => {
   return {data: newData, selected: selectedCategory}
 }
 
-const fetchCategoryInit = (state) => () => ({ ...state, loading: true })
+const fetchCategoryInit = (state) => () => ({ ...state, loading: true, fetchError: null })
 
 const fetchCategorySuccess = () => (payload) => {
   const processedResponse = processResponse(payload)
@@ -45,7 +45,7 @@ const fetchCategorySuccess = () => (payload) => {
   }
 }
 
-const fetchCategoryError = () => (payload) => ({ loading: false, fetchError: payload.error, data: [] })
+const fetchCategoryError = (state) => (payload) => ({...state, loading: false, fetchError: payload.error})
 
 const expandCategoryItem = (state) => (category) => {
   const data = state.data.map(value => {

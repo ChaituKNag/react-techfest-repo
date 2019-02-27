@@ -20,7 +20,6 @@ export const fetchProductDescriptionError = error => ({
   payload: { error }
 })
 
-
 export const fetchProductDescription = (id) => (dispatch) => {
   dispatch(fetchProductDescriptionInit())
   getProductDescription(id).then(response => {

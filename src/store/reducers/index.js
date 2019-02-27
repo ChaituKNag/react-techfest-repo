@@ -4,11 +4,13 @@ import { product } from './product'
 import { category } from './category'
 import { search } from './search'
 import { page } from './page'
-import { cart } from './cart';
+import { cart } from './cart'
+import { productslist } from "./productlist"
 
 export default combineReducers({
   user,
   product,
+  productslist,
   category,
   search,
   page,

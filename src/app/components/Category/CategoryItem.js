@@ -20,7 +20,7 @@ class CategoryItem extends PureComponent {
           <ListItem>
           <ul>
             {value.childrens.map(value => (
-              <ListItem key={value.id}  onClick={() => this.props.updateSelectedCategory(value)}>{value.name}</ListItem>
+              <ListItem key={value.id}  onClick={() => this.props.updateSelectedCategory(value.parent)}>{value.name}</ListItem>
             ))}
           </ul>
           </ListItem>

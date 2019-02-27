@@ -6,6 +6,7 @@ import { selectPage } from '../../store/selectors'
 import { aluminium, charcoal, mustard } from '../../styles/colors';
 import { fontWeightLight, fontWeightBold, fontWeightMedium } from '../../styles/variables';
 import { setPageNumber } from '../../store/actions/page';
+import { updateProductsPageData } from '../../store/actions/productlist'
 
 const Wrapper = styled.div`
   display: flex;
@@ -35,21 +36,26 @@ const PageNumber = styled.span`
   margin: 0 10px;
 `
 
-const Pagination = ({ count, itemsPerPage, page, setPageNumber }) => {
+  const Pagination = ({ count, itemsPerPage, page, setPageNumber, updateProductsPageData }) => {
   const totalPages = Math.ceil(count/itemsPerPage);
   const pages = Array.from(Array(totalPages).keys(), n => n + 1);
 
   const increasePage = () => {
     if(page < totalPages){
       page = page + 1;
-      setPageNumber(page);
+      updateStore(page)
     }
   }
   const decreasePage = () => {
     if(page > 1){
       page = page - 1;
-      setPageNumber(page);
+      updateStore(page)
     }
+  }
+
+  const updateStore = (page) => {
+    setPageNumber(page);
+    updateProductsPageData({offset: (page - 1) * itemsPerPage, limit: itemsPerPage})
   }
 
   return (
@@ -58,7 +64,7 @@ const Pagination = ({ count, itemsPerPage, page, setPageNumber }) => {
       <PagingWrapper>
         <PageChange disabled={page <= 1} onClick={decreasePage}>Prev</PageChange>
         {
-          pages.map(pageNo => <PageNumber currentPage={page===pageNo} key={pageNo} onClick={() => setPageNumber(pageNo)}>{pageNo}</PageNumber>)
+          pages.map(pageNo => <PageNumber currentPage={page===pageNo} key={pageNo} onClick={() => updateStore(pageNo)}>{pageNo}</PageNumber>)
         }
         <PageChange disabled={page >= totalPages} onClick={increasePage}>Next</PageChange>
       </PagingWrapper>
@@ -70,7 +76,8 @@ Pagination.propTypes = {
   count: PropTypes.number.isRequired,
   itemsPerPage: PropTypes.number.isRequired,
   page: PropTypes.number,
-  setPageNumber: PropTypes.func
+  setPageNumber: PropTypes.func,
+  updateProductsPageData: PropTypes.func
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -78,12 +85,11 @@ const mapStateToProps = (state, ownProps) => {
     page: selectPage(state),
     ...ownProps
   })
-} 
+}
 
+const mapDispatchToProps = {setPageNumber, updateProductsPageData}
   
 export default connect(
   mapStateToProps,
-  {
-    setPageNumber
-  }
+  mapDispatchToProps
 )(Pagination)

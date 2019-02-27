@@ -2,8 +2,8 @@ import {
   FETCH_CATEGORY_INIT,
   FETCH_CATEGORY_SUCCESS,
   FETCH_CATEGORY_ERROR,
-  UPDATE_SELECTED_CATEGORY,
-  EXPAND_CATEGORY_ITEM
+  EXPAND_CATEGORY_ITEM,
+  FILTER_PRODUCT_BY_CATEGORY
 } from './types'
 
 import { getAllCategories } from '../../services/fetch-category';
@@ -31,7 +31,7 @@ export const expandCategory = category => dispatch => {
 
 export const updateSelectedCategory = categoryID => dispatch => {
   dispatch({
-    type: UPDATE_SELECTED_CATEGORY,
+    type: FILTER_PRODUCT_BY_CATEGORY,
     payload: categoryID
   })
 }
@@ -41,7 +41,6 @@ export const fetchCategories = () => (dispatch) => {
   getAllCategories().then(response => {
     if(response){
       dispatch(fetchCategorySuccess(response.data))
-      //Dispatch event for Product filter
     }
   })
   .catch(error => dispatch(fetchCategoryError(error)))
