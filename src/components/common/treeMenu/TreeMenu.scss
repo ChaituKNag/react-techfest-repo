@@ -4,3 +4,11 @@
     width: 100%;
   }
 }
+
+li[aria-expanded=false]>ul{
+  display: none;
+}
+
+li[aria-expanded=true]>ul{
+  display: inline-block;
+}

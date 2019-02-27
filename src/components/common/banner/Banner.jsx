@@ -1,3 +1,4 @@
+/* eslint jsx-a11y/anchor-is-valid: 0 */
 import React from 'react';
 import BackgroundImg from '../../../resources/img/offer1.PNG';
 import './Banner.scss';

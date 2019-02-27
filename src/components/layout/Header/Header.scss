@@ -55,7 +55,8 @@
       }
 
       .nav-control{
-        float: right;
+        display: flex;
+        
       }
   }
 
@@ -74,5 +75,9 @@
    }
 }
 
+  
+}
+
+.nav-control{
   
 }

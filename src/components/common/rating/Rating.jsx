@@ -13,7 +13,7 @@ const Rating = ({rated,outof}) => {
   
   let wholePart = Math.floor(rated);
 
-  if(Math.floor(rated) == rated){
+  if(Math.floor(rated) === rated){
     isDecimal = false;
   }else{
     isDecimal = true;

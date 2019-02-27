@@ -1,0 +1,11 @@
+@import '../../../scss//variables';
+
+.slds-notification-badge.slds-show-notification{
+  right: -0.4rem;
+}
+
+.slds-incoming-notification{
+  .fa{
+    color: $white;
+  }
+}

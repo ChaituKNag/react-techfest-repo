@@ -1,8 +1,9 @@
-import {FETCH_PRODUCTS, FETCH_CATEGORIES} from '../constants';
+import {FETCH_PRODUCTS, FETCH_CATEGORIES, FETCH_DETAIL} from '../constants';
 
 const initialState = {
   products: [],
-  categories: []
+  categories: [],
+  detail: {}
 };
 
 
@@ -18,6 +19,11 @@ export default function(state = initialState, action) {
         ...state,
         categories: action.payload
       };  
+    case FETCH_DETAIL:
+      return {
+        ...state,
+        detail:action.payload
+      }
     default:
       return state;
   }

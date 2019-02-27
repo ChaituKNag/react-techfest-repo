@@ -1,4 +1,4 @@
-import {FETCH_PRODUCTS, productsAPI, categoryAPI, FETCH_CATEGORIES} from '../constants';
+import {FETCH_PRODUCTS, productsAPI, categoryAPI, FETCH_CATEGORIES, FETCH_DETAIL,productDetailAPI } from '../constants';
 import axios from 'axios';
 
 
@@ -29,8 +29,6 @@ export const fetchProducts =  (callback) => dispatch => {
          .get(productsAPI)
          .then(res => {
             let products = res.data;
-            //console.log("in fetch Products");
-            //console.log(res.data);
             if (callback) {
               callback();
             }
@@ -50,52 +48,10 @@ export const fetchCategories = (callback) => dispatch => {
         .get(categoryAPI)
         .then(res => {
           let categories = res.data;
-          //console.log(categories);
           if(callback){
             callback();
           }
-          console.log("In product Actions");
           let finalTree = makeTree(categories);
-          /*
-          let finalCat = [];
-          let idAttr = 'id';
-          let parentAttr = 'parent';
-          let childrenAttr = 'children';
-          
-          let lookup={};
-          
-
-          categories.forEach(cat => {
-            //cat = Object.assign({toggled:false},cat);
-            lookup[cat[idAttr]]=cat;
-            cat[childrenAttr]=[];
-            cat['toggled']=false;
-          })
-          //console.log(lookup);
-          try{
-          categories.forEach(obj => {
-            if (obj[parentAttr] != null) {
-              //console.log(obj[parentAttr]);
-              //console.log(lookup[obj[parentAttr]]);
-              let p = obj[parentAttr];
-              let par = lookup[p];
-              if(par){
-                if(par.hasOwnProperty('children')){
-                  lookup[p][childrenAttr].push(obj);
-                }
-                else{
-                  lookup[p][childrenAttr] = [obj];
-                }
-              }
-              else {
-                finalCat.push(obj);
-              } 
-            } 
-          })
-        }catch(e){
-          console.log(e);
-        }*/
-          console.log(finalTree);
 
           return dispatch({
             type: FETCH_CATEGORIES,
@@ -104,5 +60,23 @@ export const fetchCategories = (callback) => dispatch => {
         })
         .catch(err => {
           console.log('Could not fetch products. Try again later.'+err);
+        });
+}
+
+
+
+
+export const fetchProductDetail = (id) => dispatch => {
+  return axios
+         .get(productDetailAPI+id)
+         .then(res => {
+          let detail = res.data; 
+          return dispatch({
+            type: FETCH_DETAIL,
+            payload: detail
+          });
+         })
+         .catch(err => {
+          console.log('Could not fetch product. Try again later.'+err);
         });
 }

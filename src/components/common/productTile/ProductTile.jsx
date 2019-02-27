@@ -4,13 +4,20 @@ import Rating from '../rating/Rating';
 import PropTypes from 'prop-types';
 
 class ProductTile extends Component {
+
+  navigateToDetail(){
+    this.props.history.push('/product/'+this.props.product.id);
+  }
+
   render() {
     return (
-      <div className="card h-100">
+      <div className="card h-100" onClick={this.navigateToDetail.bind(this)}>
         <article className="">
-          <div className="best-seller">Best Selling</div>
+          {
+            this.props.product.discount>=20?(<div className="best-seller">Best Selling</div>):''
+          }
           <div className="slds-card__body slds-card__body_inner">
-            <img src={this.props.product.imageUrl} className="card-img-top" />
+            <img src={this.props.product.imageUrl} className="card-img-top" alt="Prodcut Loading"/>
             <h4 className="card-title">{this.props.product.name}</h4>
             <p className="sub-tag">{this.props.product.category.name}</p>
             <div>
@@ -35,7 +42,8 @@ class ProductTile extends Component {
 }
 
 ProductTile.propTypes = {
-  product: PropTypes.object.isRequired
+  product: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
 }
 
 export default ProductTile;
