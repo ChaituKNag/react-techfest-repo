@@ -50,7 +50,7 @@ class GridComponent extends React.Component {
           {productsList.length > 0 ? (
             productsList.map(product => 
               <Col md={listView || this.state.list==='active' ? 12 : 4} key={product.id}>
-                <CardComponent {...product} />
+                <CardComponent {...product} isCart={isCart}/>
               </Col>
             ))
            : 

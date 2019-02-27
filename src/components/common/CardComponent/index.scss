@@ -2,9 +2,13 @@
 
 .card {
     .card-body {
-        a.product-title {
-            text-decoration: none;
+        a {
             color: $black;
+            
+            &.product-title {
+                text-decoration: none;
+                color: $black;
+            }
         }
     }
 }

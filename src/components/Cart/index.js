@@ -19,7 +19,7 @@ class Cart extends Component {
                     <div className="price-section">
                         <Cta className="btn btn-outline-warning" ctaText="Continue Shopping" ctaType="link" ctaPath="/"></Cta>
                         <Cta ctaColor="warning" ctaText="Proceed To Checkout" ctaType="button"></Cta>
-                    </div> 
+                    </div>
                 </Container>
             </div>
         )

@@ -62,11 +62,29 @@
     &.list-view {
         .card {
             flex-direction: row;
+            align-items: center;
+
+            > a {
+                padding-bottom: 20px;
+            }
 
             .card-img-top {
                 width: auto;
                 min-height: auto;
-                max-width: 200px;
+                max-width: 150px;
+            }
+
+            .card-body {
+                flex-direction: row;
+                justify-content: space-between;
+
+                .actions-btns {
+                    width: 40%;
+                }
+
+                .details-section {
+                    width: 60%;
+                }
             }
         }
     }

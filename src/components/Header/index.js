@@ -12,7 +12,6 @@ import {
   Col,
   Collapse,
   Navbar,
-  NavbarToggler,
   Nav,
   NavItem,
   UncontrolledDropdown,
@@ -34,7 +33,6 @@ class Header extends React.Component {
     this.state = {
       isOpen: false
     };
-    this.listData = ["one", "two", "three"];
   }
 
   componentDidMount() {

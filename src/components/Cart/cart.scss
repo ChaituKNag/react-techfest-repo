@@ -23,7 +23,6 @@
 
             .card-body {
                 a {
-                    width: 56%;
                     color: $black;
                     font-weight: 500;
                     padding-bottom: 0;
@@ -35,6 +34,14 @@
 
                 .card-text {
                     margin-bottom: 5px;
+                }
+
+                .add-to-wishlist {
+                    margin-left: 8px;
+                }
+
+                .remove-from-cart-button {
+                    color: $black; 
                 }
             }
         }
