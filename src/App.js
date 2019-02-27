@@ -23,7 +23,7 @@ const App = () => (
       <Router>
         <div>
           <Route exact path="/" component={PLPComponent} />
-          <Route exact path="/pdp" component={PDPComponent} />
+          <Route exact path="/pdp/:productId" component={PDPComponent} />
           <Route path="/cart" component={CartComponent} />
         </div>
       </Router>

@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import ProductCardComponent from './ProductCardComponent';
 import axios from 'axios';
+
+import ProductCardComponent from './ProductCardComponent';
+import CategoryComponent from './CategoryComponent';
 import endPointUrl from '../../AppConsts/EndpointUrls.js';
 
 import './index.scss';
@@ -83,6 +85,7 @@ export default class PLPComponent extends Component{
             )
 
     }
+    
 
     render(){
         let productsList=[];
@@ -101,6 +104,9 @@ export default class PLPComponent extends Component{
                     <button type="button" className="explore-button">EXPLORE</button>
                 </div>
             </div>
+            {/* <div>
+                    <CategoryComponent productList={this.state.productList}/>
+                </div> */}
             {productsList}
 
 

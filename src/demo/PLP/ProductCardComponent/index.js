@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from "react-router-dom";
 import StarComponent from '../StarComponent';
 
 import './index.scss';
@@ -7,6 +8,13 @@ export default class ProductCardComponent extends Component{
 
     constructor(props){
         super(props);
+
+        // this.navigateToPDP=(product)=>{
+        //     history.push({
+        //         pathName:'/pdp',
+        //         state:{product}
+        //     })
+        // }
     }
 
     render(){
@@ -25,13 +33,12 @@ export default class ProductCardComponent extends Component{
             };
         
        for(let i=0;i<5;i++)
-            if(i<this.props.product.rating)
-                stars.push(<StarComponent isMarked={true} key={i}/>)
-            else
-                 stars.push(<StarComponent isMarked={false} key={i}/>)
+                stars.push(<StarComponent isMarked={(i<this.props.product.rating)?true:false} key={i}/>)
+           
 
 
         return(
+            <Link to={{pathname:`/pdp/${this.props.product.id}`}} >
                 <div className="product">
                     {/* <span className="product-tag">Best selling</span> */}
                     <span className="product-image" style={styles.backgroundStyles}></span>
@@ -44,6 +51,7 @@ export default class ProductCardComponent extends Component{
                             
                             </div>
                     </div>
+                  </Link>  
         )
     }
 }
