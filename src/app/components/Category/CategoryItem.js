@@ -11,19 +11,29 @@ font-size: 12px;
 class CategoryItem extends PureComponent {
 
   render(){
-    const {value} = this.props
+    const {value, index} = this.props
 
     return (
       <div>
         <ListItem onClick={() => this.props.expandCategory(value)}>{value.name}</ListItem>
           {value.childrens.length && value.expanded !== false && (
-          <ListItem>
           <ul>
-            {value.childrens.map(value => (
-              <ListItem key={value.id}  onClick={() => this.props.updateSelectedCategory(value.parent)}>{value.name}</ListItem>
-            ))}
+            {value.childrens.map(l2 => (
+              <ListItem key={l2.id}  onClick={() => this.props.updateSelectedCategory(l2.id)}>
+              {l2.name}
+              {l2.childrens && (
+                <ul>
+                   {l2.childrens.map(l3 => (
+                     <ListItem key={l3.id} onClick={() => this.props.updateSelectedCategory(l2.id)}>
+                     {l3.name}
+                     </ListItem>
+                   ))}
+                </ul>
+              )}
+              </ListItem>
+            )
+          )}
           </ul>
-          </ListItem>
         )}
     </div>
     )
@@ -37,6 +47,7 @@ CategoryItem.propTypes = {
     expanded: PropTypes.bool,
     childrens: PropTypes.array
   }),
+  index: PropTypes.number,
   expandCategory: PropTypes.func,
   updateSelectedCategory: PropTypes.func
 }

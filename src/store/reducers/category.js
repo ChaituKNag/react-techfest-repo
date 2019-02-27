@@ -15,22 +15,34 @@ const defaultState = () => ({
 })
 
 const processResponse = (payload) => {
-  const newData = payload.filter(value => value.parent === 0)
+  let l1 = payload.filter(value => value.parent === 0)
                   .map(value => ({id: value.id, name: value.name, childrens: [], expanded: true}))
   let selectedCategory = 0
+
   payload.forEach(val => {
-    let pId = val.parent
-    if(pId){
-      selectedCategory = !selectedCategory? pId: selectedCategory
-      for(let i = 0; i< newData.length; i++){
-        if(newData[i].id === pId){
-          newData[i].childrens.push(val)
+    val.expanded = true
+    val.childrens = []
+    selectedCategory = !selectedCategory? val.parent: selectedCategory
+    for(let i = 0; i < l1.length; i++){
+      if(l1[i].id === val.parent){
+        l1[i].childrens.push(val)
+      }
+    }
+  })
+
+  payload.forEach(val => {
+    val.childrens = []
+    val.expanded = true
+    for(let i = 0; i < l1.length; i++){
+      for(let j = 0; j < l1[i].childrens.length; j++){
+        if(l1[i].childrens[j].id === val.parent){
+          l1[i].childrens[j].childrens.push(val)
         }
       }
     }
-  }
-  )
-  return {data: newData, selected: selectedCategory}
+  })
+
+  return {data: l1, selected: selectedCategory}
 }
 
 const fetchCategoryInit = (state) => () => ({ ...state, loading: true, fetchError: null })
