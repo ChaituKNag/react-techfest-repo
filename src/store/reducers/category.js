@@ -64,8 +64,14 @@ const expandCategoryItem = (state) => (category) => {
     if(value.id === category.id){
       return {...value, expanded: !value.expanded}
     }
+    if(value.childrens){
+      value.childrens = value.childrens.map(children => children.id === category.id ? {...children, expanded: !children.expanded} : {...children})
+      return {...value}
+    }
+    
     return value
    })
+   
    return {...state, data: data}
 }
 

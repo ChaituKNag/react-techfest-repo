@@ -10,7 +10,9 @@ font-size: 12px;
 
 class CategoryItem extends PureComponent {
 
-  onCategoryClick = (category, isL3) => {
+  onCategoryClick = (event, category, isL3) => {
+    event.stopPropagation()
+    console.log(category, isL3)
     if(!isL3){
       this.props.expandCategory(category)
     }
@@ -21,16 +23,16 @@ class CategoryItem extends PureComponent {
     const {value} = this.props
     return (
       <div>
-        <ListItem onClick={() =>  this.onCategoryClick(value, false)}>{value.name}</ListItem>
+        <ListItem onClick={(event) =>  this.onCategoryClick(event, value, false)}>{value.name}
           {value.childrens.length && value.expanded !== false && (
           <ul>
             {value.childrens.map(l2 => (
-              <ListItem key={l2.id} onClick={() =>  this.onCategoryClick(l2, false) }>
+              <ListItem key={l2.id} onClick={(event) =>  this.onCategoryClick(event, l2, false) }>
               {l2.name}
-              {l2.childrens && (
+              {l2.expanded !== false && l2.childrens && (
                 <ul>
                    {l2.childrens.map(l3 => (
-                     <ListItem key={l3.id} onClick={() => this.onCategoryClick(l3, true)}>
+                     <ListItem key={l3.id} onClick={(event) => this.onCategoryClick(event, l3, true)}>
                      {l3.name}
                      </ListItem>
                    ))}
@@ -41,6 +43,7 @@ class CategoryItem extends PureComponent {
           )}
           </ul>
         )}
+        </ListItem>
     </div>
     )
   }
