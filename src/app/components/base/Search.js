@@ -21,9 +21,9 @@ const SearchField = styled.input`
   border: 1px solid ${steel};
   color: ${aluminium};
   outline: none;
-  padding: 8px 20px 8px 40px;
+  padding: 9px 20px 10px 40px;
   width: 100%;
-  margin-top: 2px;
+  margin-top: 1px;
   &::focus{
     outline: none;
   }
