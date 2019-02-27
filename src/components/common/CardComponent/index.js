@@ -6,6 +6,7 @@ import './index.scss';
 
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
+import Price from '../Price';
 
 class CardComponent extends React.Component {
     render() {
@@ -20,8 +21,7 @@ class CardComponent extends React.Component {
                     <CardTitle>{name}</CardTitle>
                 </Link>
                 {category && category.name ? (<CardSubtitle className="text-muted">{category.name}</CardSubtitle>) : null }
-                
-                <CardText>{price}</CardText>
+                <p><Price price={price} currency="$"></Price></p>
                 <Rating maxRating={5} avgRating={rating} className="text-warning"></Rating>
                 </CardBody>
             </Card>
