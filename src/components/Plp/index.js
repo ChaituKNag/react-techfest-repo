@@ -4,6 +4,7 @@ import { Container } from 'reactstrap';
 
 import { getProductsList } from "../../actions/PlpActions";
 import GridComponent from "../common/GridComponent";
+import Banner from "../Banner";
 
 class ProductsList extends Component {
   componentDidMount() {
@@ -14,6 +15,7 @@ class ProductsList extends Component {
     const productsList = this.props.productsList || [];
     return (
       <Container>
+        <Banner></Banner>
         <GridComponent productsList={productsList}></GridComponent> 
       </Container>
     );

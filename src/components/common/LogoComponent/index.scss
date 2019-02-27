@@ -5,6 +5,10 @@
     text-decoration: none;
     line-height: normal;
     display: inline-block;
+    &:hover {
+        text-decoration: none;
+        color: $logo_color;
+    }
     p {
         margin-bottom: 0;
         font-size: 24px;

@@ -5,6 +5,8 @@
     .navbar {
         background-color: $header_bg !important;
         z-index: 1;
+        padding-left: 0;
+        padding-right: 0;
 
         a {
             color: $logo_color;

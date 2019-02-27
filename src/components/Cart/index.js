@@ -21,7 +21,7 @@ class Cart extends Component {
                     <h4 className="cart-title">Shopping cart</h4>
                     <GridComponent productsList={cartData} listView={true} isCart={true}></GridComponent>
                     <div className="price-section">
-                        <Cta ctaColor="warning" ctaText="Continue Shopping" ctaType="link" ctaPath="/"></Cta>
+                        <Cta className="btn btn-outline-warning" ctaText="Continue Shopping" ctaType="link" ctaPath="/"></Cta>
                         <Cta ctaColor="warning" ctaText="Proceed To Checkout" ctaType="button"></Cta>
                     </div> 
                 </Container>
