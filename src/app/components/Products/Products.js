@@ -7,6 +7,7 @@ import ProductCard from './ProductCard';
 import Pagination from "../Pagination";
 import  { fetchProducts } from '../../../store/actions/productlist'
 import { PAGINATION_LIMIT } from '../../../constants/config'
+import { Link } from 'react-router-dom'
 
 const ProductsList = styled.div`
   display: flex;
@@ -29,7 +30,9 @@ class Products extends PureComponent {
       <div>
         <ProductsList>
           { data.map((product) => (
+            <Link key={product.id} to={'/product/' + product.id}>
             <ProductCard key={product.id} name={product.name} rating={product.rating} numberOfRaters={140} bestSelling={true} imageUrl={product.imageUrl}/>
+            </Link>
           ))}
           {!data.length && (
             <p>No Products found for selected category.</p>
