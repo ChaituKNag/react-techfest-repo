@@ -2,7 +2,7 @@ import { DISPLAY_CART_DATA, UPDATE_CART, DISPLAY_STATUS_MESSAGE, UPDATE_PRICE } 
 
 const initalState = {
     cartData : [],
-    status: false,
+    status: '',
     cartCount: 0,
     total: 0,
     subTotal: 0

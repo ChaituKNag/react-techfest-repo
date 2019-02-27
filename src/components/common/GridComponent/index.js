@@ -54,7 +54,7 @@ class GridComponent extends React.Component {
               </Col>
             ))
            : 
-            <p>Loading productsList...</p>
+            null
           }
           {!isCart ? 
           <Col md={12}>
