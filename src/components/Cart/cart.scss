@@ -5,13 +5,35 @@
         margin-top: 20px;
     }
 
-    .price-section {
+    .total-price-section {
         text-align: right;
         margin: 20px 0;
 
         a.btn-outline-warning {
             margin-right: 10px;
             color: $black;
+        }
+
+        span {
+            width: 16%;
+            display: inline-block;
+        }
+    }
+
+    .price-section {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        margin-top: 10px;
+
+        .price-input {
+            width: 120px;
+            margin-right: 8px; 
+        }
+
+        .price {
+            margin-left: 8px;
+            margin-right: 8px;
         }
     }
 

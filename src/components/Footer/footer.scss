@@ -3,12 +3,15 @@
 .footer-container {
     height: 80px;
     background-color: $footer_bg;
+    
     .logo {
         margin-top: 5px;
     }
     .footer-navigation {
         margin-bottom: 0;
         font-size: 12px;
+        margin-top: 4px;
+        
         .list-inline-item {
             a {
                 color: $footer_links;

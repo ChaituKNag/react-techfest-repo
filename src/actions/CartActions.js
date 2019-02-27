@@ -1,5 +1,5 @@
 import axios from "axios";
-import { DISPLAY_CART_DATA, UPDATE_CART } from "../constants/CartConstants";
+import { DISPLAY_CART_DATA, UPDATE_CART, UPDATE_PRICE } from "../constants/CartConstants";
 
 export const displayCartData = cartData => {
   return {
@@ -32,3 +32,13 @@ export const getCartData = () => {
       });
   };
 };
+
+export const updatePrice= (productId, quantity) => {
+    return {
+      type: UPDATE_PRICE,
+      payload: {
+        productId,
+        quantity
+      }
+  }
+} 
