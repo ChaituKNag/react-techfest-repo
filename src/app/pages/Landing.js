@@ -5,9 +5,9 @@ import Banner from '../components/Banner';
 import Categories from "../components/Category/Categories";
 import { Products } from "../components/Products/Products";
 import Button from '../components/base/Button';
-import ProductCard from '../components/ProductCard';
+import ProductCard from '../components/Products/ProductCard';
 import Pagination from '../components/Pagination';
-import { PRIMARY, SECONDARY } from '../../constants/porperties';
+import { PRIMARY, SECONDARY } from '../../constants/properties';
 
 const ProductsList = styled.div`
   display: flex;

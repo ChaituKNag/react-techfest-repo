@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { mustard, charcoal, steel } from '../../../styles/colors';
 
 const Star = styled.span`
-  font-size: 1.25em;
+  font-size: 1.125em;
   color: ${ props => (props.checked ? mustard : charcoal)};
 `
 
