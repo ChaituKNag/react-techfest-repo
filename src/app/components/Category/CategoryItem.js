@@ -10,21 +10,27 @@ font-size: 12px;
 
 class CategoryItem extends PureComponent {
 
+  onCategoryClick = (category, isL3) => {
+    if(!isL3){
+      this.props.expandCategory(category)
+    }
+    this.props.updateSelectedCategory(category.id)
+  }
+
   render(){
     const {value} = this.props
-//this.props.expandCategory(value)
     return (
       <div>
-        <ListItem onClick={() =>  this.props.updateSelectedCategory(value.id)}>{value.name}</ListItem>
+        <ListItem onClick={() =>  this.onCategoryClick(value, false)}>{value.name}</ListItem>
           {value.childrens.length && value.expanded !== false && (
           <ul>
             {value.childrens.map(l2 => (
-              <ListItem key={l2.id} onClick={() =>  this.props.updateSelectedCategory(l2.id)}>
+              <ListItem key={l2.id} onClick={() =>  this.onCategoryClick(l2, false) }>
               {l2.name}
               {l2.childrens && (
                 <ul>
                    {l2.childrens.map(l3 => (
-                     <ListItem key={l3.id} onClick={() => this.props.updateSelectedCategory(l3.id)}>
+                     <ListItem key={l3.id} onClick={() => this.onCategoryClick(l3, true)}>
                      {l3.name}
                      </ListItem>
                    ))}
