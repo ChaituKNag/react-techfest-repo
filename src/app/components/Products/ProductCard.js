@@ -34,8 +34,8 @@ const SubText = styled.p`
   margin: 6px 0;
 `
 
-const ProductCard = ({name, imageUrl, bestSelling, subText, numberOfRaters, rating}) => (
-  <Wrapper>
+const ProductCard = ({name, imageUrl, bestSelling, subText, numberOfRaters, rating, outOfStock}) => (
+  <Wrapper style={outOfStock? {opacity: 0.5}:{}}>
     { bestSelling && <ProductTag>Best Selling</ProductTag> }
     <ProductImage>
       <img src={imageUrl} alt={name}/>
@@ -57,5 +57,6 @@ ProductCard.propTypes = {
   bestSelling: PropTypes.bool,
   subText: PropTypes.string,
   numberOfRaters: PropTypes.number,
-  rating: PropTypes.number.isRequired
+  rating: PropTypes.number.isRequired,
+  outOfStock: PropTypes.bool
 }

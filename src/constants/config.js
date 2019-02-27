@@ -6,4 +6,4 @@ export const GET_PRODUCT_DETAILS = '/api/product'
 export const GET_PRODUCT_DESCRIPTION = '/api/product/description'
 export const ORDER = '/api/order'
 export const CART = '/api/cart'
-export const PAGINATION_LIMIT = 5
+export const PAGINATION_LIMIT = 3

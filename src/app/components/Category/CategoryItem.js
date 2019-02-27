@@ -12,19 +12,19 @@ class CategoryItem extends PureComponent {
 
   render(){
     const {value} = this.props
-
+//this.props.expandCategory(value)
     return (
       <div>
-        <ListItem onClick={() => this.props.expandCategory(value)}>{value.name}</ListItem>
+        <ListItem onClick={() =>  this.props.updateSelectedCategory(value.id)}>{value.name}</ListItem>
           {value.childrens.length && value.expanded !== false && (
           <ul>
             {value.childrens.map(l2 => (
-              <ListItem key={l2.id}  onClick={() => this.props.updateSelectedCategory(l2.id)}>
+              <ListItem key={l2.id} onClick={() =>  this.props.updateSelectedCategory(l2.id)}>
               {l2.name}
               {l2.childrens && (
                 <ul>
                    {l2.childrens.map(l3 => (
-                     <ListItem key={l3.id} onClick={() => this.props.updateSelectedCategory(l2.id)}>
+                     <ListItem key={l3.id} onClick={() => this.props.updateSelectedCategory(l3.id)}>
                      {l3.name}
                      </ListItem>
                    ))}
