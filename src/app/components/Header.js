@@ -7,13 +7,14 @@ import { fetchUser } from '../../store/actions/user';
 import { selectUserDetails } from '../../store/selectors';
 import { media, fontWeightLight } from '../../styles/variables';
 import HeaderTag from '../components/base/HeaderTag';
-import { charcoal } from '../../styles/colors';
+import { charcoal, mustard } from '../../styles/colors';
 import { USER_ID } from '../../constants/config';
+import { Link } from 'react-router-dom'
 
 const HeaderWrapper = styled.div`
   align-items: center;
   background-color: ${charcoal};
-  color: #F2BD00;
+  color: ${mustard};
   display: flex;
   position:fixed;
   width: 100%;
@@ -24,7 +25,7 @@ const HeaderWrapper = styled.div`
 const HeaderInnerWrapper = styled.div`
   display:flex;
   max-width: 1400px;
-  padding: 10px 70px;
+  padding: 12px 70px;
   margin: 0 auto;
   width: 100%;
 `
@@ -52,6 +53,11 @@ const UserIcon = styled.img`
   border-radius: 50%;
 `
 
+const StyledLink = styled(Link)`
+  color: ${mustard};
+  text-decoration: none;
+`
+
 class Header extends PureComponent{
 
   componentDidMount(){
@@ -64,13 +70,15 @@ class Header extends PureComponent{
     return (
       <HeaderWrapper>
         <HeaderInnerWrapper>
-          <div>
-            <HeaderTag as='h4'>E-Commerce</HeaderTag>
-            <SubTitle>Platform</SubTitle>
-          </div>
+          <StyledLink to={'/'}>
+            <div>
+              <HeaderTag as='h4'>E-Commerce</HeaderTag>
+              <SubTitle>Platform</SubTitle>
+            </div>
+          </StyledLink>
           <Search />
           <ActionGroup>
-            <span className="icon icon-basket"></span>
+            <StyledLink to={'/cart'}><span className="icon icon-basket"></span></StyledLink>
             <UserIcon src={profileImageUrl} alt={name} />
           </ActionGroup>
         </HeaderInnerWrapper>
