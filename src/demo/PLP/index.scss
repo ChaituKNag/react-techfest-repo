@@ -22,13 +22,6 @@
             @include font($Helvetica, 20px, normal, $white);
             margin-bottom: 30px;
         }
-        .explore-button{
-            color: $grey2;
-            background-color: $yellow2;
-            padding: 12px 32px;
-            border: none;
-            border-radius: 4px;
-        }
     }
 
 }

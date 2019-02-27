@@ -14,18 +14,6 @@
             .btn-container{
                 text-align: center;
                 padding: 15px;
-
-                button{
-                    border: none;
-                    padding: 12px 60px;
-                    border-radius: 3px;
-                    background: $yellow3;
-                    @include font(Helvetica, 16px, bold, $grey2);
-                }
-                button:hover{
-                    cursor: pointer;
-                    background: $yellow4;
-                }
             }
         }
 
