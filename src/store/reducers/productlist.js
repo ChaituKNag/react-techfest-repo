@@ -20,9 +20,16 @@ const defaultState = () => ({
 const fetchProductInit = (state) => () => ({...state,  fetchError: null, loading: true})
 const fetchProductSuccess = (state) => (payload) => ({...state, data: payload, fetchError: null, loading: false})
 const fetchProductError = (state) => (payload) => ({...state, fetchError: payload, loading: false})
-const filterProductByCategory = (state) => (payload) => ({
-  ...state, data: state.data.filter(value => (value.categoryId === payload))
-})
+const filterProductByCategory = (state) => (payload) => {
+
+  return {
+    ...state,
+    selectedCategory: payload,
+    offset: 0,
+    limit: PAGINATION_LIMIT
+}
+
+}
 const paginateProducts = (state) => (payload) => ({
   ...state, offset: payload.offset, limit: payload.limit
 })

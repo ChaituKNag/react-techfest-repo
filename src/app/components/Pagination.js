@@ -11,7 +11,8 @@ import { updateProductsPageData } from '../../store/actions/productlist';
 const Wrapper = styled.div`
   display: flex;
   flex: 1;
-  padding-left: 3%;
+  flex-direction: row;
+  padding-left: 4%;
   font-size: 14px;
   margin: 0 0 40px;
 `

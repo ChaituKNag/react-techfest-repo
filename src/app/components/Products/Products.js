@@ -21,13 +21,27 @@ const ProductsList = styled.div`
   display: flex;
   -webkit-flex-flow: row wrap;
 
-  a{
+  > a{
     display:flex;
     flex-basis: 30.33%;
     padding-left: 3%;
     margin-bottom: 20px;
     font-size: 16px;
     text-decoration: none;
+  }
+
+  > div{
+    display:flex;
+    flex-direction: column;
+    flex-basis: 30.33%;
+    margin-left: 3%;
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-decoration: none;
+  }
+
+  > div > span{
+    width: 70px;
   }
 `
 class Products extends PureComponent {
@@ -39,7 +53,11 @@ class Products extends PureComponent {
 
   render() {
     const { products } = this.props
-    const data = products.data.slice(products.offset,
+
+    const data = products.data
+    .filter(product => products.selectedCategory === null || (products.selectedCategory !== null &&  product.categoryId ===  products.selectedCategory))
+    
+    const paginatedData = data.slice(products.offset,
       !products.limit? products.data.length : 
       (products.limit + products.offset)
       )
@@ -47,16 +65,19 @@ class Products extends PureComponent {
     return  (
       <div>
         <ProductsList>
-          { data.map((product) => (
+          { paginatedData.filter(product => product.inStock).map((product) => (
             <Link key={product.id} to={'/product/' + product.id}>
             <ProductCard key={product.id} name={product.name} rating={product.rating} numberOfRaters={140} bestSelling={true} imageUrl={product.imageUrl}/>
             </Link>
           ))}
+          {paginatedData.filter(product => !product.inStock).map((product) => (
+            <ProductCard outOfStock={true} key={product.id} name={product.name} rating={product.rating} numberOfRaters={140} bestSelling={true} imageUrl={product.imageUrl}/>
+          ))}
           {!data.length && (
             <p>No Products found for selected category.</p>
-          )}          
-          <Pagination count={products.data.length} itemsPerPage={PAGINATION_LIMIT} />
+          )}
         </ProductsList>        
+        <Pagination count={data.length} itemsPerPage={PAGINATION_LIMIT} />
       </div>
     )
   }
