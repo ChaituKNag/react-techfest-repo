@@ -45,7 +45,7 @@ class ProductDetails extends Component {
             <Cta
               className="product-add-cart"
               ctaColor="warning"
-              ctaText="Buy Now"
+              ctaText="BUY NOW"
               ctaType="button"
               onClickHandler={this.addToCart.bind(this)}
             />

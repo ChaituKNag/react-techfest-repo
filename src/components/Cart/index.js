@@ -9,10 +9,6 @@ import Cta from '../common/Cta';
 import './cart.scss';
 
 class Cart extends Component {
-    componentDidMount() {
-        this.props.getCartData();
-    }
-
     render() {
         const cartData = this.props.cartData || [];
         return(

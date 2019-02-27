@@ -14,4 +14,29 @@
             color: $black;
         }
     }
+
+    .product-grid {
+        .card {
+            a {
+                padding-bottom: 20px;
+            }
+
+            .card-body {
+                a {
+                    width: 56%;
+                    color: $black;
+                    font-weight: 500;
+                    padding-bottom: 0;
+                }
+
+                .card-title {
+                    margin-bottom: 5px;
+                }
+
+                .card-text {
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
 }

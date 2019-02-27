@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
-import "./header.scss";
 
+import "./header.scss";
+import { getCartData } from '../../actions/CartActions';
 import { getSuggestionsData } from "../../actions/SearchActions";
 
 import {
@@ -36,12 +37,8 @@ class Header extends React.Component {
     this.listData = ["one", "two", "three"];
   }
 
-  componentDidUpdate() {
-console.log(arguments);
-  }
-
-  componentWillReceiveProps() {
-    console.log(arguments);
+  componentDidMount() {
+    this.props.getCartData();
   }
 
   toggle() {
@@ -54,7 +51,7 @@ console.log(arguments);
   }
 
   render() {
-    const { suggestionsList } = this.props;
+    const { suggestionsList, cartCount } = this.props;
     return (
       <section className="header">
         <Container>
@@ -112,7 +109,7 @@ console.log(arguments);
                     <NavItem>
                       <Link to="/cart">
                         <Icon iconName="shopping-cart" iconType="solid" />
-                        <span className="cart-count">1</span>
+                        <span className="cart-count">{cartCount}</span>
                       </Link>
                     </NavItem>
                     <UncontrolledDropdown nav inNavbar>
@@ -143,7 +140,9 @@ console.log(arguments);
 
 const mapStateToProps = state => {
   return {
-    suggestionsList: state.search.suggestionsList
+    suggestionsList: state.search.suggestionsList,
+    status: state.cart.cartData.status,
+    cartCount: state.cart.cartCount
   };
 };
 
@@ -151,6 +150,9 @@ const mapDispatchToProps = dispatch => {
   return {
     getSearchSuggestions: searchString => {
       dispatch(getSuggestionsData(searchString));
+    },
+    getCartData: () => {
+      dispatch(getCartData());
     }
   };
 };
