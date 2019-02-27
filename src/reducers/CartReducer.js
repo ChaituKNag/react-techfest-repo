@@ -1,7 +1,9 @@
-import { DISPLAY_CART_DATA } from '../constants/CartConstants';
+import { DISPLAY_CART_DATA, UPDATE_CART, DISPLAY_STATUS_MESSAGE } from '../constants/CartConstants';
 
 const initalState = {
-    cartData : []
+    cartData : [],
+    status: false,
+    cartCount: 0
 };
 
 const displayCart = (previousState=initalState, action) => {
@@ -10,6 +12,16 @@ const displayCart = (previousState=initalState, action) => {
             return {
                 ...previousState,
                 cartData: action.payload.cartData
+            };
+        case UPDATE_CART:
+            return {
+                ...previousState,
+                cartCount: action.payload.cartData ? action.payload.cartData.length : 0
+            };
+        case DISPLAY_STATUS_MESSAGE:
+            return {
+                ...previousState,
+                status: action.payload.status
             };
         default: 
             return previousState;

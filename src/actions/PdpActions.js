@@ -1,4 +1,7 @@
-import { DISPLAY_PRODUCT_DATA, UPDATE_CART } from "../constants/PdpConstants";
+import { DISPLAY_PRODUCT_DATA } from "../constants/PdpConstants";
+import { DISPLAY_STATUS_MESSAGE } from "../constants/CartConstants";
+import { getCartData } from "../actions/CartActions";
+
 import axios from "axios";
 
 export const displayProductData = productData => {
@@ -9,6 +12,15 @@ export const displayProductData = productData => {
     }
   };
 };
+
+export const displayStatusMessage = (status) => {
+  return {
+    type: DISPLAY_STATUS_MESSAGE,
+    payload: {
+      status
+    }
+  }
+}
 
 export const getProductData = productId => {
   return dispatch => {
@@ -23,15 +35,6 @@ export const getProductData = productId => {
   };
 };
 
-export const updateCart = productData => {
-  return {
-    type: UPDATE_CART,
-    payload: {
-      productData
-    }
-  };
-};
-
 export const addToCart = ({ userId = 1, id, quantity = 1 }) => {
   return dispatch => {
     return axios
@@ -41,7 +44,8 @@ export const addToCart = ({ userId = 1, id, quantity = 1 }) => {
         quantity
       })
       .then(response => {
-        dispatch(updateCart(response.data));
+        dispatch(displayStatusMessage(response.data));
+        dispatch(getCartData());
       })
       .catch(error => {
         throw error;
