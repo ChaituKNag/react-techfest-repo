@@ -11,7 +11,7 @@ font-size: 12px;
 class CategoryItem extends PureComponent {
 
   render(){
-    const {value, index} = this.props
+    const {value} = this.props
 
     return (
       <div>

@@ -34,8 +34,8 @@ font-size: 14px;
         <div>
           <P>CATEGORIES</P>
             <ul>
-              {data.length && data.map((value, index) => (
-                <CategoryItem key={value.id} value={value} index={index}/>
+              {data.length && data.map((value) => (
+                <CategoryItem key={value.id} value={value}/>
               ))}
             </ul>
         </div>
