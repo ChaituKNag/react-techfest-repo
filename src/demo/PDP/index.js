@@ -47,7 +47,7 @@ export default class PDPComponent extends Component{
                         <div>
                             <img src={this.state.productInfo.product&&this.state.productInfo.product.imageUrl} alt=""/>
                             <div className="btn-container">
-                                <button>
+                                <button className="primary-button">
                                     BUY NOW
                                 </button>
                             </div>
