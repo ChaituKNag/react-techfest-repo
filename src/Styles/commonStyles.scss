@@ -10,3 +10,16 @@
         background: $yellow4;
     }
 }
+
+.secondary-button{
+    border: 1px solid $yellow3;
+    padding: 12px 15px;
+    border-radius: 3px;
+    background-color: $grey5;
+    @include font(Helvetica, 14px, bold, $grey2);
+     
+    &:hover{
+        cursor: pointer;
+        background-color: $grey9;
+    }
+}
