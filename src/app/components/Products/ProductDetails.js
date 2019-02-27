@@ -24,7 +24,6 @@ const ImageWrapper = styled.div`
 `
 const ImageInnerWrapper = styled.div`  
   text-align: center;
-  min-height: 170px;
   position: relative;
   padding-bottom: 100%;
   background: ${white};

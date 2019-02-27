@@ -10,6 +10,7 @@ const FooterWrapper = styled.div`
   flex-direction: column;
   background-color: ${white};
   color: #F2BD00;
+  overflow: hidden;
   ${media.mobile`padding: 15px;`};
   >div{
     align-self:flex-start;

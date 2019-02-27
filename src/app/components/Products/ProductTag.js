@@ -6,7 +6,8 @@ const ProductTag = styled.span`
   color: ${white};
   display: inline-block;
   background-color: ${red};
-  min-width: 135px;
+  min-width: 70px;
+  font-size: 14px;
   padding: 5px 15px;
   font-weight: ${fontWeightLight};
 `

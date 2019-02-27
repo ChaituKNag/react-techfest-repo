@@ -11,6 +11,24 @@ import { Link } from 'react-router-dom'
 
 const ProductsList = styled.div`
   display: flex;
+  padding: 0;
+  margin-left: 1%;
+  margin-top: 3%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+
+  a{
+    display:flex;
+    flex-basis: 30.33%;
+    padding-left: 3%;
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-decoration: none;
+  }
 `
 class Products extends PureComponent {
 
@@ -36,9 +54,9 @@ class Products extends PureComponent {
           ))}
           {!data.length && (
             <p>No Products found for selected category.</p>
-          )}
+          )}          
           <Pagination count={products.data.length} itemsPerPage={PAGINATION_LIMIT} />
-        </ProductsList>
+        </ProductsList>        
       </div>
     )
   }

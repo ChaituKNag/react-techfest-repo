@@ -1,26 +1,53 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types'
 import { fetchCategories } from "../../../store/actions/category";
-
+import HeaderTag from '../base/HeaderTag';
 import styled from 'styled-components';
 import { media } from '../../../styles/variables';
 import { connect } from 'react-redux';
 import CategoryItem from './CategoryItem'
 
 export const Wrapper = styled.div`
-background-color: white;
-padding: 10px 20px;
-width:  250px;
--webkit-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.22);
--moz-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.22);
-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.22);
-margin-top: 10px;
+  background-color: white;
+  padding: 30px 25px;
+  width:  250px;
+  -webkit-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.22);
+  -moz-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.22);
+  box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.22);
+  margin-top: 10px;
+
+h5{
+  font-weight:bold;
+  margin-bottom: 20px;
+}
+
+ul{
+  list-style-type: none;
+}
+
+li{
+  margin-top: 10px;
+}
+
+h5 + ul{
+  padding-left: 15px;
+}
+
+h5 + ul > div > li{
+  font-size: 16px;
+}
+
+h5 + ul > div > li + ul > Li{
+  font-size: 16px;
+}
+
+h5 + ul > div > li + ul > Li > ul > li {
+  font-size: 14px;
+}
 
 ${media.tablet`padding: 30px;`} ${media.mobile`padding: 20px 15px;`};
 `
-const P = styled.p`
-font-size: 14px;
-`
+
  class Categories extends PureComponent {
 
   componentDidMount() {
@@ -32,7 +59,7 @@ font-size: 14px;
     return (
       <Wrapper>
         <div>
-          <P>CATEGORIES</P>
+        <HeaderTag as='h5'>CATEGORIES</HeaderTag>
             <ul>
               {data.length && data.map((value) => (
                 <CategoryItem key={value.id} value={value}/>

@@ -3,13 +3,17 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectPage } from '../../store/selectors'
-import { aluminium, charcoal, mustard } from '../../styles/colors';
+import { aluminium, charcoal, mustard, steel } from '../../styles/colors';
 import { fontWeightLight, fontWeightBold, fontWeightMedium } from '../../styles/variables';
 import { setPageNumber } from '../../store/actions/page';
-import { updateProductsPageData } from '../../store/actions/productlist'
+import { updateProductsPageData } from '../../store/actions/productlist';
 
 const Wrapper = styled.div`
   display: flex;
+  flex: 1;
+  padding-left: 3%;
+  font-size: 14px;
+  margin: 0 0 40px;
 `
 
 const PagingWrapper = styled.div`
@@ -18,13 +22,13 @@ const PagingWrapper = styled.div`
   flex: 1;
 `
 const ResultsCount = styled.div`
-  color: ${aluminium};
+  color: ${steel};
 `
 
 const PageChange = styled.span`
   text-transform: uppercase;
   cursor: ${ props => (props.disabled ? 'not-allowed' : 'pointer')};
-  color: ${ props => (props.disabled ? aluminium : charcoal)};
+  color: ${ props => (props.disabled ? steel : charcoal)};
   font-weight: ${ props => (props.disabled ? fontWeightLight : fontWeightBold)};
   margin: 0 15px;
 `

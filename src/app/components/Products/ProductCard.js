@@ -6,9 +6,11 @@ import ProductTag from './ProductTag';
 import ProductRating from './ProductRating';
 import HeaderTag from '../base/HeaderTag';
 import { fontWeightMedium } from '../../../styles/variables';
+import { fontblack } from '../../../styles/colors';
 
 const Wrapper = styled.div`
   background-color: ${white};
+  width: 100%;
   border-radius: 3px;
   -webkit-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.22);
   -moz-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.22);
@@ -18,15 +20,30 @@ const Wrapper = styled.div`
 
 const ProductImage = styled.div`
   text-align: center;
-  padding: 50px 25px 30px;
-  max-width: 300px;
+  position: relative;
+  padding-bottom: 90%;
+
   img{
-    width: 100%;
+    width: auto;
+    max-width: 90%;
+    height: auto;
+    max-height: 90%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
   }
 `
 
 const ProductDetail = styled.div`
   padding: 0 25px;
+  h6{
+    font-weight: bold;
+    text-decoration: none;
+    color: ${fontblack};
+    margin-bottom: 10px;
+    min-height: 80px;
+  }
 `
 
 const SubText = styled.p`
@@ -41,7 +58,7 @@ const ProductCard = ({name, imageUrl, bestSelling, subText, numberOfRaters, rati
       <img src={imageUrl} alt={name}/>
     </ProductImage>
     <ProductDetail>
-      <HeaderTag as='h4'>{name}</HeaderTag>
+      <HeaderTag as='h6'>{name}</HeaderTag>
       { subText && <SubText>{subText}</SubText> }
       <ProductRating rating={rating} numberOfRaters={numberOfRaters} />
     </ProductDetail>
