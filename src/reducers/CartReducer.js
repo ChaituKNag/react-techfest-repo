@@ -1,4 +1,4 @@
-import { DISPLAY_CART_DATA, UPDATE_CART, DISPLAY_STATUS_MESSAGE, UPDATE_PRICE } from '../constants/CartConstants';
+import { DISPLAY_CART_DATA, UPDATE_CART, DISPLAY_STATUS_MESSAGE, UPDATE_PRICE, ORDER_UPDATE } from '../constants/CartConstants';
 
 const initalState = {
     cartData : [],
@@ -33,6 +33,11 @@ const displayCart = (previousState=initalState, action) => {
                 ...previousState,
                 subTotal
             };
+        case ORDER_UPDATE:
+        return {
+            ...previousState,
+            status: action.payload.orderStatus
+        };
         default: 
             return previousState;
     }

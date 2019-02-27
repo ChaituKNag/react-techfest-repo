@@ -1,5 +1,5 @@
 import axios from "axios";
-import { DISPLAY_CART_DATA, UPDATE_CART, UPDATE_PRICE } from "../constants/CartConstants";
+import { DISPLAY_CART_DATA, UPDATE_CART, UPDATE_PRICE, ORDER_UPDATE } from "../constants/CartConstants";
 
 export const displayCartData = cartData => {
   return {
@@ -41,4 +41,26 @@ export const updatePrice= (productId, quantity) => {
         quantity
       }
   }
-} 
+}
+
+export const orderUpdate= (orderStatus) => {
+  return {
+      type: ORDER_UPDATE,
+      payload: {
+        orderStatus
+      }
+  }
+}
+
+export const placeOrder = (orderData) => {
+  return dispatch => {
+    return axios
+      .post(`http://localhost:4567/api/order`, orderData)
+      .then(response => {
+        dispatch(orderUpdate(response.data));
+      })
+      .catch(error => {
+        throw error;
+      });
+  };
+};
