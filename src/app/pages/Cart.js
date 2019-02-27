@@ -2,9 +2,9 @@ import React from 'react';
 import Container from '../components/base/Container';
 import UserCart from '../components/Cart/UserCart';
 
-const Cart = () => (
+const Cart = ({history}) => (
     <Container>
-       <UserCart />
+       <UserCart history={history} />
     </Container>
 );
 

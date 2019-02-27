@@ -55,7 +55,7 @@ const Pricing = styled.span`
   margin-left: 2px;
 `
 
-const ProductListItem = ({name, imageUrl, bestSelling, subText, numberOfRaters, rating, showActions, showPricing}) => (
+const ProductListItem = ({name, imageUrl, bestSelling, subText, numberOfRaters, rating, showActions, showPricing, price, quantity, id, deleteFromCart}) => (
   <Wrapper showPricing>
     { bestSelling && <ProductTag>Best Selling</ProductTag> }
     <ProductImage>
@@ -67,7 +67,7 @@ const ProductListItem = ({name, imageUrl, bestSelling, subText, numberOfRaters, 
         {
           showActions && 
           <CartActions>
-            <span>Delete Item</span> | <span>Save for Later</span>
+            <span onClick={() => deleteFromCart(id)}>Delete Item</span> | <span onClick={() => deleteFromCart(id)}>Save for Later</span>
           </CartActions>
         }
       </TitleWrapper>
@@ -76,7 +76,7 @@ const ProductListItem = ({name, imageUrl, bestSelling, subText, numberOfRaters, 
       {
         showPricing && 
         <QuantityWrapper>
-          <QuantityTextBox /> <Pricing>X $124.00 = $124.00</Pricing>
+          <QuantityTextBox text={Number(quantity)} id={id} /> <Pricing>X ${price} = ${quantity * price}</Pricing>
         </QuantityWrapper>
       }
     </ProductDetail>
@@ -88,11 +88,14 @@ export default ProductListItem;
 
 ProductListItem.propTypes = {
   name: PropTypes.string.isRequired,
+  id: PropTypes.number,
   imageUrl: PropTypes.string.isRequired,
   bestSelling: PropTypes.bool,
   subText: PropTypes.string,
   numberOfRaters: PropTypes.number,
   rating: PropTypes.number.isRequired,
+  price: PropTypes.number,
   showActions: PropTypes.bool,
-  showPricing: PropTypes.bool
+  showPricing: PropTypes.bool,
+  deleteFromCart: PropTypes.func
 }

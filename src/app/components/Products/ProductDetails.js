@@ -8,7 +8,8 @@ import { fetchProductDescription } from '../../../store/actions/product';
 import Button from '../base/Button';
 import { PRIMARY } from '../../../constants/properties';
 import ProductRating from './ProductRating';
-import HeaderTag from '../base/HeaderTag'
+import HeaderTag from '../base/HeaderTag';
+import { addToCart } from '../../../services/cart';
 
 const Wrapper = styled.section`
   display: flex;
@@ -43,12 +44,21 @@ class ProductDetails extends PureComponent{
   }
 
   render() {
-    const { details, description } = this.props;
+    const { details, description, history, productId } = this.props;
+
+    const buyProduct = () =>{
+      addToCart(1, productId).then(response => {
+        if (response) {
+          history.push('/cart');
+        }
+      })
+      .catch(error => console.error(error));
+    }
     return(
       <Wrapper>
         <ImageWrapper>
           <img src={details.imageUrl} alt={details.name} />
-          <Button type={PRIMARY}>Buy Now</Button>
+          <Button type={PRIMARY} onClick={buyProduct}>Buy Now</Button>
         </ImageWrapper>
         <DetailsWrapper>
           <HeaderTag as='h3'>{details.name}</HeaderTag>
@@ -65,6 +75,7 @@ class ProductDetails extends PureComponent{
 ProductDetails.propTypes = {
   productId: PropTypes.string.isRequired,
   fetchProductDescription: PropTypes.func.isRequired,
+  history: PropTypes.object,
   details: PropTypes.shape({
     imageUrl: PropTypes.string,
     name: PropTypes.string,

@@ -8,6 +8,7 @@ import { selectUserDetails } from '../../store/selectors';
 import { media, fontWeightMedium } from '../../styles/variables';
 import HeaderTag from '../components/base/HeaderTag';
 import { charcoal } from '../../styles/colors';
+import { USER_ID } from '../../constants/config';
 
 const HeaderWrapper = styled.div`
   align-items: center;
@@ -44,7 +45,7 @@ const UserIcon = styled.img`
 class Header extends PureComponent{
 
   componentDidMount(){
-    this.props.fetchUser(2);
+    this.props.fetchUser(USER_ID);
   }
 
   render(){
