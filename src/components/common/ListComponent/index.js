@@ -1,15 +1,22 @@
-import React from 'react';
-import './index.scss';
+import React, { Component } from "react";
+import "./index.scss";
 
-const ListComponent = ({ listData }) => (
-    <ul className="custom-list">
-    {
-        listData.map((list, index) => (
-                <li key={index}>{list}</li>
-            )
-        )
-    }
-    </ul>
-);
+class ListComponent extends Component {
+  render() {
+    const { listData, className, listHeader } = this.props;
+    return (
+      <div className={className}>
+      <p className="list-header">{listHeader}</p>
+        {listData ? (
+          <ul className="custom-list">
+            {listData.map((list, index) => (
+              <li key={index}>{list}</li>
+            ))}
+          </ul>
+        ) : null}
+      </div>
+    );
+  }
+}
 
 export default ListComponent;

@@ -5,6 +5,7 @@
     .navbar {
         background-color: $header_bg !important;
         z-index: 1;
+
         a {
             color: $logo_color;
             text-decoration: none;
@@ -19,8 +20,10 @@
                 font-size: 16px;
             }
         }
+
         .navbar-toggler {
             outline: 0;
+
             .fa-bars {
                 color: $logo_color;
             }
@@ -30,7 +33,9 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: 60%;
+            width: 65%;
+            margin-left: 3%;
+
             li {
                 .search {
                     background-color: $header_bg;
@@ -40,6 +45,7 @@
                     padding-left: 40px;
                     border-radius: 0;
                 }
+
                 .fa-search {
                     position: absolute;
                     top: 8px;
@@ -47,6 +53,7 @@
                     left: 10px;
                     color: $header_text;
                 }
+
                 .search-suggestions {
                     position: absolute;
                     top: 45px;
@@ -60,10 +67,12 @@
                     }
                 }
             }
+
             @media (max-width: 767px) {
                 display: none;
             }
         }
+
         .navbar-collapse {
             .navbar-nav {
                 .nav-item {
@@ -71,14 +80,17 @@
                         position: relative;
                         margin-top: 20px;
                     }
+
                     .search-mobile {
                         background-color: $suggestions_bg;
                         padding-left: 40px;
                         color: $suggestions_text;
+
                         @media (min-width: 768px) {
                             display: none;
                         }
                     }
+
                     .search-suggestions-mobile {
                         position: absolute;
                         top: 45px;
@@ -86,10 +98,12 @@
                         color: $suggestions_text;
                         padding: 10px 15px;
                         z-index: 1;
+
                         @media (min-width: 768px) {
                             display: none;
                         }
                     }
+
                     .fa-search {
                         position: absolute;
                         top: 8px;
@@ -100,13 +114,16 @@
                             display: none;
                         }
                     }
+
                     a {
                         color: $logo_color;
                         position: relative;
+
                         .fa-shopping-cart {
                             font-size: 24px;
                             line-height: 40px;
                         }
+
                         .cart-count {
                             position: absolute;
                             top: -15px;
@@ -120,15 +137,18 @@
                             text-align: center;
                             color: $black;
                         }
+
                         &.user-img {
                             width: 40px;
                             height: 40px;
                             margin-left: 20px;
                             padding: 0;
+
                             @media (max-width: 767px) {
                                 margin-left: 0;
                                 display: inline-block;
                             }
+
                             img {
                                 border-radius: 50%;
                                 width: 100%;
@@ -136,6 +156,7 @@
                             }
                         }
                     }
+                    
                     &.dropdown {
                         @media (max-width: 767px) {
                             margin-top: -50px;
