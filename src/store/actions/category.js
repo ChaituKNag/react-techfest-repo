@@ -41,7 +41,6 @@ export const fetchCategories = () => (dispatch) => {
   getAllCategories().then(response => {
     if(response){
       dispatch(fetchCategorySuccess(response.data))
-      //Dispatch event for Product filter
     }
   })
   .catch(error => dispatch(fetchCategoryError(error)))

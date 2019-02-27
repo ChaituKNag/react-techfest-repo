@@ -43,16 +43,19 @@ const PageNumber = styled.span`
   const increasePage = () => {
     if(page < totalPages){
       page = page + 1;
-      setPageNumber(page);
-      updateProductsPageData({offset: (page - 1) * itemsPerPage, limit: itemsPerPage})
+      updateStore(page)
     }
   }
   const decreasePage = () => {
     if(page > 1){
       page = page - 1;
-      setPageNumber(page);
-      updateProductsPageData({offset: (page - 1) * itemsPerPage, limit: itemsPerPage})
+      updateStore(page)
     }
+  }
+
+  const updateStore = (page) => {
+    setPageNumber(page);
+    updateProductsPageData({offset: (page - 1) * itemsPerPage, limit: itemsPerPage})
   }
 
   return (
@@ -61,7 +64,7 @@ const PageNumber = styled.span`
       <PagingWrapper>
         <PageChange disabled={page <= 1} onClick={decreasePage}>Prev</PageChange>
         {
-          pages.map(pageNo => <PageNumber currentPage={page===pageNo} key={pageNo} onClick={() => setPageNumber(pageNo)}>{pageNo}</PageNumber>)
+          pages.map(pageNo => <PageNumber currentPage={page===pageNo} key={pageNo} onClick={() => updateStore(pageNo)}>{pageNo}</PageNumber>)
         }
         <PageChange disabled={page >= totalPages} onClick={increasePage}>Next</PageChange>
       </PagingWrapper>

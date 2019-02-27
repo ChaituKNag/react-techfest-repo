@@ -3,4 +3,4 @@ export const GET_USER = '/api/user';
 export const GET_CATEGORY = '/api/category';
 export const GET_PRODUCT_DETAILS = '/api/product';
 export const GET_PRODUCT_DESCRIPTION = '/api/product/description';
-export const PAGINATION_LIMIT = 1;
+export const PAGINATION_LIMIT = 5;

@@ -27,7 +27,6 @@ const paginateProducts = pageData => ({
 })
 
 export const updateProductsPageData = (data) => (dispatch) => {
-  console.log(data)
   dispatch(paginateProducts(data))
 }
 
