@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { aluminium, platinum } from '../../../styles/colors';
+import { aluminium, steel } from '../../../styles/colors';
 import { setSearch } from '../../../store/actions/search';
 
 const SearchBox = styled.div`
@@ -11,20 +11,24 @@ const SearchBox = styled.div`
   .icon {
     left: 15px;
     position: absolute;
-    top: 12px;
+    top: 9px;
   }
 `
 
 const SearchField = styled.input`
   background: transparent;
   border-radius: 5px;
-  border: 1px solid ${platinum};
+  border: 1px solid ${steel};
   color: ${aluminium};
   outline: none;
-  padding: 12px 20px 12px 40px;
+  padding: 8px 20px 8px 40px;
   width: 100%;
-  &: focus{
+  margin-top: 2px;
+  &::focus{
     outline: none;
+  }
+  &::placeholder{
+    color: ${aluminium};
   }
 `
 
