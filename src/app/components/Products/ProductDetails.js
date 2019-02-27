@@ -6,10 +6,11 @@ import { selectProductDetails, selectProductDescription } from '../../../store/s
 import { fetchProductDescription } from '../../../store/actions/product';
 
 import Button from '../base/Button';
-import { PRIMARY } from '../../../constants/properties';
+import { PRIMARY, MEDIUM } from '../../../constants/properties';
 import ProductRating from './ProductRating';
 import HeaderTag from '../base/HeaderTag';
 import { addToCart } from '../../../services/cart';
+import { white } from '../../../styles/colors';
 
 const Wrapper = styled.section`
   display: flex;
@@ -18,22 +19,54 @@ const Wrapper = styled.section`
 
 const ImageWrapper = styled.div`
   flex: 1;
-  padding: 15px;
+  flex-basis: 25%;
+  border-radius: 4px;
+`
+const ImageInnerWrapper = styled.div`  
+  text-align: center;
+  min-height: 170px;
+  position: relative;
+  padding-bottom: 100%;
+  background: ${white};
+  margin-bottom: 20px;
+
   img{
-    margin-bottom: 20px;
+    width: auto;
+    max-width: 90%;
+    height: auto;
+    max-height: 90%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
   }
+`
+
+const ButtonMedium = styled(Button)`
+  margin: auto;
 `
 
 const DetailsWrapper = styled.div`
   flex: 3;
-  padding: 0 15px;
+  flex-basis: 75%;
+  padding: 0 75px 0 35px;
 `
-
 const ProductDetailsRating = styled.div`
   padding: 15px 0;
 `
 const Description = styled.p`
   white-space: pre-wrap;
+`
+const ListWrapper = styled.div`
+  margin-top: 30px;
+`
+const List = styled.ul`
+  list-style-type: bullet;
+  margin: 0;
+  padding: 10px 15px 0;
+  &::
+`
+const ListItem = styled.li`
 `
 
 class ProductDetails extends PureComponent{
@@ -57,8 +90,10 @@ class ProductDetails extends PureComponent{
     return(
       <Wrapper>
         <ImageWrapper>
-          <img src={details.imageUrl} alt={details.name} />
-          <Button type={PRIMARY} onClick={buyProduct}>Buy Now</Button>
+          <ImageInnerWrapper>
+            <img src={details.imageUrl} alt={details.name} />
+          </ImageInnerWrapper>     
+          <ButtonMedium type={PRIMARY} size={MEDIUM} onClick={buyProduct}>Buy Now</ButtonMedium>
         </ImageWrapper>
         <DetailsWrapper>
           <HeaderTag as='h3'>{details.name}</HeaderTag>
@@ -66,6 +101,22 @@ class ProductDetails extends PureComponent{
           <Description>
             {description}
           </Description>
+          <ListWrapper>
+            <HeaderTag as='h5'>Specifications</HeaderTag>
+            <List>
+              <ListItem>Smooth Layout</ListItem>
+              <ListItem>All in one place</ListItem>
+              <ListItem>Elegant Interface</ListItem>
+            </List>
+          </ListWrapper>
+          <ListWrapper>
+            <HeaderTag as='h5'>System Requirements</HeaderTag>
+            <List>
+              <ListItem>Smooth Layout</ListItem>
+              <ListItem>All in one place</ListItem>
+              <ListItem>Elegant Interface</ListItem>
+            </List>
+          </ListWrapper>
         </DetailsWrapper>
       </Wrapper>
     )

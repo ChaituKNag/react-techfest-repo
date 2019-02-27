@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import HeaderTag from '../base/HeaderTag';
 import { connect } from 'react-redux';
-import { white, offwhite } from '../../../styles/colors';
-import ProductListItem from '../Products/ProductListItem';
 import { fetchCart, deleteFromCart } from '../../../store/actions/cart';
-import { selectCart } from '../../../store/selectors'
-import Button from '../base/Button';
-import { PRIMARY, SECONDARY } from '../../../constants/properties';
+import { selectCart } from '../../../store/selectors';
 import { orderItems } from '../../../services/order';
+import Button from '../base/Button';
+import { white, aluminium } from '../../../styles/colors';
+import ProductListItem from '../Products/ProductListItem';
+import { PRIMARY, MEDIUM, SECONDARY } from '../../../constants/properties';
 
 const ListWrapper = styled.div`
   background-color: ${white};
@@ -20,40 +20,61 @@ const ListWrapper = styled.div`
 `
 
 const CartWrapper = styled.div`
-  padding: 20px 30px;
+  padding: 30px 0;
 `
 
 const PriceWrapper = styled.div`
-  padding: 20px 0;
+  padding: 20px 30px;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
 `
 
 const Price = styled.div`
   display: flex;
-  div{
-    width: 300px;
+  width: 30%;
+  span:first-child{
+    flex-basis: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 25px;
+  }
+  span:last-child{
+    display:flex;
+    justify-content: flex-end;
+    flex-basis:40%;
   }
 `
 
 const TotalPrice = styled.div`
   display: flex;
-  border-top: 1px solid ${offwhite};
+  border-top: 1px solid ${aluminium};
   margin-top: 20px;
   padding: 10px 0;
-  div{
-    width: 300px;
+  width: 30%;
+  span:first-child{
+    flex-basis: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 25px;
+  }
+  span:last-child{
+    display:flex;
+    justify-content: flex-end;
+    flex-basis:40%;
+    font-weight:bold;
   }
 `
 
 const ButtonWrapper = styled.div`
   display: flex;
-  justify-content: flex-end;
+  flex-direction:row;
   margin-top: 20px;
-  > * {
-    margin-left: 15px;
+  justify-content: flex-end;
+  padding: 0 30px;
+  div + div{
+    margin-left: 10px;
   }
-
 `
 
 class UserCart extends PureComponent {
@@ -89,20 +110,18 @@ class UserCart extends PureComponent {
     const { cart: { list }, history, deleteFromCart } = this.props;
     return (
       <CartWrapper>
-        <HeaderTag as='h4'>SHOPPING CART</HeaderTag>
+        <HeaderTag as='h5'>SHOPPING CART</HeaderTag>
         <ListWrapper>
           {
             list.length > 0 && list.map(item => <ProductListItem key={item.id} {...item.product} id={item.id} quantity={item.quantity} showActions showPricing deleteFromCart={deleteFromCart}/>)
           }
         </ListWrapper>
         <PriceWrapper>
-          <div>
-            <Price><div>Order Total:</div>${this.getTotal()}</Price>
-          </div>
+            <Price><span>Order Total:</span><span>${this.getTotal()}</span></Price>
         </PriceWrapper>
         <ButtonWrapper>
-          <Button type={SECONDARY} onClick={() => history.push('/')}>Continue Shopping</Button>
-          <Button type={PRIMARY} onClick={this.checkout}>Proceed to Checkout</Button>
+          <Button type={SECONDARY} size={MEDIUM} onClick={() => history.push('/')}>Continue Shopping</Button>
+          <Button type={PRIMARY} size={MEDIUM} onClick={this.checkout}>Proceed to Checkout</Button>
         </ButtonWrapper>
       </CartWrapper>
     )

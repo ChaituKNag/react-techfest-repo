@@ -4,8 +4,9 @@ import { whiteGray } from '../../../styles/colors';
 
 const Container = styled.div`
   background-color: ${whiteGray};
-  max-width: 1200px;
-  margin: 0px auto;
+  max-width: 1400px;
+  padding: 74px 70px 0;
+  margin: 0 auto;
 
   ${media.tablet`padding: 30px;`} ${media.mobile`padding: 20px 15px;`};
 `

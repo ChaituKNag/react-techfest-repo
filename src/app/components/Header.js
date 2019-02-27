@@ -5,7 +5,7 @@ import Search from '../components/base/Search';
 import { connect } from 'react-redux';
 import { fetchUser } from '../../store/actions/user';
 import { selectUserDetails } from '../../store/selectors';
-import { media, fontWeightMedium } from '../../styles/variables';
+import { media, fontWeightLight } from '../../styles/variables';
 import HeaderTag from '../components/base/HeaderTag';
 import { charcoal } from '../../styles/colors';
 import { USER_ID } from '../../constants/config';
@@ -15,13 +15,23 @@ const HeaderWrapper = styled.div`
   background-color: ${charcoal};
   color: #F2BD00;
   display: flex;
-  padding: 15px 30px;
+  position:fixed;
+  width: 100%;
+  z-index: 1050;
   ${media.mobile`padding: 15px;`};
 `
 
+const HeaderInnerWrapper = styled.div`
+  display:flex;
+  max-width: 1400px;
+  padding: 10px 70px;
+  margin: 0 auto;
+  width: 100%;
+`
+
 const SubTitle = styled.div`
-    font-size: 1.125em;
-    font-weight: ${fontWeightMedium};
+    font-size: 12px;
+    font-weight: ${fontWeightLight};
     margin: 0;
 `
 
@@ -32,7 +42,7 @@ const ActionGroup = styled.div`
   flex-grow: 0.5;
   .icon {
     margin-right: 20px;
-    font-size: 36px;
+    font-size: 30px;
   }
 `
 
@@ -53,15 +63,17 @@ class Header extends PureComponent{
     const { details : { profileImageUrl, name } } = this.props.user;
     return (
       <HeaderWrapper>
-        <div>
-          <HeaderTag as='h2'>E-Commerce</HeaderTag>
-          <SubTitle>Platform</SubTitle>
-        </div>
-        <Search />
-        <ActionGroup>
-          <span className="icon icon-basket"></span>
-          <UserIcon src={profileImageUrl} alt={name} />
-        </ActionGroup>
+        <HeaderInnerWrapper>
+          <div>
+            <HeaderTag as='h4'>E-Commerce</HeaderTag>
+            <SubTitle>Platform</SubTitle>
+          </div>
+          <Search />
+          <ActionGroup>
+            <span className="icon icon-basket"></span>
+            <UserIcon src={profileImageUrl} alt={name} />
+          </ActionGroup>
+        </HeaderInnerWrapper>
       </HeaderWrapper>
     )
 

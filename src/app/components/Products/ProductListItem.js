@@ -19,6 +19,7 @@ const Wrapper = styled.div`
 const TitleWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 5px;
   > *:first-child{
     flex: 1;
   }
@@ -34,6 +35,14 @@ const ProductImage = styled.div`
 
 const CartActions = styled.div`
   cursor: pointer;
+  margin-top: -3px;
+  display: flex;
+  flex: 0.6;
+  justify-content: flex-end;
+  span:first-child:after{
+    content: '|';
+    padding: 0 10px;
+  }
 `
 
 const ProductDetail = styled.div`
@@ -67,7 +76,8 @@ const ProductListItem = ({name, imageUrl, bestSelling, subText, numberOfRaters, 
         {
           showActions && 
           <CartActions>
-            <span onClick={() => deleteFromCart(id)}>Delete Item</span> | <span onClick={() => deleteFromCart(id)}>Save for Later</span>
+            <span onClick={() => deleteFromCart(id)}>Delete Item</span>
+            <span onClick={() => deleteFromCart(id)}>Save for Later</span>
           </CartActions>
         }
       </TitleWrapper>

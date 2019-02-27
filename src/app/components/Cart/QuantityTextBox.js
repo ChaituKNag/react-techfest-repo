@@ -11,6 +11,7 @@ border-radius: 5px;
 border: 1px solid ${platinum};
 padding: 5px;
 outline: none;
+width: 125px;
 &:focus{
   outline: none;
 }
