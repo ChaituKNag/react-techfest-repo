@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Container } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 
 import { getProductsList } from "../../actions/PlpActions";
 import GridComponent from "../common/GridComponent";
@@ -16,7 +16,12 @@ class ProductsList extends Component {
     return (
       <Container>
         <Banner></Banner>
-        <GridComponent productsList={productsList}></GridComponent> 
+        <Row>
+          <Col md={3}></Col>
+          <Col md={9}>
+            <GridComponent productsList={productsList}></GridComponent> 
+          </Col>
+        </Row>
       </Container>
     );
   }
