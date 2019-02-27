@@ -12,7 +12,7 @@ export default class PDPComponent extends Component{
                         <div>
                             <img src="https://via.placeholder.com/250" alt=""/>
                             <div className="btn-container">
-                                <button>
+                                <button className="primary-button">
                                     BUY NOW
                                 </button>
                             </div>
