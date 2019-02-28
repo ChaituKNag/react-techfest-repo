@@ -154,16 +154,16 @@ export default class CartComponent extends Component{
                         <div className="checkout-content">
                             <div className="order-total-container">
                                 <div className="sum-label">Order Total:</div>
-                                <div className="sum-value">${this.state.totalOrder}</div>
+                                <div className="sum-value">${parseFloat(this.state.totalOrder).toFixed(2)}</div>
                                 </div>
                             <div className="delivery-charge-container">
                                 <div className="sum-label">Discount:</div>
-                                <div className="sum-value">-${this.state.totalDiscount}</div>
+                                <div className="sum-value">-${parseFloat(this.state.totalDiscount).toFixed(2)}</div>
                             </div>
                             <div className="grand-total-container">
                                 <div className="total">
                                     <div className="sum-label-total">Grand Total:</div>
-                                    <div className="grand-sum">${this.state.grandTotal}</div>
+                                    <div className="grand-sum">${parseFloat(this.state.grandTotal).toFixed(2)}</div>
                                 </div>
                             </div>
                             <div className="checkout-btn-container">
