@@ -141,9 +141,11 @@ export default class CartComponent extends Component{
                     <div className="cart-page-title">
                         SHOPPING CART
                     </div>
-                    {
-                      cartCardComponent
-                    }
+                    <section className="card-shadow">
+                        {
+                        cartCardComponent
+                        }
+                    </section>
                     
                     <section className="checkout-container">
                         <div className="checkout-content">

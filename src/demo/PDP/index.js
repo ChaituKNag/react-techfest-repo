@@ -61,11 +61,11 @@ export default class PDPComponent extends Component{
                     <section className="image-section">
                         <div>
                             <img src={this.state.productInfo.product&&this.state.productInfo.product.imageUrl} alt=""/>
-                            <div className="btn-container">
-                                <button className="primary-button" onClick={this.addToCart}>
-                                    BUY NOW
-                                </button>
-                            </div>
+                        </div>
+                        <div className="btn-container">
+                            <button className="primary-button" onClick={this.addToCart}>
+                                BUY NOW
+                            </button>
                         </div>
                     </section>
                     <section className="description-section">

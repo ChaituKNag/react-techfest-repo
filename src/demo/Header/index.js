@@ -35,10 +35,12 @@ export default class HeaderComponent extends Component{
         return(
             <div className="header-container">
                 <div className="header-content"> 
-                    <div className="header-left-content">
-                        <a href="/">E-Commerce</a>
-                        <div className="additional-info">Platform</div>
-                    </div>
+                    <a href="/">
+                        <div className="header-left-content">
+                            E-Commerce
+                            <div className="additional-info">Platform</div>
+                        </div>
+                    </a>
                     <div className="header-middle-content">
                         <span className="search-icon"><i className="fa fa-search"></i></span>
                         <input type="text" placeholder="Search item or keyword" className="search-bar" />
