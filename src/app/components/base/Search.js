@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { withRouter } from 'react-router-dom'
 import {connect} from 'react-redux'
 import { aluminium, steel, charcoal, white, fontblack } from '../../../styles/colors'
 import { setSearch } from '../../../store/actions/search'
@@ -72,7 +73,7 @@ const Search = ({search, setSearch, searchResults, getSearchResults, history}) =
   }
 
   const onSelect = (item) => {
-    setSearch(item.name);
+    window.location.replace(`/product/${item.id}`)
   }
 
   const menuStyle = {
@@ -128,5 +129,5 @@ export default connect(
     setSearch,
     getSearchResults
   }
-)(Search)
+)(withRouter(Search))
 
