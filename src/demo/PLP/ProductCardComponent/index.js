@@ -35,19 +35,17 @@ export default class ProductCardComponent extends Component{
 
         return(
             <Link to={{pathname:`/pdp/${this.props.product.id}`}} >
-                <div className="product">
-                    {/* <span className="product-tag">Best selling</span> */}
-                    <span className="product-image" style={styles.backgroundStyles}></span>
-                        <div className="product-label-container">
-                            <h6>{prdName}</h6>
-                            <label>{tagLine}</label>
-                            <div>
-                              <StarComponent rating={this.props.product.rating}/>
-                                </div>
-                            
-                            </div>
+                <div className="product card-shadow" title={prdName}>
+                    <div className="product-image" style={styles.backgroundStyles}></div>
+                    <div className="product-label-container">
+                        <h6>{prdName}</h6>
+                        <label>{tagLine}</label>
+                        <div className="star-rating">
+                            <StarComponent rating={this.props.product.rating}/>
+                        </div>
                     </div>
-                  </Link>  
+                </div>
+            </Link>  
         )
     }
 }

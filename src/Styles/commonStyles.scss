@@ -25,12 +25,19 @@
 }
 
 .main-container{
+    background-color: $grey5;
     min-height: calc(100vh - (71px + 116px)); //Total minus height of Header + Footer 
 }
 
 .card-shadow{
     box-shadow: 0 0 15px rgba(195, 195, 195, 0.5);
     background: $white;
+    border: none;
+}
+
+.page-title{
+    @include font($Helvetica, 22px, bold, $grey7);
+    padding-bottom: 40px;
 }
 
 a:visited{

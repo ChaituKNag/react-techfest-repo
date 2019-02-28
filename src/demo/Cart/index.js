@@ -138,7 +138,7 @@ export default class CartComponent extends Component{
         return(
             <div className="main-container">
                 <main className="cart-container">
-                    <div className="cart-page-title">
+                    <div className="page-title">
                         SHOPPING CART
                     </div>
                     <section className="card-shadow">

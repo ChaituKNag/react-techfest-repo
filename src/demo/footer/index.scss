@@ -26,6 +26,11 @@
         li{
             padding: 0 10px;
             border-right: 1px solid $black;
+
+            &:hover{
+                cursor: pointer;
+                color: $yellow1;
+            }
         }
         li:first-child{
             padding-left: 0;

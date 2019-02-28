@@ -95,32 +95,33 @@ export default class PLPComponent extends Component{
         }
 
         return(
-        <div>
-            <div className="banner-container">
-                <div className="banner-content">
-                    <div className="banner-hd-1">REPUBLIC DAY SALE</div>
-                    <div className="banner-hd-2">Upto 60% Off*</div>
-                    <div className="banner-hd-3">Google Home and Google Home Mini</div>
-                    <button className="primary-button">EXPLORE</button>
-                </div>
-            </div>
-            {/* <div>
-                    <CategoryComponent productList={this.state.productList}/>
-                </div> */}
-            {productsList}
+            <div className="main-container">
+                <div className="plp-container">
+                    <div className="banner-container">
+                        <div className="banner-content">
+                            <div className="banner-hd-1">REPUBLIC DAY SALE</div>
+                            <div className="banner-hd-2">Upto 60% Off*</div>
+                            <div className="banner-hd-3">Google Home and Google Home Mini</div>
+                            <button className="primary-button">EXPLORE</button>
+                        </div>    
+                    </div>
+                    <div className="page-title">
+                        PRODUCTS
+                    </div>
+                    
+                    {productsList}
 
-
-              { (this.p1)&& 
-              <div>
-                    <span onClick={()=>{this.p1>1&&this.updatesPagniation('prev')}}>Prev</span>
-                    <span onClick={()=>{this.updatesOnPaginationNumber(this.p1)}}>{this.p1}</span>
-                    {(this.p2<=this.maxNext)&&<span onClick={()=>{this.updatesOnPaginationNumber(this.p2)}}>{this.p2}</span>}
-                    {(this.p3<=this.maxNext)&&<span onClick={()=>{this.updatesOnPaginationNumber(this.p3)}}>{this.p3}</span>}
-                    <span onClick={()=>{this.p3<this.maxNext&&this.updatesPagniation('next')}}>next</span>
+                    { (this.p1)&& 
+                    <div className="pagination">
+                        <span onClick={()=>{this.p1>1&&this.updatesPagniation('prev')}}>PREV</span>
+                        <span onClick={()=>{this.updatesOnPaginationNumber(this.p1)}}>{this.p1}</span>
+                        {(this.p2<=this.maxNext)&&<span onClick={()=>{this.updatesOnPaginationNumber(this.p2)}}>{this.p2}</span>}
+                        {(this.p3<=this.maxNext)&&<span onClick={()=>{this.updatesOnPaginationNumber(this.p3)}}>{this.p3}</span>}
+                        <span onClick={()=>{this.p3<this.maxNext&&this.updatesPagniation('next')}}>NEXT</span>
+                    </div>
+                    }
                 </div>
-            }
-            </div>
-           
-            )
+            </div>   
+        )
     }
 }
