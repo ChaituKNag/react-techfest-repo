@@ -76,7 +76,7 @@ class Cart extends Component {
           ) : (
             <p className="cart-empty-message">Your bag is empty !!!</p>
           )}
-          {this.props.orderStatus !== null && (
+          {this.props.orderStatus !== "" && (
             <div className="status-message">
               <span>
                 {this.props.orderStatus

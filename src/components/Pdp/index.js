@@ -28,7 +28,7 @@ class ProductDetails extends Component {
     }
 
     const { match, productData } = this.props;
-    if (productData.id !== match.params.productId) {
+    if (productData.id !== match.params.productId * 1) {
       this.props.getProductData(match.params.productId);
     }
   }
@@ -59,7 +59,7 @@ class ProductDetails extends Component {
             <ListComponent listData={productDescription} className="product-description"/>
             <ListComponent listData={specifications} className="product-features" listHeader="Specifications"/>
             <ListComponent listData={systemRequirements} className="product-features" listHeader="System Requirements"/>
-            {this.props.addTocartStatus !== null && 
+            {this.props.addTocartStatus !== '' && 
               <div className="status-message">
                 <span>{this.props.addTocartStatus ? 'Product has been added to your bag' : 'Product cannot be added to cart' }</span>
               </div> 
