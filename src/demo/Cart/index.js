@@ -27,16 +27,22 @@ export default class CartComponent extends Component{
            
         updatePriceList=(prd)=>{
             console.log(prd);
-            let priceList={...this.state.priceList};
+            let {priceList}=this.state;
                
-
-            priceList[prd.id].price=prd.price;
-            priceList[prd.id].discount=prd.discount;
-            priceList[prd.id].quantity=prd.quantity;
+            priceList[prd.id]={
+                price:prd.price,
+                discount:prd.discount,
+                quantity:prd.quantity
+            }
+          
 
             console.log(priceList);
+            this.setState({priceList},
+            ()=>{
+                this.calcTotal(this.state.priceList);
+            });
 
-           this.calcTotal(priceList);
+           
             
         }
         
@@ -52,11 +58,11 @@ export default class CartComponent extends Component{
             }
         }
 
-        this.setState(
-            {
-                totalDiscount,totalOrder,grandTotal
-            }
-        )
+        this.setState({
+                totalDiscount,
+                totalOrder,
+                grandTotal
+            })
        }
 
        checkoutOrder=()=>{
@@ -91,18 +97,15 @@ export default class CartComponent extends Component{
         )
        }
 
-    componentDidMount(){
+    componentWillMount(){
             
         axios.get(endPointUrl.getCart.replace('$userId',1))
         .then(response => {
             console.log('response-->',response);
-            let tempPriceList={};
-            this.setState({
-                cartList:[...response.data]
-            });
+            let priceList={};
             response.data.map((cartProduct,index)=>{
                 
-                tempPriceList[cartProduct.product.id]={
+                priceList[cartProduct.product.id]={
                                                         quantity:cartProduct.quantity,
                                                         price:cartProduct.product.price,
                                                         discount:cartProduct.product.discount
@@ -112,11 +115,13 @@ export default class CartComponent extends Component{
         });
 
         this.setState({
-            priceList:{...tempPriceList}
+            priceList,
+            cartList:[...response.data]
+        }, () => {
+            this.calcTotal(this.state.priceList);
         });
 
-        this.calcTotal(this.state.priceList);
-        console.log(tempPriceList);
+        console.log(priceList);
     })
         .catch(
             error => {
@@ -127,14 +132,7 @@ export default class CartComponent extends Component{
     }
 
     render(){
-        let cartCardComponent=[];
-
-        for(let i=0;i<this.state.cartList.length;i++){
-            cartCardComponent.push(
-                <CartCardComponent product={this.state.cartList[i].product} key={i} getValue={this.updatePriceList}/>
-            )
-        }
-
+        
         return(
             <div className="main-container">
                 <main className="cart-container">
@@ -142,9 +140,14 @@ export default class CartComponent extends Component{
                         SHOPPING CART
                     </div>
                     <section className="card-shadow">
-                        {
-                        cartCardComponent
-                        }
+                    {
+                        this.state.cartList.map((cartProd,index)=>{
+
+                         return <CartCardComponent product={cartProd.product} key={index} getValue={this.updatePriceList}/>
+                            
+                        })
+                    }
+                    
                     </section>
                     
                     <section className="checkout-container">
