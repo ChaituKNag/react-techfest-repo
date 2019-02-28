@@ -112,8 +112,7 @@ const mapDispatchToProps = dispatch => {
 
 Cart.propTypes = {
   cartData: propTypes.array,
-  subTotal: propTypes.number,
-  orderStatus: propTypes.bool
+  subTotal: propTypes.number
 }
 
 export default connect(

@@ -97,7 +97,11 @@ ProductDetails.propTypes = {
   specifications: propTypes.array,
   systemRequirements: propTypes.array,
   productDescription: propTypes.array,
-  addTocartStatus: propTypes.bool
+  getProductData: propTypes.func,
+  addProductToCart: propTypes.func,
+  dispatch: propTypes.func,
+  match: propTypes.object,
+  addToCart: propTypes.func
 };
 
 export default connect(
