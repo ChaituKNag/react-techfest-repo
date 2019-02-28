@@ -19,8 +19,8 @@ export default class ProductCardComponent extends Component{
 
     render(){
 
-       let stars=[],
-            prdName=this.props.product.name,
+       
+        let prdName=this.props.product.name,
             tagLine=this.props.product.category.name,
             url= `url(${this.props.product.imageUrl})`,
             styles={
@@ -32,10 +32,6 @@ export default class ProductCardComponent extends Component{
                 }
             };
         
-       for(let i=0;i<5;i++)
-                stars.push(<StarComponent isMarked={(i<this.props.product.rating)?true:false} key={i}/>)
-           
-
 
         return(
             <Link to={{pathname:`/pdp/${this.props.product.id}`}} >
@@ -46,7 +42,7 @@ export default class ProductCardComponent extends Component{
                             <h6>{prdName}</h6>
                             <label>{tagLine}</label>
                             <div>
-                               {stars}
+                              <StarComponent rating={this.props.product.rating}/>
                                 </div>
                             
                             </div>

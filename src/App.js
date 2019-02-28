@@ -14,21 +14,24 @@ import {
   CartComponent
 } from './demo';
 import store from './store';
+import history from './history.js';
 
 
 const App = () => (
   <div>
-    <HeaderComponent/>
+    
     <Provider store={store}>
       <Router>
         <div>
+         <HeaderComponent/>
           <Route exact path="/" component={PLPComponent} />
-          <Route exact path="/pdp/:productId" component={PDPComponent} />
-          <Route path="/cart" component={CartComponent} />
+          <Route exact path="/pdp/:productId" component={PDPComponent}  history={history}/>
+          <Route path="/cart" component={CartComponent}  history={history}/>
+          <FooterComponent/>
         </div>
       </Router>
     </Provider>
-    <FooterComponent/>
+ 
   </div>
 );
 
