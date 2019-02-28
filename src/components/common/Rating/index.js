@@ -1,7 +1,9 @@
 import React from 'react';
 import Icon from '../Icon';
+import PropTypes from 'prop-types';
 
-export default class Rating extends React.Component {
+
+class Rating extends React.Component {
     createList = () => {
         let list = [];
 
@@ -25,5 +27,13 @@ export default class Rating extends React.Component {
         );
     }
 };
+
+Rating.propTypes = {
+    avgRating: PropTypes.number,
+    maxRating: PropTypes.number,
+    className: PropTypes.string
+}
+
+export default Rating;
 
 

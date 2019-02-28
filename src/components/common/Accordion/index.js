@@ -53,9 +53,9 @@ class Accordion extends React.Component {
           {accordionData.map((eachObject, index) => {
             return (
               <React.Fragment key={eachObject.id}>
-                {eachObject.parent == 0 ? (
+                {eachObject.parent === 0 ? (
                   <div className="accordion-parent">{eachObject.name}</div>
-                ) : (eachObject.parent - accordionData[index - 1].parent) == accordionData[index - 1].id ? 
+                ) : (eachObject.parent - accordionData[index - 1].parent) === accordionData[index - 1].id ? 
                 (this.renderChildren(eachObject)) : ( this.renderGrandChildren(eachObject))}
               </React.Fragment>
             );

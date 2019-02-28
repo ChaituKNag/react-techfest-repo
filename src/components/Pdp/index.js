@@ -22,12 +22,12 @@ class ProductDetails extends Component {
      * this is the initial render
      * without a previous prop change
      */
-    if (prevProps == undefined) {
+    if (prevProps === undefined) {
       return false;
     }
 
     const { match, productData } = this.props;
-    if (productData.id != match.params.productId) {
+    if (productData.id !== match.params.productId) {
       this.props.getProductData(match.params.productId);
     }
   }
