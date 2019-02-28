@@ -6,6 +6,7 @@ import { getProductsList } from "../../actions/PlpActions";
 import GridComponent from "../common/GridComponent";
 import Banner from "../Banner";
 import Categories from "../Categories";
+import propTypes from 'prop-types';
 
 class ProductsList extends Component {
   componentDidMount() {
@@ -36,5 +37,10 @@ const mapStateToProps = state => {
     filteredProducts: state.plpData.filteredProducts
   };
 };
+
+ProductsList.propTypes = {
+  productsList: propTypes.array,
+  filteredProducts: propTypes.array
+}
 
 export default connect(mapStateToProps)(ProductsList);

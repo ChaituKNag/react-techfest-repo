@@ -21,7 +21,7 @@ class ListComponent extends Component {
 }
 
 ListComponent.propTypes = {
-  listData: propTypes.object,
+  listData: propTypes.array,
   className: propTypes.string,
   listHeader: propTypes.string
 }

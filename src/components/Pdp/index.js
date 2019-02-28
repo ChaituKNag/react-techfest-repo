@@ -8,6 +8,7 @@ import Rating from "../common/Rating";
 import Image from "../common/Image";
 import ListComponent from '../common/ListComponent';
 import Price from '../common/Price';
+import propTypes from 'prop-types';
 
 import './pdp.scss';
 
@@ -86,6 +87,16 @@ const mapDispatchToProps = dispatch => {
       dispatch(addToCart(productData));
     }
   };
+};
+
+ProductDetails.propTypes = {
+  imageUrl: propTypes.string,
+  name: propTypes.string,
+  price: propTypes.number,
+  rating: propTypes.number,
+  specifications: propTypes.array,
+  systemRequirements: propTypes.array,
+  productDescription: propTypes.array
 };
 
 export default connect(

@@ -54,7 +54,7 @@ class Cart extends Component {
               </p>
               <p>
                 <span>Delivery Charges:</span>
-                <Price currency="$" price="800" />
+                <Price currency="$" price={800} />
               </p>
               <p className="grand-total">
                 <span>Grand Total:</span>
@@ -111,8 +111,9 @@ const mapDispatchToProps = dispatch => {
 };
 
 Cart.propTypes = {
-  cartData: propTypes.object,
-  subTotal: propTypes.number
+  cartData: propTypes.array,
+  subTotal: propTypes.number,
+  orderStatus: propTypes.string
 }
 
 export default connect(
