@@ -18,6 +18,11 @@ class ModalComponent extends Component {
     }));
   }
 
+  onClickHandler = () => {
+    this.props.onRemoveItem(this.props.itemId);
+    this.toggle();
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -28,7 +33,7 @@ class ModalComponent extends Component {
             {this.props.modalContent}
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Remove</Button>
+            <Button color="primary" onClick={this.onClickHandler}>Remove</Button>
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>

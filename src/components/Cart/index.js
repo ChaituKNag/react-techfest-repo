@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Container } from "reactstrap";
 import { withRouter } from "react-router";
 
-import { getCartData, placeOrder } from "../../actions/CartActions";
+import { getCartData, placeOrder, removeItem } from "../../actions/CartActions";
 import GridComponent from "../common/GridComponent";
 import Price from "../common/Price";
 import Cta from "../common/Cta";
@@ -14,11 +14,14 @@ import "./cart.scss";
 class Cart extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.orderStatus) {
-      // TO do redirect to order confirmation page
-      // const location = {
-      //   pathname: '/'
-      // }
-      // this.props.history.push(location);
+      //TO do redirect to order confirmation page
+      const self = this;
+      setTimeout(() => {
+        const location = {
+          pathname: '/'
+        }
+        self.props.history.push(location);
+      }, 2000);
     }
   }
 
@@ -35,6 +38,11 @@ class Cart extends Component {
     };
     this.props.placeOrder(checkoutObj);
   }
+
+  onRemoveItem = (productId) => {
+    this.props.removeItem(productId);
+  }
+
   render() {
     const cartData = this.props.cartData;
     return (
@@ -45,6 +53,7 @@ class Cart extends Component {
             productsList={cartData}
             listView={true}
             isCart={true}
+            onRemoveItem={this.onRemoveItem}
           />
           {cartData && cartData.length > 0 ? (
             <div className="total-price-section">
@@ -80,7 +89,7 @@ class Cart extends Component {
             <div className="status-message">
               <span>
                 {this.props.orderStatus
-                  ? "Your order has been placed successfully."
+                  ? "Your order has been placed successfully. Redirecting to home page"
                   : "Your order cannot be placed."}
               </span>
             </div>
@@ -106,6 +115,9 @@ const mapDispatchToProps = dispatch => {
     },
     placeOrder: orderData => {
       dispatch(placeOrder(orderData));
+    },
+    removeItem: id => {
+      dispatch(removeItem(id));
     }
   };
 };

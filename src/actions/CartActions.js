@@ -1,5 +1,5 @@
 import axios from "axios";
-import { DISPLAY_CART_DATA, UPDATE_CART, UPDATE_PRICE, ORDER_UPDATE } from "../constants/CartConstants";
+import { DISPLAY_CART_DATA, UPDATE_CART, UPDATE_PRICE, ORDER_UPDATE, REMOVE_FROM_CART, EMPTY_CART_DATA } from "../constants/CartConstants";
 
 export const displayCartData = cartData => {
   return {
@@ -15,6 +15,15 @@ export const updateCart = cartData => {
     type: UPDATE_CART,
     payload: {
       cartData
+    }
+  };
+};
+
+export const removeItem = productId => {
+  return {
+    type: REMOVE_FROM_CART,
+    payload: {
+      productId
     }
   };
 };
@@ -58,9 +67,18 @@ export const placeOrder = (orderData) => {
       .post(`http://localhost:4567/api/order`, orderData)
       .then(response => {
         dispatch(orderUpdate(response.data));
+        setTimeout(() => {
+          dispatch(emptyCart());
+        }, 500)
       })
       .catch(error => {
         throw error;
       });
+  };
+};
+
+export const emptyCart = () => {
+  return {
+    type: EMPTY_CART_DATA
   };
 };

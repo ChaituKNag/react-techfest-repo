@@ -31,7 +31,7 @@ class CardComponent extends React.Component {
   render() {
     const { id, imageUrl, name, category, price, rating } =
       this.props.product || this.props;
-    const { isCart, isListView } = this.props;
+    const { isCart, isListView, onRemoveItem, itemId } = this.props;
     return (
       <Card>
         <Link to={`/product/${id}`}>
@@ -58,7 +58,7 @@ class CardComponent extends React.Component {
           <Rating maxRating={5} avgRating={rating} className="text-warning" />
         </div>
         {isListView && <div className="action-btns">
-            {isCart && <ModalComponent buttonLabel="Delete Item" modalClass="remove-from-cart-modal" modalContent="Are you sure want to remove this from cart?" modalTriggerButtonClass="remove-from-cart-button"/> }
+            {isCart && <ModalComponent buttonLabel="Delete Item" modalClass="remove-from-cart-modal" modalContent="Are you sure want to remove this from cart?" modalTriggerButtonClass="remove-from-cart-button" onRemoveItem={onRemoveItem} itemId={itemId}/> }
             <Cta ctaType="link" ctaPath="#" ctaText="Save for Later" className="add-to-wishlist"/>
         </div>
         }

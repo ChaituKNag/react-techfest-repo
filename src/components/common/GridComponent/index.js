@@ -30,7 +30,7 @@ class GridComponent extends React.Component {
     })
   }
   render() {
-    const { listView, isCart, productsList } = this.props;
+    const { listView, isCart, productsList, onRemoveItem } = this.props;
     return (
       <section className={`product-grid ${listView || this.state.list==='active' ? 'list-view': ''}`}>
         <Row>
@@ -48,7 +48,7 @@ class GridComponent extends React.Component {
           {productsList.length > 0 ? (
             productsList.map(product => 
               <Col md={listView || this.state.list==='active' ? 12 : 4} key={product.id}>
-                <CardComponent {...product} isCart={isCart} isListView={listView || this.state.list==='active'}/>
+                <CardComponent {...product} isCart={isCart} isListView={listView || this.state.list==='active'} onRemoveItem={onRemoveItem} itemId={product.productId}/>
               </Col>
             ))
            : 
