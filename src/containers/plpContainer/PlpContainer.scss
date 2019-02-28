@@ -1,0 +1,17 @@
+@import '../../scss/variables';
+
+.pagination{
+  float: right;
+}
+
+.page-number.active{
+  a{
+  background: $brand-territory;
+  color: white;
+  border-radius:50%;
+  }
+}
+
+.is-active{
+  color: $brand-territory
+}
