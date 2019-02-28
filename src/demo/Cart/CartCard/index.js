@@ -60,9 +60,8 @@ export default class CartCardComponent extends Component{
         let price=(this.state.quantity||0)*parseInt(this.props.product.price,10);
 
         return(
-            <section className="item-section">
             <div className="cart-item-cards">
-                <div>
+                <div className="image-container">
                     <img src={this.props.product.imageUrl} alt=""/>
                 </div>
                 <div className="card-contents">
@@ -89,7 +88,6 @@ export default class CartCardComponent extends Component{
                     </div>
                 </div>
             </div>
-        </section>
         )
     }
 }

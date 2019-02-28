@@ -23,3 +23,16 @@
         background-color: $grey9;
     }
 }
+
+.main-container{
+    min-height: calc(100vh - (71px + 116px)); //Total minus height of Header + Footer 
+}
+
+.card-shadow{
+    box-shadow: 0 0 15px rgba(195, 195, 195, 0.5);
+    background: $white;
+}
+
+a:visited{
+    color: inherit;
+}

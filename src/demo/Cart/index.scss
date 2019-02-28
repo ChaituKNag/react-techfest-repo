@@ -13,82 +13,89 @@
             padding-bottom: 40px;
         }
 
-        .item-section{
-            box-shadow: 0 0 15px rgba(195, 195, 195, 0.5);
-            background: $white;
+        .cart-item-cards{
+            display: flex;
+            padding: 30px;
+            border-bottom: 1px solid #e0e0e0;
 
-            .cart-item-cards{
-                display: flex;
-                padding: 30px;
-                border-bottom: 1px solid #e0e0e0;
+            .image-container{
+                width: 150px;
+                height: 150px;
 
-                .card-contents{
-                    @include font($Helvetica, 16px, normal, $grey7);
+                img{
                     width: 100%;
-                    padding: 0 20px 0 40px;
-
-                    .header{
-                        @include font($Helvetica, 18px, bold, $grey7);
-                        .product-name{
-                            width: 50%;
-                            float: left;
-                            line-height: 1.5;
-                        }
-                        .product-actions{
-                            width: 50%;
-                            width: 50%;
-                            float: right;
-                            text-align: right;
-
-                            ul{
-                                display: inline;
-                                @include font($Helvetica, 16px, normal, $grey7);
-
-                                li{
-                                    padding: 0 10px;
-                                    border-right: 1px solid $black;
-                                }
-                                li:first-child{
-                                    padding-left: 0;
-                                }
-                                li:last-child{
-                                    border-right: none;
-                                }
-                                li:hover{
-                                    cursor: pointer;
-                                }
-                            }
-                        }
-                    }
-
-                    .ratings-section{
-                        clear: both;
-                        padding: 10px 0;
-                    }
-                    .quantity-section{
-                        @include font($Helvetica-light, 16px, normal, $grey7);
-                        padding: 10px 0;
-                        span{
-                            font-weight: bold;
-                        }
-                        
-                        input{
-                            padding: 10px;
-                            border: 1px solid $grey8;
-                            border-radius: 7px;
-                            ::placeholder {
-                                color: $grey8;
-                            }
-                              
-                        }
-                    }
-                }
-
-                &:last-child{
-                    border: none;
+                    height: 100%;
+                    object-fit: contain;
                 }
             }
+
+            .card-contents{
+                @include font($Helvetica, 16px, normal, $grey7);
+                width: 100%;
+                padding: 0 20px 0 40px;
+
+                .header{
+                    @include font($Helvetica, 18px, bold, $grey7);
+                    .product-name{
+                        width: 50%;
+                        float: left;
+                        line-height: 1.5;
+                    }
+                    .product-actions{
+                        width: 50%;
+                        width: 50%;
+                        float: right;
+                        text-align: right;
+
+                        ul{
+                            display: inline;
+                            @include font($Helvetica, 16px, normal, $grey7);
+
+                            li{
+                                padding: 0 10px;
+                                border-right: 1px solid $black;
+                            }
+                            li:first-child{
+                                padding-left: 0;
+                            }
+                            li:last-child{
+                                border-right: none;
+                            }
+                            li:hover{
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+
+                .ratings-section{
+                    clear: both;
+                    padding: 10px 0;
+                }
+                .quantity-section{
+                    @include font($Helvetica-light, 16px, normal, $grey7);
+                    padding: 10px 0;
+                    span{
+                        font-weight: bold;
+                    }
+                    
+                    input{
+                        padding: 10px;
+                        border: 1px solid $grey8;
+                        border-radius: 7px;
+                        ::placeholder {
+                            color: $grey8;
+                        }
+                            
+                    }
+                }
+            }
+
+            &:last-child{
+                border: none;
+            }
         }
+        
         .checkout-container{
             padding: 40px 0;
 
