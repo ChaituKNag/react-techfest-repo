@@ -84,7 +84,7 @@ export default class CartCardComponent extends Component{
                         <StarComponent rating={this.props.product.rating}/>
                     </div>
                     <div className="quantity-section">
-                        <input type="text" value={this.state.quantity} onBlur={this.validateAndResetQty} onChange={this.changeInQuantity}  placeholder="Qty"/> x <span>${this.props.product.price} = ${price}</span>
+                        <input type="text" value={this.state.quantity} onBlur={this.validateAndResetQty} onChange={this.changeInQuantity}  placeholder="Qty"/> x <span>${parseFloat(this.props.product.price).toFixed(2)} = ${parseFloat(price).toFixed(2)}</span>
                     </div>
                 </div>
             </div>
