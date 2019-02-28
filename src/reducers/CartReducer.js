@@ -2,11 +2,11 @@ import { DISPLAY_CART_DATA, UPDATE_CART, DISPLAY_STATUS_MESSAGE, UPDATE_PRICE, O
 
 const initalState = {
     cartData : [],
-    status: '',
+    status: null,
     cartCount: 0,
     total: 0,
     subTotal: 0,
-    orderStatus: ''
+    orderStatus: null
 };
 
 const displayCart = (previousState=initalState, action) => {
