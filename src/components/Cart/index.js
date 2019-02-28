@@ -76,7 +76,7 @@ class Cart extends Component {
           ) : (
             <p className="cart-empty-message">Your bag is empty !!!</p>
           )}
-          {this.props.orderStatus !== null && (
+          {this.props.orderStatus !== "" && (
             <div className="status-message">
               <span>
                 {this.props.orderStatus
@@ -113,7 +113,7 @@ const mapDispatchToProps = dispatch => {
 Cart.propTypes = {
   cartData: propTypes.array,
   subTotal: propTypes.number,
-  orderStatus: propTypes.bool
+  orderStatus: propTypes.string
 }
 
 export default connect(
