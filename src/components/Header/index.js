@@ -1,10 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { withRouter } from "react-router";
 import { connect } from "react-redux";
 
 import "./header.scss";
 import { getCartData } from '../../actions/CartActions';
-import { getSuggestionsData } from "../../actions/SearchActions";
+import { getSuggestionsData, displaySuggestionsList } from "../../actions/SearchActions";
 
 import {
   Container,
@@ -31,8 +32,18 @@ class Header extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      searchTerm: ''
     };
+
+    const self = this;
+
+    this.props.history.listen(function() {
+      self.props.displaySuggestionsList([]);
+      self.setState({
+        searchTerm: ''
+      });
+    }); 
   }
 
   componentDidMount() {
@@ -46,10 +57,13 @@ class Header extends React.Component {
   }
   getSuggestions(e) {
     this.props.getSearchSuggestions(e.target.value);
+    this.setState({
+      searchTerm: e.target.value
+    });
   }
 
   render() {
-    const { suggestionsList, cartCount } = this.props;
+    const { suggestionsList, cartCount, searchTerm } = this.props;
     return (
       <section className="header">
         <Container>
@@ -63,6 +77,7 @@ class Header extends React.Component {
                       className="search"
                       inputType="search"
                       inputPlaceholder="Search item or keyword"
+                      inputValue={this.state.searchTerm}
                       onChangeHandler={this.getSuggestions.bind(this)}
                     />
                     <Icon iconName="search" iconType="solid" />
@@ -93,6 +108,7 @@ class Header extends React.Component {
                         className="search-mobile"
                         inputType="search"
                         inputPlaceholder="Search item or keyword"
+                        inputValue={this.state.searchTerm}
                         onChangeHandler={this.getSuggestions.bind(this)}
                       />
                       <Icon iconName="search" iconType="solid" />
@@ -151,6 +167,9 @@ const mapDispatchToProps = dispatch => {
     },
     getCartData: () => {
       dispatch(getCartData());
+    },
+    displaySuggestionsList: (suggestionsList) => {
+      dispatch(displaySuggestionsList(suggestionsList));
     }
   };
 };
@@ -158,4 +177,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Header);
+)(withRouter(Header));
