@@ -1,4 +1,4 @@
-import {ADD_PRODUCT,REMOVE_PRODUCT} from '../constants';
+import {ADD_PRODUCT,REMOVE_PRODUCT,UPDATE_QTY} from '../constants';
 import _ from 'underscore';
 
 const initialState = {
@@ -10,7 +10,7 @@ export default function(state = initialState, action) {
     case ADD_PRODUCT:
                       var cartState = state.cart;
                       cartState = cartState ? cartState : [];
-                      var newState = [...cartState, action.payload]
+                      var newState = [...cartState, {...action.payload,qty:1}]
                       return {
                         ...state,
                         cart: newState
@@ -23,6 +23,24 @@ export default function(state = initialState, action) {
                       return {
                         cart: state
                       };
+    case UPDATE_QTY:{
+                    console.log("in reducer",action.id,action.qty,state.cart);
+                    var cart = state.cart;
+                    var qty = action.qty;
+                    var id =action.id;
+                    for(let i=0;i<cart.length;i++){
+                      if(cart[i].id === id){
+                        console.log("found product");
+                        cart[i].qty = qty;
+                        break;
+                      }
+                    }
+                    console.log(cart)
+                    return {
+                      cart:cart
+                    }
+                    };
+
   default:
           return state;                  
   }

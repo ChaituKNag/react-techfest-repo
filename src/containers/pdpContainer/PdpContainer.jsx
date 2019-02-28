@@ -67,7 +67,7 @@ class ProductDetailContainer extends Component {
             </h5> */}
             <div className="action">
                 <div className="product-buynow">
-                   {this.checkInCart()?(<button className='btn btn-secondary' disabled="true">Added in Cart</button>):(<button className='btn btn-primary' onClick={()=>this.add(detail)} >Add to cart</button>)}
+                   {this.checkInCart()?(<button className='btn btn-secondary' disabled={true}>Added in Cart</button>):(<button className='btn btn-primary' onClick={()=>this.add(detail)} >Add to cart</button>)}
                 </div>
             </div>
           </div>

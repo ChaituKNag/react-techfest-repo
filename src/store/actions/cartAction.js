@@ -1,4 +1,4 @@
-import { ADD_PRODUCT, REMOVE_PRODUCT } from "../constants";
+import { ADD_PRODUCT, REMOVE_PRODUCT, UPDATE_QTY } from "../constants";
 
 export const addToCart = (product) => dispatch => {
   return dispatch({
@@ -11,5 +11,14 @@ export const removeFromCart = (id) => dispatch => {
   return dispatch({
   type: REMOVE_PRODUCT,
     payload: id
+  })
+}
+
+export const updateCartQty = (id,qty) => dispatch => {
+  console.log("in updatecart",id,qty);
+  return dispatch({
+    type: UPDATE_QTY,
+    id:id,
+    qty:qty
   })
 }

@@ -27,7 +27,7 @@ class Header extends Component {
             </span>
             <span className="slds-avatar slds-avatar_medium slds-avatar_circle">
               <span className="slds-icon_container">
-              <img alt="Person name" src='https://randomuser.me/api/portraits/men/97.jpg' title="Person name" />
+              <img alt="Person name" src='https://randomuser.me/api/portraits/men/97.jpg' title="Tommy Wheeler" />
               </span>
             </span>
           </div>

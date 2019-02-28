@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './cart.scss';
+import {Link} from 'react-router-dom';
 
 class Cart extends Component {
 
@@ -12,7 +13,20 @@ class Cart extends Component {
     }
     this.removeItem = this.removeItem.bind(this);
     this.toggleDropDown = this.toggleDropDown.bind(this);
+    this.closePopup = this.closePopup.bind(this);
   }
+
+  componentDidMount = () => {
+    this.unlisten = this.props.history.listen((location, action) => {
+      console.log("on route change");
+      this.closePopup();
+    });
+  }
+
+  closePopup(){
+    this.setState({ open: false });
+  }
+  
 
   removeItem(id) {
     this.props.removeFromCart(id);
@@ -53,9 +67,9 @@ class Cart extends Component {
                     })
                   }
                   <li key={56} className="slds-dropdown__item" role="presentation">
-                    <a className="p-2">
-                      <button className="slds-button slds-button_brand slds-button_stretch">Checkout</button>
-                    </a>
+                    <Link to="/checkout" className="p-2">
+                      <button className="slds-button slds-button_brand slds-button_stretch" >Checkout</button>
+                    </Link>
                   </li>
                 </ul>
               </div>)
