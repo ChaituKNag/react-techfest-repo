@@ -47,7 +47,7 @@ class CategoryItem extends PureComponent {
   render() {
     const { value } = this.props
     const icon = (expanded) => {
-      return 'icon icon-' + (expanded ? 'down' : 'right') + '-dir'
+      return `icon icon-${expanded ? 'down' : 'right'}-dir`
     }
     return (
       <div>

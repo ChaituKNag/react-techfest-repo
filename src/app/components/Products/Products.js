@@ -72,7 +72,7 @@ class Products extends PureComponent {
       <ProductsWrapper>
         <ProductsList>
           {paginatedData.filter(product => product.inStock).map((product) => (
-            <Link key={product.id} to={'/product/' + product.id}>
+            <Link key={product.id} to={`/product/${product.id}`}>
               <ProductCard key={product.id} name={product.name} rating={product.rating} numberOfRaters={140} bestSelling={true} imageUrl={product.imageUrl} />
             </Link>
           ))}
