@@ -68,7 +68,7 @@ const Search = ({search, setSearch, searchResults, getSearchResults, history}) =
   const onChangeSearch = (e) => {
     const val = e.target.value
     setSearch(val)
-    val && val.length && getSearchResults(val)
+    getSearchResults(val)
   }
 
   const menuStyle = {

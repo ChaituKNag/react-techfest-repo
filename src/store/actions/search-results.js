@@ -22,11 +22,15 @@ const searchResultsError = error => ({
 
 
 export const getSearchResults = (val) => (dispatch) => {
-  dispatch(searchResultsInit())
-  searchProducts(val).then(response => {
-    if (response) {
-      dispatch(searchResultsSuccess(response.data))
-    }
-  })
+  if(val && val.length){
+    dispatch(searchResultsInit())
+    searchProducts(val).then(response => {
+      if (response) {
+        dispatch(searchResultsSuccess(response.data))
+      }
+    })
     .catch(error => dispatch(searchResultsError(error)))
+  } else{
+    dispatch(searchResultsSuccess([]))
+  }
 }

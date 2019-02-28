@@ -57,6 +57,12 @@ const ButtonWrapper = styled.div`
   }
 `
 
+const EmptyMessage = styled.div`
+  padding: 20px;
+  text-align: center;
+  font-size: 1.25rem;
+`
+
 class UserCart extends PureComponent {
 
   componentDidMount() {
@@ -91,18 +97,23 @@ class UserCart extends PureComponent {
     return (
       <CartWrapper>
         <HeaderTag as='h5'>SHOPPING CART</HeaderTag>
-        <ListWrapper>
-          {
-            list.length > 0 && list.map(item => <ProductListItem key={item.id} {...item.product} id={item.id} quantity={item.quantity} showActions showPricing deleteFromCart={deleteFromCart} />)
-          }
-        </ListWrapper>
-        <PriceWrapper>
-          <Price><span>Order Total:</span><span>${this.getTotal()}</span></Price>
-        </PriceWrapper>
-        <ButtonWrapper>
-          <Button type={SECONDARY} size={MEDIUM} onClick={() => history.push('/')}>Continue Shopping</Button>
-          <Button type={PRIMARY} size={MEDIUM} onClick={this.checkout}>Proceed to Checkout</Button>
-        </ButtonWrapper>
+        {
+          list.length > 0  ?
+          <div>
+            <ListWrapper>
+              {
+                list.length > 0 && list.map(item => <ProductListItem key={item.id} {...item.product} id={item.id} quantity={item.quantity} showActions showPricing deleteFromCart={deleteFromCart} />)
+              }
+            </ListWrapper>
+            <PriceWrapper>
+              <Price><span>Order Total:</span><span>${this.getTotal()}</span></Price>
+            </PriceWrapper>
+            <ButtonWrapper>
+              <Button type={SECONDARY} size={MEDIUM} onClick={() => history.push('/')}>Continue Shopping</Button>
+              <Button type={PRIMARY} size={MEDIUM} onClick={this.checkout}>Proceed to Checkout</Button>
+            </ButtonWrapper>
+          </div> : <EmptyMessage>Cart is Empty!</EmptyMessage>
+        }
       </CartWrapper>
     )
   }
