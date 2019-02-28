@@ -15,3 +15,8 @@ export const productsAPI = baseURI + '/api/product';
 export const productDetailAPI = baseURI + '/api/product/description/';
 
 export const categoryAPI = baseURI + '/api/category';
+
+
+export const START_LOADING = 'START_LOADING';
+
+export const STOP_LOADING = 'STOP_LOADING';

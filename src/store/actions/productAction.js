@@ -1,4 +1,4 @@
-import {FETCH_PRODUCTS, productsAPI, categoryAPI, FETCH_CATEGORIES, FETCH_DETAIL,productDetailAPI } from '../constants';
+import {FETCH_PRODUCTS, productsAPI, categoryAPI, FETCH_CATEGORIES, FETCH_DETAIL,productDetailAPI,START_LOADING,STOP_LOADING } from '../constants';
 import axios from 'axios';
 
 
@@ -25,6 +25,9 @@ let  tree = function (data, root) {
 }
 
 export const fetchProducts =  (callback) => dispatch => {
+  dispatch({
+    type: START_LOADING
+  })
   return axios
          .get(productsAPI)
          .then(res => {
@@ -32,11 +35,15 @@ export const fetchProducts =  (callback) => dispatch => {
             if (callback) {
               callback();
             }
+            dispatch({
+              type: STOP_LOADING
+            });
 
               return dispatch({
                 type: FETCH_PRODUCTS,
                 payload: products
               });
+              
             })
             .catch(err => {
               
@@ -44,6 +51,9 @@ export const fetchProducts =  (callback) => dispatch => {
 }
 
 export const fetchCategories = (callback) => dispatch => {
+  dispatch({
+    type: START_LOADING
+  })
   return axios
         .get(categoryAPI)
         .then(res => {
@@ -52,7 +62,9 @@ export const fetchCategories = (callback) => dispatch => {
             callback();
           }
           let finalTree = makeTree(categories);
-
+          dispatch({
+            type: STOP_LOADING
+          });
           return dispatch({
             type: FETCH_CATEGORIES,
             payload: finalTree

@@ -6,16 +6,18 @@ import Header from "./components/layout/Header/Header";
 import ProductListContainer from "./containers/plpContainer/PlpContainer";
 import ProductDetailContainer from "./containers/pdpContainer/PdpContainer";
 import Checkout from "./containers/checkout/Checkout";
+import Spinner from './components/common/spinner/Spinner';
 
 
 const App = () => (
   <Provider store={store}>
     <Router>
-      <div>
+      <div className="">
         <Header />
         <Route exact path="/" component={ProductListContainer} />
         <Route exact path="/product/:id" component={ProductDetailContainer} />
         <Route exact path="/checkout" component={Checkout} />
+        <Spinner/>
       </div>
     </Router>
   </Provider>
