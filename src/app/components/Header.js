@@ -106,6 +106,10 @@ const mapStateToProps = (state, ownProps) => ({
   ...ownProps
 })
 
+Header.propTypes = {
+  fetchUser: PropTypes.func
+}
+
 
 export default connect(
   mapStateToProps,

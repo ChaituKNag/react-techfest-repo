@@ -107,5 +107,6 @@ ProductListItem.propTypes = {
   price: PropTypes.number,
   showActions: PropTypes.bool,
   showPricing: PropTypes.bool,
-  deleteFromCart: PropTypes.func
+  deleteFromCart: PropTypes.func,
+  quantity: PropTypes.number
 }
