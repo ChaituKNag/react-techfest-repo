@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import propTypes from 'prop-types';
+import Cta from '../Cta';
 
 class Pagination extends Component {
     constructor(props) {
@@ -105,21 +106,21 @@ class Pagination extends Component {
         return (
             <ul className="pagination">
                 <li className={pager.currentPage === 1 ? 'disabled page-item' : 'page-item'}>
-                    <a className="page-link" href="#" onClick={() => this.setPage(1)}>First</a>
+                    <Cta ctaType="button" ctaText="First" onClickHandler={() => this.setPage(1)} className="page-link link"></Cta>
                 </li>
                 <li className={pager.currentPage === 1 ? 'disabled page-item' : 'page-item'}>
-                    <a className="page-link" href="javascript:void(0)" onClick={() => this.setPage(pager.currentPage - 1)}>Previous</a>
+                    <Cta ctaType="button" ctaText="Previous" onClickHandler={() => this.setPage(pager.currentPage - 1)} className="page-link link"></Cta>
                 </li>
                 {pager.pages.map((page, index) =>
                     <li key={index} className={pager.currentPage === page ? 'active page-item' : 'page-item'}>
-                        <a className="page-link" href="javascript:void(0)" onClick={() => this.setPage(page)}>{page}</a>
+                        <Cta ctaType="button" ctaText={`${page}`} onClickHandler={() => this.setPage(page)} className="page-link link"></Cta>
                     </li>
                 )}
                 <li className={pager.currentPage === pager.totalPages ? 'disabled page-item' : 'page-item'}>
-                    <a className="page-link" href="javascript:void(0)" onClick={() => this.setPage(pager.currentPage + 1)}>Next</a>
+                    <Cta ctaType="button" ctaText="Next" onClickHandler={() => this.setPage(pager.currentPage + 1)} className="page-link link"></Cta>
                 </li>
                 <li className={pager.currentPage === pager.totalPages ? 'disabled page-item' : 'page-item'}>
-                    <a className="page-link" href="javascript:void(0)" onClick={() => this.setPage(pager.totalPages)}>Last</a>
+                    <Cta ctaType="button" ctaText="Last" onClickHandler={() => this.setPage(pager.totalPages)} className="page-link link"></Cta>
                 </li>
             </ul>
         );

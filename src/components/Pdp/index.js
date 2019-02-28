@@ -96,7 +96,12 @@ ProductDetails.propTypes = {
   rating: propTypes.number,
   specifications: propTypes.array,
   systemRequirements: propTypes.array,
-  productDescription: propTypes.array
+  productDescription: propTypes.array,
+  getProductData: propTypes.func,
+  addProductToCart: propTypes.func,
+  dispatch: propTypes.func,
+  match: propTypes.object,
+  addToCart: propTypes.func
 };
 
 export default connect(
