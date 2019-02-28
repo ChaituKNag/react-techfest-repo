@@ -35,9 +35,11 @@ class ProductsList extends Component {
           <Col md={9}>
             <GridComponent productsList={paginationData}></GridComponent>
             {filteredProducts.length > 12 ? 
-              <Col md={12}>
-                <Pagination paginationData={filteredProducts} onChangePage={this.onChangePage} />
-              </Col>
+              <Row>
+                <Col md={12}>
+                  <Pagination paginationData={filteredProducts} onChangePage={this.onChangePage} />
+                </Col>
+              </Row>
             : null} 
           </Col>
         </Row>
