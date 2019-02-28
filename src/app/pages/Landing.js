@@ -42,21 +42,6 @@ const GridView = styled.div`
     fleX: 1;
   }
 `
-
-const GridViewIcons = styled.div`
-  display:flex;
-  flex-direction: row;
-  margin-top: 5px;
-
-  .icon{
-    font-size: 20px;
-  }
-
-  .icon + .icon{
-    margin-left: 5px;
-  }
-`
-
 const Landing = () => (
   <div>
     <Container>
@@ -66,10 +51,6 @@ const Landing = () => (
         <section>
           <GridView>
            <HeaderTag as='h5'>PRODUCTS</HeaderTag>
-           <GridViewIcons>
-             <span class="icon icon-star"></span>
-             <span class="icon icon-star"></span>
-           </GridViewIcons>
           </GridView>         
           <Products />
         </section>
