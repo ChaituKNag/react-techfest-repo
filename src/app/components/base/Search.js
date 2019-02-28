@@ -71,6 +71,10 @@ const Search = ({search, setSearch, searchResults, getSearchResults, history}) =
     getSearchResults(val)
   }
 
+  const onSelect = (item) => {
+    setSearch(item.name);
+  }
+
   const menuStyle = {
     borderRadius: '3px',
     boxShadow: '0 2px 12px rgba(0, 0, 0, 0.1)',
@@ -93,7 +97,7 @@ const Search = ({search, setSearch, searchResults, getSearchResults, history}) =
         menuStyle={menuStyle}
         renderInput={InputComponent}
         onChange={(e) => onChangeSearch(e)}
-        onSelect={(val) => history.push('/product/1')}
+        onSelect={(val, item) => onSelect(item)}
       />
     </SearchWrapper>
   )
