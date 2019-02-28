@@ -1,0 +1,24 @@
+.ui.card>.image, .ui.cards>.card>.image {
+    max-height: 200px;
+    min-height: 200px;
+}
+.ui.card>.content>.header:not(.ui), .ui.cards>.card>.content>.header:not(.ui) {
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.ui.card {
+    margin: 1em 0;
+    max-height: 340px;
+    min-height: 340px;
+    box-shadow: -1px 1px 10px 3px grey;
+    margin-bottom:10px;
+}
+
+.ui.card:last-child {
+    margin-bottom: 20px;
+}
+
+.ui.pagination.menu {
+    float: right;
+}

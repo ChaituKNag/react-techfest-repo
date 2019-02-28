@@ -1,15 +1,16 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Provider } from 'react-redux';
+import { Header, Icon } from 'semantic-ui-react';
 import {
   Home,
-  About,
-  Heroes,
-  Todos,
-  TodosHooks
+  Products,
+  ProductDetails,
+  Cart
 } from './demo';
-import store from './store';
 
+import configureStore from './store';
+const store = configureStore();
 
 const App = () => (
   <Provider store={store}>
@@ -17,29 +18,23 @@ const App = () => (
       <div>
         <ul>
           <li>
-            <Link to="/"><span role="img" aria-label="Home">🏠</span></Link>
+            <Link to="/">
+            <Header as='h3' color='yellow' className="inline-ele">
+                E-COMMERCE
+                <Header.Subheader>Platform</Header.Subheader>
+            </Header></Link>
           </li>
-          <li>
-            <Link to="/about"><span role="img" aria-label="About">😂</span></Link>
-          </li>
-          <li>
-            <Link to="/heroes"><span role="img" aria-label="Heroes">🔥</span></Link>
-          </li>
-          <li>
-            <Link to="/todos"><span role="img" aria-label="Todos">😎</span></Link>
-          </li>
-          <li>
-            <Link to="/todos-hooks"><span role="img" aria-label="Todos Hooks">💩</span></Link>
+          <li className="cart_link">
+          <Link to="/cart">
+            <Icon name="cart"></Icon>
+          </Link>
           </li>
         </ul>
-
         <hr />
-
         <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/heroes" component={Heroes} />
-        <Route path="/todos" exact component={Todos} />
-        <Route path="/todos-hooks" component={TodosHooks} />
+        <Route path="/products" component={Products} />
+        <Route path="/product/:id" component={ProductDetails}/>
+        <Route path="/cart" component={Cart}/>
       </div>
     </Router>
   </Provider>
