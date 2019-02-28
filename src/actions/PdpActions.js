@@ -27,6 +27,7 @@ export const getProductData = productId => {
     return axios
       .get(`http://localhost:4567/api/product/${productId}`)
       .then(response => {
+        dispatch(displayStatusMessage(''));
         dispatch(displayProductData(response.data));
       })
       .catch(error => {

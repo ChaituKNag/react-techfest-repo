@@ -2,10 +2,6 @@ import React from 'react';
 import Icon from '../Icon';
 
 export default class Rating extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     createList = () => {
         let list = [];
 
