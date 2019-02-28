@@ -1,13 +1,16 @@
 import Home from './Home';
-import About from './About';
-import Heroes from './Heroes';
-import Todos from './Todos';
-import TodosHooks from './TodosHooks';
+import Products from './Products';
+import ProductTile from './ProductTile';
+import ProductDetails from './ProductDetails';
+import Category from './Category';
+import Cart from './Cart';
+
 
 export {
     Home,
-    About,
-    Heroes,
-    Todos,
-    TodosHooks
+    Products,
+    ProductTile,
+    ProductDetails,
+    Category,
+    Cart
 }

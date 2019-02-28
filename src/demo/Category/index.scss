@@ -1,0 +1,9 @@
+.ui.items>.item{
+    border: 2px solid lightgrey;
+    padding: 20px;
+    margin:0px;
+    border-bottom: 0px;
+}
+.ui.items>.item:last-child{
+    border-bottom: 2px solid lightgrey;
+}
