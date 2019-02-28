@@ -51,10 +51,12 @@ const displayCart = (previousState = initalState, action) => {
             var remainingItems = previousState.cartData.filter((item) => {
                 return item.productId !== action.payload.productId
             });
+            subTotal = totalPrice({cartData: remainingItems});
             return {
                 ...previousState,
                 cartData: remainingItems,
-                cartCount: previousState.cartData.length - 1
+                cartCount: previousState.cartData.length - 1,
+                subTotal
             };
         case EMPTY_CART_DATA:
             return {
