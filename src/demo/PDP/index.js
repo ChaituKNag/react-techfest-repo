@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom'
 import axios from 'axios';
 
 import endPointUrl from '../../AppConsts/EndpointUrls.js';
@@ -13,6 +14,24 @@ export default class PDPComponent extends Component{
 
         this.state={
            productInfo:{}
+        }
+
+        this.addToCart=()=>{
+            let data={
+                userId:1,
+                quantity:1,
+                productId:parseInt(this.props.match.params.productId,10)
+            }
+            axios.post(endPointUrl.addTocart,data)
+            .then(response => {
+                console.log('response-->',response);
+                this.props.history.push('/cart');
+            })
+            .catch(
+                error => {
+                    throw(error);
+                }
+            )
         }
     }
 
@@ -36,10 +55,6 @@ export default class PDPComponent extends Component{
 
     render(){
         console.log(this.props.match.params.productId);
-        let stars=[];
-       
-        for(let i=0;i<5;i++)
-        stars.push(<StarComponent isMarked={(i<(this.state.productInfo.product&&this.state.productInfo.product.rating))?true:false} key={i}/>)
         return(
             <div className="main-container">
                 <main className="pdp-container">
@@ -47,7 +62,7 @@ export default class PDPComponent extends Component{
                         <div>
                             <img src={this.state.productInfo.product&&this.state.productInfo.product.imageUrl} alt=""/>
                             <div className="btn-container">
-                                <button className="primary-button">
+                                <button className="primary-button" onClick={this.addToCart}>
                                     BUY NOW
                                 </button>
                             </div>
@@ -58,7 +73,7 @@ export default class PDPComponent extends Component{
                         {this.state.productInfo.product&&this.state.productInfo.product.name}
                         </div>
                         <div className="product-rating">
-                            {stars}
+                           <StarComponent rating={(this.state.productInfo.product&&this.state.productInfo.product.rating)}/> 
                         </div>
                         <div className="product-desc">
                         {this.state.productInfo.product&&this.state.productInfo.description}

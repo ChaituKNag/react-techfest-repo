@@ -2,10 +2,20 @@ import React from 'react';
 
 import './index.scss';
 
-const StarComponent=({isMarked})=>(
+const StarComponent=({rating})=>{
+
+    let stars=[];
+
+    for(let i=0;i<5;i++)
+        stars.push(
+            <span className={(i<parseInt(rating,10))?'highlighted-star':'vacant-star'} key={i}></span>
+        )
     
-    <span className={isMarked?'highlighted-star':'vacant-star'}></span>
-)
+            
+    
+   return stars
+}
+    
     
     
 
