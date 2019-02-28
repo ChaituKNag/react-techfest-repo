@@ -71,7 +71,7 @@ export default class PLPComponent extends Component{
                 <div className="plp-container">
                     <div className="banner-container">
                         <div className="banner-content">
-                            <div className="banner-hd-1">REPUBLIC DAY SALE</div>
+                            <div className="banner-hd-1">ROWDIES SALE</div>
                             <div className="banner-hd-2">Upto 60% Off*</div>
                             <div className="banner-hd-3">Google Home and Google Home Mini</div>
                             <button className="primary-button">EXPLORE</button>
