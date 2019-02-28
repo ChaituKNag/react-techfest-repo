@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./index.scss";
+import propTypes from 'prop-types';
 
 class ListComponent extends Component {
   render() {
@@ -17,6 +18,12 @@ class ListComponent extends Component {
       </div>
     );
   }
+}
+
+ListComponent.propTypes = {
+  listData: propTypes.object,
+  className: propTypes.string,
+  listHeader: propTypes.string
 }
 
 export default ListComponent;

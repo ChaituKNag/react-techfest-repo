@@ -1,5 +1,6 @@
 import React from 'react';
 import './css/all.css';
+import propTypes from 'prop-types';
 
 const Icon = ({ iconName, iconType, className }) => {
     switch(iconType) {
@@ -14,5 +15,11 @@ const Icon = ({ iconName, iconType, className }) => {
         default: return null;
     }
 };
+
+Icon.propTypes = {
+    iconName: propTypes.string,
+    iconType: propTypes.string,
+    className: propTypes.string
+}
 
 export default Icon;

@@ -10,6 +10,7 @@ import Cta from '../Cta';
 import Price from '../Price';
 import InputComponent from '../InputComponent';
 import { updatePrice } from '../../../actions/CartActions';
+import propTypes from 'prop-types';
 
 import "./index.scss";
 
@@ -65,6 +66,15 @@ class CardComponent extends React.Component {
       </Card>
     );
   }
+}
+
+CardComponent.propTypes = {
+  id: propTypes.number,
+  imageUrl: propTypes.string,
+  name: propTypes.string,
+  category: propTypes.object,
+  price: propTypes.number,
+  rating: propTypes.number
 }
 
 export default connect()(CardComponent);

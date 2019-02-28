@@ -1,5 +1,6 @@
 import React from "react";
 import CardComponent from "../CardComponent";
+import propTypes from 'prop-types';
 import {
   Row,
   Col,
@@ -93,6 +94,12 @@ class GridComponent extends React.Component {
       </section>
     );
   }
+}
+
+GridComponent.propTypes = {
+  listView: propTypes.bool,
+  isCart: propTypes.bool,
+  productsList: propTypes.array
 }
 
 export default GridComponent;

@@ -7,6 +7,7 @@ import { getCartData, placeOrder } from "../../actions/CartActions";
 import GridComponent from "../common/GridComponent";
 import Price from "../common/Price";
 import Cta from "../common/Cta";
+import propTypes from 'prop-types';
 
 import "./cart.scss";
 
@@ -108,6 +109,11 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
+
+Cart.propTypes = {
+  cartData: propTypes.object,
+  subTotal: propTypes.number
+}
 
 export default connect(
   mapStateToProps,

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import propTypes from 'prop-types';
 
 class ModalComponent extends Component {
   constructor(props) {
@@ -34,6 +35,14 @@ class ModalComponent extends Component {
       </React.Fragment>
     );
   }
+}
+
+ModalComponent.propTypes = {
+  toggle: propTypes.func,
+  modalTriggerButtonClass: propTypes.string,
+  buttonLabel: propTypes.string,
+  modalContent: propTypes.string,
+  modalClass: propTypes.string
 }
 
 export default ModalComponent;

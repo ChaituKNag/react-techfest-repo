@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from 'reactstrap';
 import { Link } from "react-router-dom";
+import propTypes from 'prop-types';
 
 const Cta = ({ className, ctaColor, ctaText, ctaType, ctaPath, onClickHandler , outlineVal }) => {
     switch(ctaType) {
@@ -13,5 +14,15 @@ const Cta = ({ className, ctaColor, ctaText, ctaType, ctaPath, onClickHandler , 
         default: return null;
     }
 };
+
+Cta.propTypes = {
+    className: propTypes.string,
+    ctaColor: propTypes.string,
+    ctaText: propTypes.string.isRequired,
+    ctaType: propTypes.string.isRequired,
+    ctaPath: propTypes.string,
+    onClickHandler: propTypes.func,
+    outlineVal: propTypes.string
+}
 
 export default Cta;
