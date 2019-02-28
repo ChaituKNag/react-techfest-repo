@@ -13,7 +13,7 @@ class ProductsList extends Component {
     dispatch(getProductsList());
   }
   render() {
-    const productsList = this.props.productsList || [];
+    const productsList = this.props.filteredProducts || [];
     return (
       <Container>
         <Banner></Banner>
@@ -32,7 +32,8 @@ class ProductsList extends Component {
 
 const mapStateToProps = state => {
   return {
-    productsList: state.plpData.productsList
+    productsList: state.plpData.productsList,
+    filteredProducts: state.plpData.filteredProducts
   };
 };
 
