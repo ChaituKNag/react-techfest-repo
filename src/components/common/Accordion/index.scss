@@ -18,6 +18,11 @@
                     padding-right: 5px;
                     font-size: 12px;
                 }
+                &.active {
+                    &:before {
+                        content: '\25BC';
+                    }
+                }
             }
         }
     }
