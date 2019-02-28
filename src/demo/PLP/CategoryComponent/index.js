@@ -16,7 +16,6 @@ export default class CategoryComponent extends Component{
 
         this.formCategoryStructure=(pList)=>{
             let objDepthFormation=[];
-            console.log(JSON.stringify(this.props.productList));
             pList.map((product,index)=>{
                 let i = product.category.parent;
                while(i--){

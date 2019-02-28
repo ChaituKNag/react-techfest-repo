@@ -19,7 +19,6 @@ export default class HeaderComponent extends Component{
 
         axios.get(endPointUrl.getUser.replace('$userId',1))
             .then(response => {
-                console.log('response-->',response);
                 this.setState({
                     userImage:response.data.profileImageUrl
                 })

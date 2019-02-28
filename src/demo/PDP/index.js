@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'
 import axios from 'axios';
 
 import endPointUrl from '../../AppConsts/EndpointUrls.js';
@@ -17,6 +16,7 @@ export default class PDPComponent extends Component{
         }
 
         this.addToCart=()=>{
+
             let data={
                 userId:1,
                 quantity:1,
@@ -24,7 +24,6 @@ export default class PDPComponent extends Component{
             }
             axios.post(endPointUrl.addTocart,data)
             .then(response => {
-                console.log('response-->',response);
                 this.props.history.push('/cart');
             })
             .catch(
@@ -42,7 +41,6 @@ export default class PDPComponent extends Component{
         }
         axios.get(endPointUrl.productInfo.replace('$id',this.props.match.params.productId))
             .then(response => {
-                console.log('response-->',response);
                 this.setState({productInfo:response.data})
             })
             .catch(
@@ -54,7 +52,7 @@ export default class PDPComponent extends Component{
     }
 
     render(){
-        console.log(this.props.match.params.productId);
+       
         return(
             <div className="main-container">
                 <main className="pdp-container">
@@ -63,7 +61,7 @@ export default class PDPComponent extends Component{
                             <img src={this.state.productInfo.product&&this.state.productInfo.product.imageUrl} alt=""/>
                         </div>
                         <div className="btn-container">
-                            <button className="primary-button" onClick={this.addToCart}>
+                            <button className={'primary-button '+((this.state.productInfo.product&&this.state.productInfo.product.inStock)?'':'disable')} onClick={()=>{(this.state.productInfo.product&&this.state.productInfo.product.inStock)&&this.addToCart()}}>
                                 BUY NOW
                             </button>
                         </div>

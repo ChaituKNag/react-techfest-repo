@@ -16,12 +16,16 @@
     padding: 12px 15px;
     border-radius: 3px;
     background-color: $grey5;
+    text-decoration:none;
     @include font(Helvetica, 14px, bold, $grey2);
      
     &:hover{
         cursor: pointer;
         background-color: $grey9;
     }
+}
+.disable{
+    opacity:0.4;
 }
 
 .main-container{
