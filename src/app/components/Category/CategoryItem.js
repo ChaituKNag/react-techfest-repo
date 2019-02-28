@@ -52,13 +52,13 @@ class CategoryItem extends PureComponent {
     return (
       <div>
         <ListItem onClick={(event) => this.onCategoryClick(event, value, false)}>
-          {value.childrens.length && <BulletIcon className={icon(value.expanded)} expanded={value.expanded}/>}
+          {value.childrens.length > 0 && <BulletIcon className={icon(value.expanded)} expanded={value.expanded}/>}
           <ListLabel bold={value.expanded && value.childrens.length > 0} className="l1">{value.name}</ListLabel>
-          {value.childrens.length && value.expanded !== false && (
+          {value.childrens.length > 0 && value.expanded !== false && (
             <ul>
               {value.childrens.map(l2 => (
                 <ListItem key={l2.id} onClick={(event) => this.onCategoryClick(event, l2, false)}>
-                {l2.childrens.length && <BulletIcon className={icon(l2.expanded)} expanded={l2.expanded}/>}
+                {l2.childrens.length > 0 && (<BulletIcon className={icon(l2.expanded)} expanded={l2.expanded}/>) }
                   <ListLabel bold={l2.expanded && l2.childrens.length > 0} className="l2" >{l2.name}</ListLabel>
                   {l2.expanded !== false && l2.childrens && (
                     <ul>
