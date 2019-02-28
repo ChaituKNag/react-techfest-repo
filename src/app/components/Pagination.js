@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   flex-direction: row;
   padding-left: 4%;
   font-size: 14px;
-  margin: 0 0 40px;
+  margin: 0 0 20px;
 `
 
 const PagingWrapper = styled.div`
@@ -36,7 +36,7 @@ const PageChange = styled.span`
 
 const PageNumber = styled.span`
   cursor: pointer;
-  font-weight: ${fontWeightMedium};
+  font-weight: ${ props => (props.currentPage ? fontWeightBold : fontWeightMedium)};;
   color: ${ props => (props.currentPage ? mustard : charcoal)};
   margin: 0 10px;
 `

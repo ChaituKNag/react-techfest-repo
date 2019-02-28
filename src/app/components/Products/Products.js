@@ -44,6 +44,12 @@ const ProductsList = styled.div`
     width: 70px;
   }
 `
+
+const ProductsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 class Products extends PureComponent {
 
   componentDidMount() {
@@ -63,7 +69,7 @@ class Products extends PureComponent {
     )
 
     return (
-      <div>
+      <ProductsWrapper>
         <ProductsList>
           {paginatedData.filter(product => product.inStock).map((product) => (
             <Link key={product.id} to={'/product/' + product.id}>
@@ -78,7 +84,7 @@ class Products extends PureComponent {
           )}
         </ProductsList>
         <Pagination count={data.length} itemsPerPage={PAGINATION_LIMIT} />
-      </div>
+      </ProductsWrapper>
     )
   }
 }

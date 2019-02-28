@@ -10,7 +10,6 @@ import CategoryItem from './CategoryItem'
 export const Wrapper = styled.div`
   background-color: white;
   padding: 30px 25px;
-  width:  250px;
   -webkit-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.22);
   -moz-box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.22);
   box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.22);
@@ -23,6 +22,8 @@ h5{
 
 ul{
   list-style-type: none;
+  padding-left: 30px;
+  margin-left: -7px;
 }
 
 li{
@@ -30,19 +31,8 @@ li{
 }
 
 h5 + ul{
-  padding-left: 15px;
-}
-
-h5 + ul > div > li{
-  font-size: 16px;
-}
-
-h5 + ul > div > li + ul > Li{
-  font-size: 16px;
-}
-
-h5 + ul > div > li + ul > Li > ul > li {
-  font-size: 14px;
+  padding-left: 0;
+  margin-left: -7px;
 }
 
 ${media.tablet`padding: 30px;`} ${media.mobile`padding: 20px 15px;`};

@@ -52,10 +52,10 @@ const Footer = () => (
         <SubTitle>Platform</SubTitle>
       </div>
       <FooterLinks>
-        <a>Home</a>
-        <a>Production Information</a>
-        <a>Privacy Policy</a>
-        <a>About Us</a>
+        <a tabIndex="0">Home</a>
+        <a tabIndex="0">Production Information</a>
+        <a tabIndex="0">Privacy Policy</a>
+        <a tabIndex="0">About Us</a>
       </FooterLinks>
     </FooterInnerWrapper>
   </FooterWrapper>
