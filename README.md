@@ -1,14 +1,14 @@
-# React TechFest Demo
+# React TechFest Demo - The Generals
 
-Created using `create-react-app`.
+Application use
 
-Added `sass` ability.
+1. Styled Components to manage CSS
+2. Redux for Store
+3. Use of modern JS practices
 
-Uses `jest` testing framework that comes with CRA.
+# Prerequisites
 
-Uses `eslint` for linting while running `start` and `build` scripts.
-
-Uses `react-router-dom` for browser routing.
+Access the site on https://degens.netlify.com/ 
 
 # Prerequisites
 
@@ -43,3 +43,12 @@ Uses `react-router-dom` for browser routing.
     ```
 
 6. Go to [http://localhost:3000](http://localhost:3000)
+
+7. Make sure local MySql Server is up and listening on port 8080.
+
+
+# Contributors
+* Krishan Kiran (KK)
+* Karan Kumar
+* Chetan Lakhanpal
+* Abhik Dey
