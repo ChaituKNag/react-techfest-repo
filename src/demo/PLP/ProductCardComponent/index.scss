@@ -1,0 +1,45 @@
+@import "../../../Styles/index.scss";
+
+.product{
+    @include font($Helvetica, 16px, normal, $grey7);
+    display: inline-block;
+    background-color: $white;
+    width: 28%;
+    height: 300px;
+    border:1px solid $black;
+    padding: 10px;
+    margin: 20px;
+    cursor: pointer;
+
+    &-image{
+        margin: 0 auto;
+        width: 200px;
+        height: 200px;
+    }
+
+    &-label-container{
+        padding: 0 20px;
+
+        h6{
+            white-space: nowrap; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight:bold;
+            max-height: 30px;
+            padding: 10px 0;
+        }
+
+        label{
+            @include font($Helvetica-light, 12px, normal, $grey7);
+            padding: 10px 0;
+        }
+
+        .star-rating{
+            padding: 10px 0;
+        }
+    }
+
+    &:hover{
+        box-shadow: 0 0 15px 2px rgba(95, 95, 95, 0.5);
+    }
+}
