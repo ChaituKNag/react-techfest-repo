@@ -1,0 +1,21 @@
+.plp-container {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.plp-container-image {
+    width: 100%;
+    height: 50%;
+    padding: 0 15px;
+    margin-bottom: 50px;
+}
+
+.container {
+    padding-top: 5%;
+}
+
+.price {
+    padding-left: 80%;
+    padding-top: 50px;
+    padding-bottom: 6%;
+}

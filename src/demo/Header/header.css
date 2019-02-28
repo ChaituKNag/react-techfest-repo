@@ -1,0 +1,47 @@
+.header {
+    justify-content: space-around;
+    background: #333;
+    align-items: center;
+    color: gold;
+    padding: 15px 100px;
+    height: 100px;
+}
+
+.header-logo {
+    font-weight: 600;
+    font-size: 28px;
+}
+
+.header-logo-subtext {
+    font-weight: 400;
+    display: block;
+    font-size: 12px;
+}
+
+.header-icons {
+    text-align: right;
+}
+
+.header-icons-cart {
+    display: inline-block;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.header-icons-profile {
+    display: inline-block;
+}
+
+.header-icons-profile i {
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.header-icons-profile-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}

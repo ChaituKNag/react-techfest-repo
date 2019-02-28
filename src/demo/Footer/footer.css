@@ -1,0 +1,22 @@
+.footer {
+    background: black;
+    padding: 15px 100px;
+}
+
+.footer-heading {
+    color: gold;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.footer-heading-subHeading {
+    font-size: 12px;
+    line-height: 0.5;
+    font-weight: 400;
+    display: block;
+}
+
+.nav-links {
+    color: white;
+}

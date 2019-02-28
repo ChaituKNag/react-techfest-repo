@@ -1,0 +1,15 @@
+.btn {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+.btn.active {
+    background-color: #666;
+    color: white;
+}
+
+#btnContainer {
+    text-align: right;
+}
