@@ -25,6 +25,7 @@ import Image from "../common/Image";
 import Icon from "../common/Icon";
 import InputComponent from "../common/InputComponent";
 import LogoComponent from '../common/LogoComponent';
+import propTypes from 'prop-types';
 
 class Header extends React.Component {
   constructor(props) {
@@ -173,6 +174,12 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
+
+Header.propTypes = {
+  suggestionsList: propTypes.array,
+  status: propTypes.bool,
+  cartCount: propTypes.number
+}
 
 export default connect(
   mapStateToProps,

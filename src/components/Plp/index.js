@@ -17,7 +17,7 @@ class ProductsList extends Component {
     const productsList = this.props.filteredProducts || [];
     return (
       <Container>
-        <Banner bannerImage="./assets/banner.png"></Banner>
+        <Banner bannerImage="./assets/banner.png" className="banner-img" headingTitle="Republic day sale" headingDesc=" Upto 60% Off" subHeading="Google Home and Google Home mini" ctaPath="/product/6" ctaText="Explore"></Banner>
         <Row>
           <Col md={3}>
             <Categories></Categories>
