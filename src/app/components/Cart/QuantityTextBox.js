@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { platinum } from '../../../styles/colors';
-import { connect } from 'react-redux';
-import { updateQuantity } from '../../../store/actions/cart'; 
+import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import { platinum } from '../../../styles/colors'
+import { connect } from 'react-redux'
+import { updateQuantity } from '../../../store/actions/cart'
 
 const InputBox = styled.input`
 background: transparent;
@@ -17,13 +17,13 @@ width: 125px;
 }
 `
 
-const QuantityTextBox = ({text, id, updateQuantity}) => {
+const QuantityTextBox = ({ text, id, updateQuantity }) => {
 
   const changeQuantity = (e) => {
-    updateQuantity(e.target.value, id);
+    updateQuantity(e.target.value, id)
   }
   return (
-    <InputBox type='number' placeholder='Quantity' value={text} onChange={(e) => changeQuantity(e)}/>
+    <InputBox type='number' placeholder='Quantity' value={text} onChange={(e) => changeQuantity(e)} />
   )
 }
 
@@ -34,11 +34,8 @@ QuantityTextBox.propTypes = {
   updateQuantity: PropTypes.func
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  ...ownProps
-})
 export default connect(
-  mapStateToProps,
+  {},
   {
     updateQuantity
   }

@@ -6,18 +6,18 @@ import {
   DELETE_FROM_CART
 } from './types'
 
-import { getCart } from '../../services/cart';
+import { getCart } from '../../services/cart'
 
-export const fetchCartInit = () => ({
+const fetchCartInit = () => ({
   type: FETCH_CART_INIT
 })
 
-export const fetchCartSuccess = cart => ({
+const fetchCartSuccess = cart => ({
   type: FETCH_CART_SUCCESS,
-  payload:  cart 
+  payload: cart
 })
 
-export const fetchCartError = error => ({
+const fetchCartError = error => ({
   type: FETCH_CART_ERROR,
   payload: { error }
 })
@@ -30,18 +30,18 @@ export const fetchCart = (id) => (dispatch) => {
       dispatch(fetchCartSuccess(response.data))
     }
   })
-  .catch(error => dispatch(fetchCartError(error)))
+    .catch(error => dispatch(fetchCartError(error)))
 }
 
 export const updateQuantity = (quantity, id) => dispatch => {
-  dispatch ({
+  dispatch({
     type: UPDATE_QUANTITY,
-    payload: {quantity: quantity, id: id}
+    payload: { quantity: quantity, id: id }
   })
 }
 
 export const deleteFromCart = (id) => dispatch => {
-  dispatch ({
+  dispatch({
     type: DELETE_FROM_CART,
     payload: id
   })

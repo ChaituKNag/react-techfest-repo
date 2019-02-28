@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { white } from '../../../styles/colors';
-import ProductTag from './ProductTag';
-import ProductRating from './ProductRating';
-import HeaderTag from '../base/HeaderTag';
-import { fontWeightMedium } from '../../../styles/variables';
-import { fontblack } from '../../../styles/colors';
+import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import { white } from '../../../styles/colors'
+import ProductTag from './ProductTag'
+import ProductRating from './ProductRating'
+import HeaderTag from '../base/HeaderTag'
+import { fontWeightMedium } from '../../../styles/variables'
+import { fontblack } from '../../../styles/colors'
 
 const Wrapper = styled.div`
   background-color: ${white};
@@ -51,22 +51,22 @@ const SubText = styled.p`
   margin: 6px 0;
 `
 
-const ProductCard = ({name, imageUrl, bestSelling, subText, numberOfRaters, rating, outOfStock}) => (
-  <Wrapper style={outOfStock? {opacity: 0.5}:{}}>
-    { bestSelling && <ProductTag>Best Selling</ProductTag> }
+const ProductCard = ({ name, imageUrl, bestSelling, subText, numberOfRaters, rating, outOfStock }) => (
+  <Wrapper style={outOfStock ? { opacity: 0.5 } : {}}>
+    {bestSelling && <ProductTag>Best Selling</ProductTag>}
     <ProductImage>
-      <img src={imageUrl} alt={name}/>
+      <img src={imageUrl} alt={name} />
     </ProductImage>
     <ProductDetail>
       <HeaderTag as='h6'>{name}</HeaderTag>
-      { subText && <SubText>{subText}</SubText> }
+      {subText && <SubText>{subText}</SubText>}
       <ProductRating rating={rating} numberOfRaters={numberOfRaters} />
     </ProductDetail>
   </Wrapper>
 
 )
 
-export default ProductCard;
+export default ProductCard
 
 ProductCard.propTypes = {
   name: PropTypes.string.isRequired,

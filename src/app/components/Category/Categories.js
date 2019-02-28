@@ -1,10 +1,10 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types'
-import { fetchCategories } from "../../../store/actions/category";
-import HeaderTag from '../base/HeaderTag';
-import styled from 'styled-components';
-import { media } from '../../../styles/variables';
-import { connect } from 'react-redux';
+import { fetchCategories } from '../../../store/actions/category'
+import HeaderTag from '../base/HeaderTag'
+import styled from 'styled-components'
+import { media } from '../../../styles/variables'
+import { connect } from 'react-redux'
 import CategoryItem from './CategoryItem'
 
 export const Wrapper = styled.div`
@@ -48,23 +48,23 @@ h5 + ul > div > li + ul > Li > ul > li {
 ${media.tablet`padding: 30px;`} ${media.mobile`padding: 20px 15px;`};
 `
 
- class Categories extends PureComponent {
+class Categories extends PureComponent {
 
   componentDidMount() {
     this.props.fetchCategories()
   }
 
   render() {
-    const {data} = this.props.categories
+    const { data } = this.props.categories
     return (
       <Wrapper>
         <div>
-        <HeaderTag as='h5'>CATEGORIES</HeaderTag>
-            <ul>
-              {data.length && data.map((value) => (
-                <CategoryItem key={value.id} value={value}/>
-              ))}
-            </ul>
+          <HeaderTag as='h5'>CATEGORIES</HeaderTag>
+          <ul>
+            {data.length && data.map((value) => (
+              <CategoryItem key={value.id} value={value} />
+            ))}
+          </ul>
         </div>
       </Wrapper>
     )
@@ -80,7 +80,7 @@ Categories.propTypes = {
   fetchCategories: PropTypes.func
 }
 
-const mapStateToProps = (state) => ({categories: state.category, selectedCategory: state.selected})
+const mapStateToProps = (state) => ({ categories: state.category, selectedCategory: state.selected })
 
 const mapDispatchToProps = { fetchCategories }
 

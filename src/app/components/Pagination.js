@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import { selectPage } from '../../store/selectors'
-import { aluminium, charcoal, mustard, steel } from '../../styles/colors';
-import { fontWeightLight, fontWeightBold, fontWeightMedium } from '../../styles/variables';
-import { setPageNumber } from '../../store/actions/page';
-import { updateProductsPageData } from '../../store/actions/productlist';
+import { charcoal, mustard, steel } from '../../styles/colors'
+import { fontWeightLight, fontWeightBold, fontWeightMedium } from '../../styles/variables'
+import { setPageNumber } from '../../store/actions/page'
+import { updateProductsPageData } from '../../store/actions/product-list'
 
 const Wrapper = styled.div`
   display: flex;
@@ -41,7 +41,7 @@ const PageNumber = styled.span`
   margin: 0 10px;
 `
 
-  const Pagination = ({ count, itemsPerPage, page, setPageNumber, updateProductsPageData }) => {
+const Pagination = ({ count, itemsPerPage, page, setPageNumber, updateProductsPageData }) => {
   const totalPages = Math.ceil(count/itemsPerPage);
   const pages = Array.from(Array(totalPages).keys(), n => n + 1);
 

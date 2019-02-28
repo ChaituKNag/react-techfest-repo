@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { mustard, charcoal, steel } from '../../../styles/colors';
+import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import { mustard, charcoal, steel } from '../../../styles/colors'
 
 const Star = styled.span`
   font-size: 1.125em;

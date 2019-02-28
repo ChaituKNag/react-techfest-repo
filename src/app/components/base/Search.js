@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { aluminium, steel } from '../../../styles/colors';
-import { setSearch } from '../../../store/actions/search';
+import React from 'react'
+import styled from 'styled-components'
+import { aluminium, steel } from '../../../styles/colors'
+import { setSearch } from '../../../store/actions/search'
 
 const SearchBox = styled.div`
   color: ${aluminium};
@@ -37,7 +37,7 @@ const Search = () => {
   return (
     <SearchBox>
       <span className="icon icon-search"></span>
-      <SearchField type="text" placeholder="Search item or keyword" onChange={ (e) => setSearch(e.target.value) } />
+      <SearchField type="text" placeholder="Search item or keyword" onChange={(e) => setSearch(e.target.value)} />
     </SearchBox>
   )
 }

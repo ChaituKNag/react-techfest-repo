@@ -1,20 +1,20 @@
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Provider } from 'react-redux';
+import React from "react"
+import { BrowserRouter as Router, Route } from "react-router-dom"
+import { Provider } from 'react-redux'
 import {
   Landing,
   Cart,
   Details
-} from './app/pages';
+} from './app/pages'
 
 import {
   Header,
   Footer
 } from './app/components'
 
-import configureStore from './store';
+import configureStore from './store'
 
-const store = configureStore();
+const store = configureStore()
 
 const App = () => (
   <Provider store={store}>
@@ -29,8 +29,8 @@ const App = () => (
       </div>
     </Router>
   </Provider>
-);
+)
 
 
 
-export default App;
+export default App

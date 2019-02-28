@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import Container from '../components/base/Container';
-import Banner from '../components/Banner';
-import Categories from "../components/Category/Categories";
-import Products from "../components/Products/Products";
-import HeaderTag from '../components/base/HeaderTag';
+import React from 'react'
+import styled from 'styled-components'
+import Container from '../components/base/Container'
+import Banner from '../components/Banner'
+import Categories from "../components/Category/Categories"
+import Products from "../components/Products/Products"
+import HeaderTag from '../components/base/HeaderTag'
 
 const ProductsWrapper = styled.div`
   display:flex;
@@ -30,6 +30,6 @@ const Landing = () => (
       </ProductsWrapper>
     </Container>
   </div>
-);
+)
 
-export default Landing;
+export default Landing

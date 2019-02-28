@@ -6,7 +6,7 @@ import {
   FILTER_PRODUCT_BY_CATEGORY
 } from './types'
 
-import { getAllCategories } from '../../services/fetch-category';
+import { getAllCategories } from '../../services/fetch-category'
 
 const fetchCategoryInit = () => ({
   type: FETCH_CATEGORY_INIT
@@ -14,7 +14,7 @@ const fetchCategoryInit = () => ({
 
 const fetchCategorySuccess = category => ({
   type: FETCH_CATEGORY_SUCCESS,
-  payload:  category 
+  payload: category
 })
 
 const fetchCategoryError = error => ({
@@ -39,9 +39,9 @@ export const updateSelectedCategory = categoryID => dispatch => {
 export const fetchCategories = () => (dispatch) => {
   dispatch(fetchCategoryInit())
   getAllCategories().then(response => {
-    if(response){
+    if (response) {
       dispatch(fetchCategorySuccess(response.data))
     }
   })
-  .catch(error => dispatch(fetchCategoryError(error)))
+    .catch(error => dispatch(fetchCategoryError(error)))
 }

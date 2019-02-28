@@ -5,7 +5,7 @@ import {
   PAGINATE_PRODUCTS
 } from './types'
 
-import { getAllProducts } from '../../services/fetch-product-details';
+import { getAllProducts } from '../../services/fetch-product-details'
 
 const fetchAllProductsInit = () => ({
   type: FETCH_PRODUCT_INIT
@@ -33,9 +33,9 @@ export const updateProductsPageData = (data) => (dispatch) => {
 export const fetchProducts = () => (dispatch) => {
   dispatch(fetchAllProductsInit)
   getAllProducts().then(response => {
-    if(response){
+    if (response) {
       dispatch(fetchAllProductsSuccess(response.data))
     }
   })
-  .catch(error => dispatch(fetchAllProductsError(error)))
+    .catch(error => dispatch(fetchAllProductsError(error)))
 } 

@@ -1,15 +1,15 @@
-import React, { PureComponent } from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import HeaderTag from '../base/HeaderTag';
-import { connect } from 'react-redux';
-import { fetchCart, deleteFromCart } from '../../../store/actions/cart';
-import { selectCart } from '../../../store/selectors';
-import { orderItems } from '../../../services/order';
-import Button from '../base/Button';
-import { white, aluminium } from '../../../styles/colors';
-import ProductListItem from '../Products/ProductListItem';
-import { PRIMARY, MEDIUM, SECONDARY } from '../../../constants/properties';
+import React, { PureComponent } from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import HeaderTag from '../base/HeaderTag'
+import { connect } from 'react-redux'
+import { fetchCart, deleteFromCart } from '../../../store/actions/cart'
+import { selectCart } from '../../../store/selectors'
+import { orderItems } from '../../../services/order'
+import Button from '../base/Button'
+import { white } from '../../../styles/colors'
+import ProductListItem from '../Products/ProductListItem'
+import { PRIMARY, MEDIUM, SECONDARY } from '../../../constants/properties'
 
 const ListWrapper = styled.div`
   background-color: ${white};
@@ -46,26 +46,6 @@ const Price = styled.div`
   }
 `
 
-const TotalPrice = styled.div`
-  display: flex;
-  border-top: 1px solid ${aluminium};
-  margin-top: 20px;
-  padding: 10px 0;
-  width: 30%;
-  span:first-child{
-    flex-basis: 100%;
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 25px;
-  }
-  span:last-child{
-    display:flex;
-    justify-content: flex-end;
-    flex-basis:40%;
-    font-weight:bold;
-  }
-`
-
 const ButtonWrapper = styled.div`
   display: flex;
   flex-direction:row;
@@ -79,19 +59,19 @@ const ButtonWrapper = styled.div`
 
 class UserCart extends PureComponent {
 
-  componentDidMount () {
+  componentDidMount() {
     const { fetchCart } = this.props;
     fetchCart();
   }
 
   getTotal = () => {
-    let total = 0;
-    const {cart: { list} } = this.props;
+    let total = 0
+    const { cart: { list } } = this.props
     list.forEach(item => {
-      total = total + (item.product.price * item.quantity);
+      total = total + (item.product.price * item.quantity)
     })
 
-    return total;
+    return total
   }
 
   checkout = () => {
@@ -100,24 +80,24 @@ class UserCart extends PureComponent {
     )).then(response => {
       if (response) {
         alert('Your order has been placed. Pay on Delivery! Happy Shopping');
-        this.props.history.push('/');
+        this.props.history.push('/')
       }
     })
-    .catch(error => console.error(error));;
+      .catch(error => console.error(error))
   }
-  
-  render(){
-    const { cart: { list }, history, deleteFromCart } = this.props;
+
+  render() {
+    const { cart: { list }, history, deleteFromCart } = this.props
     return (
       <CartWrapper>
         <HeaderTag as='h5'>SHOPPING CART</HeaderTag>
         <ListWrapper>
           {
-            list.length > 0 && list.map(item => <ProductListItem key={item.id} {...item.product} id={item.id} quantity={item.quantity} showActions showPricing deleteFromCart={deleteFromCart}/>)
+            list.length > 0 && list.map(item => <ProductListItem key={item.id} {...item.product} id={item.id} quantity={item.quantity} showActions showPricing deleteFromCart={deleteFromCart} />)
           }
         </ListWrapper>
         <PriceWrapper>
-            <Price><span>Order Total:</span><span>${this.getTotal()}</span></Price>
+          <Price><span>Order Total:</span><span>${this.getTotal()}</span></Price>
         </PriceWrapper>
         <ButtonWrapper>
           <Button type={SECONDARY} size={MEDIUM} onClick={() => history.push('/')}>Continue Shopping</Button>
@@ -126,7 +106,7 @@ class UserCart extends PureComponent {
       </CartWrapper>
     )
   }
-  
+
 }
 
 UserCart.propTypes = {

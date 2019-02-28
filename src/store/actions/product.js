@@ -4,18 +4,18 @@ import {
   FETCH_PRODUCT_DESCRIPTION_ERROR
 } from './types'
 
-import { getProductDescription } from '../../services/fetch-product-details';
+import { getProductDescription } from '../../services/fetch-product-details'
 
-export const fetchProductDescriptionInit = () => ({
+const fetchProductDescriptionInit = () => ({
   type: FETCH_PRODUCT_DESCRIPTION_INIT
 })
 
-export const fetchProductDescriptionSuccess = product => ({
+const fetchProductDescriptionSuccess = product => ({
   type: FETCH_PRODUCT_DESCRIPTION_SUCCESS,
-  payload:  product 
+  payload: product
 })
 
-export const fetchProductDescriptionError = error => ({
+const fetchProductDescriptionError = error => ({
   type: FETCH_PRODUCT_DESCRIPTION_ERROR,
   payload: { error }
 })
@@ -27,5 +27,5 @@ export const fetchProductDescription = (id) => (dispatch) => {
       dispatch(fetchProductDescriptionSuccess(response.data))
     }
   })
-  .catch(error => dispatch(fetchProductDescriptionError(error)))
+    .catch(error => dispatch(fetchProductDescriptionError(error)))
 }

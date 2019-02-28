@@ -4,18 +4,18 @@ import {
   FETCH_USER_ERROR
 } from './types'
 
-import { getUser } from '../../services/fetch-user';
+import { getUser } from '../../services/fetch-user'
 
-export const fetchUserInit = () => ({
+const fetchUserInit = () => ({
   type: FETCH_USER_INIT
 })
 
-export const fetchUserSuccess = user => ({
+const fetchUserSuccess = user => ({
   type: FETCH_USER_SUCCESS,
-  payload:  user 
+  payload: user
 })
 
-export const fetchUserError = error => ({
+const fetchUserError = error => ({
   type: FETCH_USER_ERROR,
   payload: { error }
 })
@@ -28,5 +28,5 @@ export const fetchUser = (id) => (dispatch) => {
       dispatch(fetchUserSuccess(response.data))
     }
   })
-  .catch(error => dispatch(fetchUserError(error)))
+    .catch(error => dispatch(fetchUserError(error)))
 }

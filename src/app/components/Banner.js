@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import Button from './base/Button';
-import { PRIMARY, SMALL } from '../../constants/properties';
+import React from 'react'
+import styled from 'styled-components'
+import Button from './base/Button'
+import { PRIMARY, SMALL } from '../../constants/properties'
 
 const BannerImage = styled.div`
   display: flex;
@@ -31,6 +31,6 @@ const Banner = () => (
     </ButtonWrapper>
     
   </BannerImage>
-);
+)
 
-export default Banner;
+export default Banner

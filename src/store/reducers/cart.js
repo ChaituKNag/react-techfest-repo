@@ -34,7 +34,7 @@ const updateQuantity = (state) => (payload) => {
 }
 
 const deleteFromCart = (state) => (payload) => {
-  state.list.splice(payload-1, 1);
+  state.list.splice(payload - 1, 1);
 
   return ({ ...state })
 }

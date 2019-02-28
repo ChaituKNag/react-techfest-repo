@@ -2,7 +2,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 
 import { Button } from './Button'
-import { PRIMARY, SECONDARY } from '../../../constants/properties';
+import { PRIMARY, SECONDARY } from '../../../constants/properties'
 
 describe('<Button />', () => {
   it('renders Button component', () => {

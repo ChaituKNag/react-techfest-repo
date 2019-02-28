@@ -1,16 +1,16 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
-import { selectProductDetails, selectProductDescription } from '../../../store/selectors';
-import { fetchProductDescription } from '../../../store/actions/product';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { connect } from 'react-redux'
+import { selectProductDetails, selectProductDescription } from '../../../store/selectors'
+import { fetchProductDescription } from '../../../store/actions/product'
 
-import Button from '../base/Button';
-import { PRIMARY, MEDIUM } from '../../../constants/properties';
-import ProductRating from './ProductRating';
-import HeaderTag from '../base/HeaderTag';
-import { addToCart } from '../../../services/cart';
-import { white } from '../../../styles/colors';
+import Button from '../base/Button'
+import { PRIMARY, MEDIUM } from '../../../constants/properties'
+import ProductRating from './ProductRating'
+import HeaderTag from '../base/HeaderTag'
+import { addToCart } from '../../../services/cart'
+import { white } from '../../../styles/colors'
 
 const Wrapper = styled.section`
   display: flex;
@@ -68,30 +68,30 @@ const List = styled.ul`
 const ListItem = styled.li`
 `
 
-class ProductDetails extends PureComponent{
+class ProductDetails extends PureComponent {
 
-  componentDidMount () {
-    const { productId, fetchProductDescription } = this.props;
-    fetchProductDescription(productId);
+  componentDidMount() {
+    const { productId, fetchProductDescription } = this.props
+    fetchProductDescription(productId)
   }
 
   render() {
-    const { details, description, history, productId } = this.props;
+    const { details, description, history, productId } = this.props
 
-    const buyProduct = () =>{
+    const buyProduct = () => {
       addToCart(1, productId).then(response => {
         if (response) {
-          history.push('/cart');
+          history.push('/cart')
         }
       })
-      .catch(error => console.error(error));
+        .catch(error => console.error(error))
     }
-    return(
+    return (
       <Wrapper>
         <ImageWrapper>
           <ImageInnerWrapper>
             <img src={details.imageUrl} alt={details.name} />
-          </ImageInnerWrapper>     
+          </ImageInnerWrapper>
           <ButtonMedium type={PRIMARY} size={MEDIUM} onClick={buyProduct}>Buy Now</ButtonMedium>
         </ImageWrapper>
         <DetailsWrapper>
@@ -143,7 +143,7 @@ const mapStateToProps = (state, ownProps) => ({
   ...ownProps
 })
 
-  
+
 export default connect(
   mapStateToProps,
   {

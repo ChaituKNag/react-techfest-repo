@@ -5,12 +5,12 @@ import { category } from './category'
 import { search } from './search'
 import { page } from './page'
 import { cart } from './cart'
-import { productslist } from "./productlist"
+import { productList } from "./product-list"
 
 export default combineReducers({
   user,
   product,
-  productslist,
+  productList,
   category,
   search,
   page,

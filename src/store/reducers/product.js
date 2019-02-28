@@ -12,13 +12,13 @@ const defaultState = () => ({
   description: ''
 })
 
-const fetchProductDescriptionInit = (state) => () => ({...state, loading: true});
+const fetchProductDescriptionInit = (state) => () => ({ ...state, loading: true });
 
 const fetchProductDescriptionSuccess = () => (payload) => {
-  return ({loading: false, fetchError: null, details: payload.product, description: payload.description});
+  return ({ loading: false, fetchError: null, details: payload.product, description: payload.description });
 }
 
-const fetchProductDescriptionError = (state) => (payload) => ({ ...state, fetchError: payload.error})
+const fetchProductDescriptionError = (state) => (payload) => ({ ...state, fetchError: payload.error })
 
 export const product = reducerOf({
   [FETCH_PRODUCT_DESCRIPTION_INIT]: fetchProductDescriptionInit,

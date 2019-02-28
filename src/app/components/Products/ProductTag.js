@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { red, white } from '../../../styles/colors';
-import { fontWeightLight } from '../../../styles/variables';
+import styled from 'styled-components'
+import { red, white } from '../../../styles/colors'
+import { fontWeightLight } from '../../../styles/variables'
 
 const ProductTag = styled.span`
   color: ${white};

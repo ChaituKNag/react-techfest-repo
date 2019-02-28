@@ -16,15 +16,15 @@ const defaultState = () => ({
 
 const processResponse = (payload) => {
   let l1 = payload.filter(value => value.parent === 0)
-                  .map(value => ({id: value.id, name: value.name, childrens: [], expanded: true}))
+    .map(value => ({ id: value.id, name: value.name, childrens: [], expanded: true }))
   let selectedCategory = 0
 
   payload.forEach(val => {
     val.expanded = true
     val.childrens = []
-    selectedCategory = !selectedCategory? val.parent: selectedCategory
-    for(let i = 0; i < l1.length; i++){
-      if(l1[i].id === val.parent){
+    selectedCategory = !selectedCategory ? val.parent : selectedCategory
+    for (let i = 0; i < l1.length; i++) {
+      if (l1[i].id === val.parent) {
         l1[i].childrens.push(val)
       }
     }
@@ -33,16 +33,16 @@ const processResponse = (payload) => {
   payload.forEach(val => {
     val.childrens = []
     val.expanded = true
-    for(let i = 0; i < l1.length; i++){
-      for(let j = 0; j < l1[i].childrens.length; j++){
-        if(l1[i].childrens[j].id === val.parent){
+    for (let i = 0; i < l1.length; i++) {
+      for (let j = 0; j < l1[i].childrens.length; j++) {
+        if (l1[i].childrens[j].id === val.parent) {
           l1[i].childrens[j].childrens.push(val)
         }
       }
     }
   })
 
-  return {data: l1, selected: selectedCategory}
+  return { data: l1, selected: selectedCategory }
 }
 
 const fetchCategoryInit = (state) => () => ({ ...state, loading: true, fetchError: null })
@@ -57,22 +57,22 @@ const fetchCategorySuccess = () => (payload) => {
   }
 }
 
-const fetchCategoryError = (state) => (payload) => ({...state, loading: false, fetchError: payload.error})
+const fetchCategoryError = (state) => (payload) => ({ ...state, loading: false, fetchError: payload.error })
 
 const expandCategoryItem = (state) => (category) => {
   const data = state.data.map(value => {
-    if(value.id === category.id){
-      return {...value, expanded: !value.expanded}
+    if (value.id === category.id) {
+      return { ...value, expanded: !value.expanded }
     }
-    if(value.childrens){
-      value.childrens = value.childrens.map(children => children.id === category.id ? {...children, expanded: !children.expanded} : {...children})
-      return {...value}
+    if (value.childrens) {
+      value.childrens = value.childrens.map(children => children.id === category.id ? { ...children, expanded: !children.expanded } : { ...children })
+      return { ...value }
     }
-    
+
     return value
-   })
-   
-   return {...state, data: data}
+  })
+
+  return { ...state, data: data }
 }
 
 

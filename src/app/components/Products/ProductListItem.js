@@ -1,19 +1,19 @@
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { white, platinum } from '../../../styles/colors';
-import ProductTag from './ProductTag';
-import ProductRating from './ProductRating';
-import HeaderTag from '../base/HeaderTag';
-import { fontWeightMedium, fontWeightBold } from '../../../styles/variables';
-import QuantityTextBox from '../Cart/QuantityTextBox';
+import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import { white, platinum } from '../../../styles/colors'
+import ProductTag from './ProductTag'
+import ProductRating from './ProductRating'
+import HeaderTag from '../base/HeaderTag'
+import { fontWeightMedium, fontWeightBold } from '../../../styles/variables'
+import QuantityTextBox from '../Cart/QuantityTextBox'
 
 const Wrapper = styled.div`
   display: flex;
   background-color: ${white};
   border-radius: 3px;
   padding: 20px;
-  border-bottom: ${ props => (props.showPricing ? `1px solid ${platinum}` : white) };
+  border-bottom: ${ props => (props.showPricing ? `1px solid ${platinum}` : white)};
 `
 
 const TitleWrapper = styled.div`
@@ -64,27 +64,27 @@ const Pricing = styled.span`
   margin-left: 2px;
 `
 
-const ProductListItem = ({name, imageUrl, bestSelling, subText, numberOfRaters, rating, showActions, showPricing, price, quantity, id, deleteFromCart}) => (
+const ProductListItem = ({ name, imageUrl, bestSelling, subText, numberOfRaters, rating, showActions, showPricing, price, quantity, id, deleteFromCart }) => (
   <Wrapper showPricing>
-    { bestSelling && <ProductTag>Best Selling</ProductTag> }
+    {bestSelling && <ProductTag>Best Selling</ProductTag>}
     <ProductImage>
-      <img src={imageUrl} alt={name}/>
+      <img src={imageUrl} alt={name} />
     </ProductImage>
     <ProductDetail>
       <TitleWrapper>
         <HeaderTag as='h6'>{name}</HeaderTag>
         {
-          showActions && 
+          showActions &&
           <CartActions>
             <span onClick={() => deleteFromCart(id)}>Delete Item</span>
             <span onClick={() => deleteFromCart(id)}>Save for Later</span>
           </CartActions>
         }
       </TitleWrapper>
-      { subText && <SubText>{subText}</SubText> }
+      {subText && <SubText>{subText}</SubText>}
       <ProductRating rating={rating} numberOfRaters={numberOfRaters} />
       {
-        showPricing && 
+        showPricing &&
         <QuantityWrapper>
           <QuantityTextBox text={Number(quantity)} id={id} /> <Pricing>X ${price} = ${quantity * price}</Pricing>
         </QuantityWrapper>
@@ -94,7 +94,7 @@ const ProductListItem = ({name, imageUrl, bestSelling, subText, numberOfRaters, 
 
 )
 
-export default ProductListItem;
+export default ProductListItem
 
 ProductListItem.propTypes = {
   name: PropTypes.string.isRequired,

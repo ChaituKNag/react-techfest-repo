@@ -17,9 +17,9 @@ const defaultState = () => ({
   limit: PAGINATION_LIMIT
 })
 
-const fetchProductInit = (state) => () => ({...state,  fetchError: null, loading: true})
-const fetchProductSuccess = (state) => (payload) => ({...state, data: payload, fetchError: null, loading: false})
-const fetchProductError = (state) => (payload) => ({...state, fetchError: payload, loading: false})
+const fetchProductInit = (state) => () => ({ ...state, fetchError: null, loading: true })
+const fetchProductSuccess = (state) => (payload) => ({ ...state, data: payload, fetchError: null, loading: false })
+const fetchProductError = (state) => (payload) => ({ ...state, fetchError: payload, loading: false })
 const filterProductByCategory = (state) => (payload) => {
 
   return {
@@ -27,14 +27,14 @@ const filterProductByCategory = (state) => (payload) => {
     selectedCategory: payload,
     offset: 0,
     limit: PAGINATION_LIMIT
-}
+  }
 
 }
 const paginateProducts = (state) => (payload) => ({
   ...state, offset: payload.offset, limit: payload.limit
 })
 
-export const productslist = reducerOf({
+export const productList = reducerOf({
   [FETCH_PRODUCT_INIT]: fetchProductInit,
   [FETCH_PRODUCT_SUCCESS]: fetchProductSuccess,
   [FETCH_PRODUCT_ERROR]: fetchProductError,

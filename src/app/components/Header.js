@@ -1,14 +1,14 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import Search from '../components/base/Search';
-import { connect } from 'react-redux';
-import { fetchUser } from '../../store/actions/user';
-import { selectUserDetails } from '../../store/selectors';
-import { media, fontWeightLight } from '../../styles/variables';
-import HeaderTag from '../components/base/HeaderTag';
-import { charcoal, mustard } from '../../styles/colors';
-import { USER_ID } from '../../constants/config';
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import Search from '../components/base/Search'
+import { connect } from 'react-redux'
+import { fetchUser } from '../../store/actions/user'
+import { selectUserDetails } from '../../store/selectors'
+import { media, fontWeightLight } from '../../styles/variables'
+import HeaderTag from '../components/base/HeaderTag'
+import { charcoal, mustard } from '../../styles/colors'
+import { USER_ID } from '../../constants/config'
 import { Link } from 'react-router-dom'
 
 const HeaderWrapper = styled.div`
@@ -58,15 +58,15 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `
 
-class Header extends PureComponent{
+class Header extends PureComponent {
 
-  componentDidMount(){
-    this.props.fetchUser(USER_ID);
+  componentDidMount() {
+    this.props.fetchUser(USER_ID)
   }
 
-  render(){
+  render() {
 
-    const { details : { profileImageUrl, name } } = this.props.user;
+    const { details: { profileImageUrl, name } } = this.props.user
     return (
       <HeaderWrapper>
         <HeaderInnerWrapper>
@@ -106,7 +106,7 @@ const mapStateToProps = (state, ownProps) => ({
   ...ownProps
 })
 
-  
+
 export default connect(
   mapStateToProps,
   {

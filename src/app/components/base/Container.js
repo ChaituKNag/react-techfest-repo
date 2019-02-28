@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { media } from '../../../styles/variables';
-import { whiteGray } from '../../../styles/colors';
+import styled from 'styled-components'
+import { media } from '../../../styles/variables'
+import { whiteGray } from '../../../styles/colors'
 
 const Container = styled.div`
   background-color: ${whiteGray};

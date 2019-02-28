@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import HeaderTag from '../components/base/HeaderTag';
-import { media, fontWeightLight } from '../../styles/variables';
-import { white, fontblack } from '../../styles/colors';
+import React from 'react'
+import styled from 'styled-components'
+import HeaderTag from '../components/base/HeaderTag'
+import { media, fontWeightLight } from '../../styles/variables'
+import { white, fontblack } from '../../styles/colors'
 
 const FooterWrapper = styled.div`
   display: flex;
@@ -57,8 +57,8 @@ const Footer = () => (
         <a>Privacy Policy</a>
         <a>About Us</a>
       </FooterLinks>
-  </FooterInnerWrapper>
-</FooterWrapper>
-);
+    </FooterInnerWrapper>
+  </FooterWrapper>
+)
 
-export default Footer;
+export default Footer

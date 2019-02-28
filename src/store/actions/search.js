@@ -1,7 +1,7 @@
 import { SET_SEARCH } from './types'
 
 export const setSearch = searchText => dispatch => {
-  dispatch ({
+  dispatch({
     type: SET_SEARCH,
     payload: searchText
   })
