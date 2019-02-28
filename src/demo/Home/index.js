@@ -24,24 +24,6 @@ class Home extends React.Component {
         return (
             <div>
                 <h2>Home</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt qui quam facilis ratione saepe rem necessitatibus nobis, laborum similique? Consectetur.</p>
-                { this.state.users && 
-                    <div>
-                        <h2>Users Listed</h2>
-                        <ul>
-                            {
-                                this.state.users.map((user, index) => (
-                                                                    <li key={index}>
-                                                                        {user.name}
-                                                                    </li>
-                                                                )
-                                                    )
-                            }
-                            
-                        </ul>
-                    </div>
-                }
-                { !this.state.users.length && <p>Loading users...</p> }
             </div>
         );
     }

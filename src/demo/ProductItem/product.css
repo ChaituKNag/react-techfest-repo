@@ -1,0 +1,11 @@
+.product .product-image img {
+    /* cursor: zoom-in; */
+    width: 100%;
+    height: auto;
+    transition: transform .3s ease-in;
+    transform: scale(1);
+}
+
+.cart-height {
+    height: 350px;
+}

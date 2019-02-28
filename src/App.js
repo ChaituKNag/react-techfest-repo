@@ -3,45 +3,37 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Provider } from 'react-redux';
 import {
   Home,
-  About,
-  Heroes,
-  Todos,
-  TodosHooks
+  Header,
+  PlpPage,
+  PdpPage,
+  CartPage,
+  Categories,
+  AutoSuggestion,
+  Footer
 } from './demo';
 import store from './store';
+import logo from './images/header.png'
+import './app.css';
+import 'font-awesome/css/font-awesome.min.css'; 
+
 
 
 const App = () => (
   <Provider store={store}>
+   <Header/>  
     <Router>
       <div>
-        <ul>
-          <li>
-            <Link to="/"><span role="img" aria-label="Home">🏠</span></Link>
-          </li>
-          <li>
-            <Link to="/about"><span role="img" aria-label="About">😂</span></Link>
-          </li>
-          <li>
-            <Link to="/heroes"><span role="img" aria-label="Heroes">🔥</span></Link>
-          </li>
-          <li>
-            <Link to="/todos"><span role="img" aria-label="Todos">😎</span></Link>
-          </li>
-          <li>
-            <Link to="/todos-hooks"><span role="img" aria-label="Todos Hooks">💩</span></Link>
-          </li>
-        </ul>
+        
 
-        <hr />
-
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/heroes" component={Heroes} />
-        <Route path="/todos" exact component={Todos} />
-        <Route path="/todos-hooks" component={TodosHooks} />
+        <Route exact path="/" component={PlpPage} />
+        <Route exact path="/product" component={PdpPage} />
+        <Route exact path="/product/:id" component={PdpPage} />
+        <Route exact path="/cart" component={CartPage} />
+        <Route exact path="/categories" component={Categories} />
+        <Route exact path="/search" component={AutoSuggestion} />
       </div>
     </Router>
+   <Footer/>
   </Provider>
 );
 

@@ -1,13 +1,19 @@
 import Home from './Home';
-import About from './About';
-import Heroes from './Heroes';
-import Todos from './Todos';
-import TodosHooks from './TodosHooks';
+import PlpPage from './PlpPage';
+import Header from './Header';
+import PdpPage from './PdpPage';
+import CartPage from './CartPage';
+import Categories from './categories';
+import AutoSuggestion from './AutoSuggestion';
+import Footer from './Footer';
 
 export {
     Home,
-    About,
-    Heroes,
-    Todos,
-    TodosHooks
+    PlpPage,
+    Header,
+    PdpPage,
+    CartPage,
+    Categories,
+    AutoSuggestion,
+    Footer
 }

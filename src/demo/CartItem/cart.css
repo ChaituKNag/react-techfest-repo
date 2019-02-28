@@ -1,0 +1,13 @@
+.cart-image img {
+    width: 100%;
+}
+
+input {
+    width: 30%;
+    border-radius: 5px;
+}
+
+.cart-rating {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
