@@ -5,7 +5,8 @@ const initalState = {
     status: '',
     cartCount: 0,
     total: 0,
-    subTotal: 0
+    subTotal: 0,
+    orderStatus: ''
 };
 
 const displayCart = (previousState=initalState, action) => {
@@ -36,7 +37,7 @@ const displayCart = (previousState=initalState, action) => {
         case ORDER_UPDATE:
         return {
             ...previousState,
-            status: action.payload.orderStatus
+            orderStatus: action.payload.orderStatus
         };
         default: 
             return previousState;
