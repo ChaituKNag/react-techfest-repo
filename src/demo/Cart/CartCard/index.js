@@ -29,7 +29,11 @@ export default class CartCardComponent extends Component{
            }
             
           
+<<<<<<< HEAD
             if((/^[0-9]+$/.test(tValue))&&tValue<=12){
+=======
+            if((/^[0-9]+$/.test(tValue))&&tValue<=this.props.product.inStock){
+>>>>>>> e1d78f93121bdcceb3500bb2b20dbe6a3fa6b7fe
                     this.setState(
                         {
                             quantity:tValue
@@ -84,7 +88,7 @@ export default class CartCardComponent extends Component{
                         <StarComponent rating={this.props.product.rating}/>
                     </div>
                     <div className="quantity-section">
-                        <input type="text" value={this.state.quantity} onBlur={this.validateAndResetQty} onChange={this.changeInQuantity}  placeholder="QUANTITY"/> x <span>${parseFloat(this.props.product.price).toFixed(2)} = ${parseFloat(price).toFixed(2)}</span>
+                        <input type="text" value={this.state.quantity} onBlur={this.validateAndResetQty} onChange={this.changeInQuantity}  placeholder="Qty"/> x <span>${parseFloat(this.props.product.price).toFixed(2)} = ${parseFloat(price).toFixed(2)}</span>
                     </div>
                 </div>
             </div>

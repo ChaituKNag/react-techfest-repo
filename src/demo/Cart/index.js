@@ -26,7 +26,6 @@ export default class CartComponent extends Component{
     }
            
         updatePriceList=(prd)=>{
-            console.log(prd);
             let {priceList}=this.state;
                
             priceList[prd.id]={
@@ -36,7 +35,6 @@ export default class CartComponent extends Component{
             }
           
 
-            console.log(priceList);
             this.setState({priceList},
             ()=>{
                 this.calcTotal(this.state.priceList);
@@ -86,7 +84,7 @@ export default class CartComponent extends Component{
         axios.post(endPointUrl.checkoutOrder,data)
         .then(response => {
             
-            console.log(response);
+            
             this.props.history.push('/')
             
          })
@@ -101,7 +99,6 @@ export default class CartComponent extends Component{
             
         axios.get(endPointUrl.getCart.replace('$userId',1))
         .then(response => {
-            console.log('response-->',response);
             let priceList={};
             response.data.map((cartProduct,index)=>{
                 
@@ -121,7 +118,7 @@ export default class CartComponent extends Component{
             this.calcTotal(this.state.priceList);
         });
 
-        console.log(priceList);
+        
     })
         .catch(
             error => {
@@ -136,7 +133,7 @@ export default class CartComponent extends Component{
         return(
             <div className="main-container">
                 <main className="cart-container">
-                    <div className="cart-page-title">
+                    <div className="page-title">
                         SHOPPING CART
                     </div>
                     <section className="card-shadow">
@@ -167,7 +164,7 @@ export default class CartComponent extends Component{
                                 </div>
                             </div>
                             <div className="checkout-btn-container">
-                                <button className="secondary-button">CONTINUE SHOPPING</button>
+                                <a href="/" className="secondary-button">CONTINUE SHOPPING</a>
                                 <button className="primary-button checkout-btn" onClick={this.checkoutOrder}>PROCEED TO CHECKOUT</button>
                             </div>
                         </div>

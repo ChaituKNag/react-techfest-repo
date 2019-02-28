@@ -8,11 +8,6 @@
         max-width: 1200px; 
         padding: 40px 0;
 
-        .cart-page-title{
-            @include font($Helvetica, 22px, bold, $grey7);
-            padding-bottom: 40px;
-        }
-
         .cart-item-cards{
             display: flex;
             padding: 30px;
