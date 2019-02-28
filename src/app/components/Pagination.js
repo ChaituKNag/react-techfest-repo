@@ -65,14 +65,18 @@ const Pagination = ({ count, itemsPerPage, page, setPageNumber, updateProductsPa
 
   return (
     <Wrapper>
-      <ResultsCount>Showing { 1 + ((page - 1) * itemsPerPage)} to {itemsPerPage * page} of {count} results</ResultsCount>
-      <PagingWrapper>
-        <PageChange disabled={page <= 1} onClick={decreasePage}>Prev</PageChange>
-        {
-          pages.map(pageNo => <PageNumber currentPage={page===pageNo} key={pageNo} onClick={() => updateStore(pageNo)}>{pageNo}</PageNumber>)
-        }
-        <PageChange disabled={page >= totalPages} onClick={increasePage}>Next</PageChange>
-      </PagingWrapper>
+      <ResultsCount>Showing { 1 + ((page - 1) * itemsPerPage)} to {itemsPerPage<count ? itemsPerPage * page : count * page} of {count} results</ResultsCount>
+      {
+        itemsPerPage < count && 
+        <PagingWrapper>
+          <PageChange disabled={page <= 1} onClick={decreasePage}>Prev</PageChange>
+          {
+            pages.map(pageNo => <PageNumber currentPage={page===pageNo} key={pageNo} onClick={() => updateStore(pageNo)}>{pageNo}</PageNumber>)
+          }
+          <PageChange disabled={page >= totalPages} onClick={increasePage}>Next</PageChange>
+        </PagingWrapper>
+      }
+      
     </Wrapper>
   )
 }
