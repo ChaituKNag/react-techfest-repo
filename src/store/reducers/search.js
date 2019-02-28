@@ -5,7 +5,7 @@ import { reducerOf } from './helper'
 
 const defaultState = () => ''
 
-const setSearch = () => (searchText) => searchText
+const setSearch = () => (search) => search
 
 export const search = reducerOf({
   [SET_SEARCH]: setSearch
