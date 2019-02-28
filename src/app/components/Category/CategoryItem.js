@@ -4,7 +4,7 @@ import { updateSelectedCategory, expandCategory } from '../../../store/actions/c
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import { mustard, black } from "../../../styles/colors";
-import { fontWeightLight, fontWeightBold, fontWeightMedium } from '../../../styles/variables'
+import { fontWeightBold, fontWeightMedium } from '../../../styles/variables'
 
 const ListItem = styled.li`
   font-size: 12px;
