@@ -12,7 +12,7 @@ class Home extends React.Component {
             pageContent:'plp'
         }
     }
-    componentDidMount(){
+    componentWillMount(){
         const homeObj = this;
         axios.get("https://jsonplaceholder.typicode.com/users")
             .then(response => {

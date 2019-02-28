@@ -35,7 +35,7 @@ export default class PDPComponent extends Component{
         }
     }
 
-    componentDidMount(){
+    componentWillMount(){
 
         if(!this.props.match.params.productId){
             return;
