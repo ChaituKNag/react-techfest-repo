@@ -17,8 +17,7 @@ export default class PLPComponent extends Component{
             displayList:[]
         }
         this.p1=1;
-        this.p2=2;
-        this.p3=3;
+    
         this.pageLength=12;
         this.minPrev=0;
         this.maxNext=0;
@@ -38,33 +37,15 @@ export default class PLPComponent extends Component{
         }
 
         this.updatesPagniation=(paginationMovement)=>{
-            if(paginationMovement.toLowerCase()==='next' && this.p3<=this.maxNext){
-                this.p1+=1;
-                this.p2+=1;
-                this.p3+=1;
-
+            
+                this.p1+=paginationMovement;
+                console.log(this.p1);
                 this.updatesOnPaginationNumber(this.p1);
-
-                return
-               
-            }
-
-            if(paginationMovement.toLowerCase()==='prev' && this.p1>=this.minPrev){
-                this.p1-=1;
-                this.p2-=1;
-                this.p3-=1;
-
-                this.updatesOnPaginationNumber(this.p1);
-
-                return
-            }
-
-           
 
         }
     }
 
-    componentDidMount(){
+    componentWillMount(){
 
         axios.get(endPointUrl.productsList)
             .then(response => {
@@ -88,12 +69,6 @@ export default class PLPComponent extends Component{
     
 
     render(){
-        let productsList=[];
-        for(let i=0; i<this.state.displayList.length;i++){
-            productsList.push(
-                <ProductCardComponent product={this.state.displayList[i]} key={i}/>)
-        }
-
         return(
         <div>
             <div className="banner-container">
@@ -107,16 +82,21 @@ export default class PLPComponent extends Component{
             {/* <div>
                     <CategoryComponent productList={this.state.productList}/>
                 </div> */}
-            {productsList}
-
+                {
+                    this.state.displayList.map((product,i)=>{
+                        return (
+                            <ProductCardComponent product={product} key={i}/>
+                        )
+                    })
+                }
 
               { (this.p1)&& 
               <div>
-                    <span onClick={()=>{this.p1>1&&this.updatesPagniation('prev')}}>Prev</span>
+                    <span onClick={()=>{this.p1>1&&this.updatesPagniation(-1)}}>Prev</span>
                     <span onClick={()=>{this.updatesOnPaginationNumber(this.p1)}}>{this.p1}</span>
-                    {(this.p2<=this.maxNext)&&<span onClick={()=>{this.updatesOnPaginationNumber(this.p2)}}>{this.p2}</span>}
-                    {(this.p3<=this.maxNext)&&<span onClick={()=>{this.updatesOnPaginationNumber(this.p3)}}>{this.p3}</span>}
-                    <span onClick={()=>{this.p3<this.maxNext&&this.updatesPagniation('next')}}>next</span>
+                    {((this.p1+1)<=this.maxNext)&&<span onClick={()=>{this.updatesOnPaginationNumber(this.p1+1)}}>{this.p1+1}</span>}
+                    {((this.p1+2)<=this.maxNext)&&<span onClick={()=>{this.updatesOnPaginationNumber(this.p1+2)}}>{this.p1+2}</span>}
+                    <span onClick={()=>{(this.p1+2)<this.maxNext&&this.updatesPagniation(1)}}>next</span>
                 </div>
             }
             </div>

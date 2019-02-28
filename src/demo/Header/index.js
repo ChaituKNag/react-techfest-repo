@@ -15,7 +15,7 @@ export default class HeaderComponent extends Component{
         }
     }
 
-    componentDidMount(){
+    componentWillMount(){
 
         axios.get(endPointUrl.getUser.replace('$userId',1))
             .then(response => {

@@ -6,17 +6,6 @@ import './index.scss';
 
 export default class ProductCardComponent extends Component{
 
-    constructor(props){
-        super(props);
-
-        // this.navigateToPDP=(product)=>{
-        //     history.push({
-        //         pathName:'/pdp',
-        //         state:{product}
-        //     })
-        // }
-    }
-
     render(){
 
        

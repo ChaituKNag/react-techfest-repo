@@ -10,9 +10,6 @@ const StarComponent=({rating})=>{
         stars.push(
             <span className={(i<parseInt(rating,10))?'highlighted-star':'vacant-star'} key={i}></span>
         )
-    
-            
-    
    return stars
 }
     

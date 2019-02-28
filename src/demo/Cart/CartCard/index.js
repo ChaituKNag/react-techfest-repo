@@ -29,7 +29,7 @@ export default class CartCardComponent extends Component{
            }
             
           
-            if((/^[0-9]+$/.test(tValue))&&tValue<=12){
+            if((/^[0-9]+$/.test(tValue))&&tValue<=this.state.quantity){
                     this.setState(
                         {
                             quantity:tValue
