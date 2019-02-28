@@ -9,7 +9,6 @@ export default class Product extends Component {
       //   {/* <p className="subTitle">{category.name}</p> */}
       //   <p className="rating">{rating}</p>
       // </div>
-      <div>Product!</div>
     )
   }
 }

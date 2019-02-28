@@ -31,3 +31,20 @@
     transform: rotate(360deg);
   }
 }
+
+
+.product{
+  border:  1px solid grey;
+  border-radius: 5px;
+  box-shadow: #282c34;
+  max-width: 31%;
+}
+
+.prodTitle{
+  word-break: break-all;
+}
+
+.prod-image{
+  width: 200px;
+  background-size: contain;
+}

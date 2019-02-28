@@ -1,17 +1,23 @@
 import {ProductList} from '../ecommerce/ProductList';
 import { connect }  from 'react-redux';
-import { fetchProductsFromServer } from '../store/actions';
+import { fetchProducts, fetchCategories } from '../store/actions';
 
 const mapStateToProps = (state, ownProps) => {
     return ({
-        products: state.products
+        products: state.products,
+        categories: state.categories
     })
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     fetchProducts: () => {
-        console.log('check:', typeof fetchProductsFromServer);
-        dispatch(fetchProductsFromServer());
+        dispatch(fetchProducts());
+    },
+    fetchCategories: () => {
+        dispatch(fetchCategories());
+    },
+    filterProductsByCategory: (categoryId) => {
+        // dispatch(filterProductsByCategory(categoryId));
     }
 })
 
