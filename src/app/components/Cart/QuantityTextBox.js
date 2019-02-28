@@ -34,7 +34,7 @@ QuantityTextBox.propTypes = {
   updateQuantity: PropTypes.func
 }
 
-mapStateToProps = () => ({})
+const mapStateToProps = () => ({})
 
 export default connect(
   mapStateToProps,
