@@ -39,7 +39,7 @@ export const fetchProducts =  (callback) => dispatch => {
               });
             })
             .catch(err => {
-              console.log('Could not fetch products. Try again later.'+err);
+              
             });
 }
 
@@ -59,7 +59,7 @@ export const fetchCategories = (callback) => dispatch => {
           });
         })
         .catch(err => {
-          console.log('Could not fetch products. Try again later.'+err);
+          
         });
 }
 
@@ -77,6 +77,6 @@ export const fetchProductDetail = (id) => dispatch => {
           });
          })
          .catch(err => {
-          console.log('Could not fetch product. Try again later.'+err);
+          
         });
 }

@@ -9,6 +9,7 @@ import ProductTile from '../../components/common/productTile/ProductTile';
 import JwPagination from 'jw-react-pagination';
 import './PlpContainer.scss';
 import TreeMenu from '../../components/common/treeMenu/TreeMenu';
+import ProductList from '../../components/common/productList/ProductList';
 
 class ProductListContainer extends Component {
 constructor(props) {
@@ -17,11 +18,14 @@ constructor(props) {
     categories: [],
     pageOfItems: [],
     filterCategory:'',
-    filteredProduct:[]
+    filteredProduct:[],
+    listCard:true
   };
 
   this.onChangePage = this.onChangePage.bind(this);
   this.onFilterChange = this.onFilterChange.bind(this);
+  this.setTiles = this.setTiles.bind(this);
+  this.setList =this.setList.bind(this);
 }
 
   
@@ -68,6 +72,14 @@ constructor(props) {
     this.setState({filterCategory:'',products:this.props.products});
   }
 
+  setTiles(){
+    this.setState({listCard:true})
+  }
+
+  setList(){
+    this.setState({listCard:false})
+  }
+
   render() {
     const filterCategory = this.state.filterCategory;
     return (
@@ -109,15 +121,15 @@ constructor(props) {
               </div>
               <div className="col">
                     <div className="pull-right">
-                     <span className="fa fa-th p-1 is-active"></span>
-                     <span className="fa fa-list p-1"></span>
+                     <span className={this.state.listCard?'fa fa-th p-1 is-active':'fa fa-th p-1'} onClick={this.setTiles}></span>
+                     <span className={!this.state.listCard?'fa fa-list p-1 is-active':'fa fa-list p-1'} onClick={this.setList}></span>
                      </div> 
               </div>
             </div>
             <div className="row">
               {
                   this.state.pageOfItems.map(item => {  
-                  return <div key={item.id} className="col-md-4 col-sm-6 col-xs-12 mb-3"><ProductTile {...this.props} product={item} /></div>;
+                  return this.state.listCard?(<div key={item.id} className="col-md-4 col-sm-6 col-xs-12 mb-3"><ProductTile {...this.props} product={item} /></div>):(<div key={item.id} className="col-12 mb-3"><ProductList {...this.props} product={item} /></div>)
                 })
               }
               <JwPagination items={this.state.products} pageSize={12} onChangePage={this.onChangePage} />

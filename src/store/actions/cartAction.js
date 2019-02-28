@@ -15,7 +15,6 @@ export const removeFromCart = (id) => dispatch => {
 }
 
 export const updateCartQty = (id,qty) => dispatch => {
-  console.log("in updatecart",id,qty);
   return dispatch({
     type: UPDATE_QTY,
     id:id,

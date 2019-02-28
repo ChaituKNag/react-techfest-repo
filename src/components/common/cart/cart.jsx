@@ -18,7 +18,6 @@ class Cart extends Component {
 
   componentDidMount = () => {
     this.unlisten = this.props.history.listen((location, action) => {
-      console.log("on route change");
       this.closePopup();
     });
   }

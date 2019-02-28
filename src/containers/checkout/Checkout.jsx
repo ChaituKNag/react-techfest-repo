@@ -9,7 +9,6 @@ class Checkout extends Component {
 
   constructor(props) {
     super(props);
-    console.log("in cart");
     this.removeItem = this.removeItem.bind(this);
   }
 
@@ -26,7 +25,6 @@ class Checkout extends Component {
     if (val === '') {
       val = 1;
     }
-    console.log(id, val);
     this.props.updateCartQty(id, val);
   }
 

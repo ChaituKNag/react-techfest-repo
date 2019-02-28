@@ -13,7 +13,7 @@ class Header extends Component {
 
   
   render() {
-    console.log(this.props);
+    
     return (
       <header className="navbar navbar-custom navbar-dark bd-navbar">
         <div className="nav-content">

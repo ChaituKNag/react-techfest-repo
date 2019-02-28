@@ -31,7 +31,6 @@ class SearchBar extends Component {
   }
 
   searchData(event) {
-    console.log(event.target.value);
     let search = event.target.value;
     if(search.length){
     let searchResults =  _.filter(this.props.products.products, function (item) {
