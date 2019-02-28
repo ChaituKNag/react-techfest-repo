@@ -72,7 +72,7 @@ class Checkout extends Component {
                                   <input type="number" className="form-control cust-width" id={item.id} value={item.qty} onChange={(evt) => this.updateQty(item.id, evt)} />
                                 </span>
                                 <span>
-                                  &nbsp;X&nsbp;
+                                  &nbsp;X&nbsp;
                                 </span>
                                 <span>
                                   {item.price}
@@ -102,23 +102,35 @@ class Checkout extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col">
+          <div className="col-md-3 offset-md-9">
             <div className="pull-right">
             {this.props.cart.cart.length &&
-            <div className="col-12">
+            <>
+            <div className="slds-text-align_right p-2">
             <dl className="slds-list_horizontal slds-wrap">
                 <dt className="slds-item_label slds-text-color_weak" title="First Label">Order Total:</dt>
-                <dd className="slds-item_detail" title="Description for first label">{this.calcTotal()}</dd>
+                <dd className="slds-item_detail" title="Description for first label fa fa-inr"><span className=" fa fa-inr">{this.calcTotal()}</span></dd>
                 <dt className="slds-item_label slds-text-color_weak" title="First Label">Delievery Cost:</dt>
-                <dd className="slds-item_detail" title="Description for first label">800</dd>
-                <hr/>
+                <dd className="slds-item_detail" title="Description for first label fa fa-inr"><span className=" fa fa-inr">800</span></dd>
+            </dl>
+            <hr/>
+            <dl className="slds-list_horizontal slds-wrap">
                 <dt className="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Grand Total:</dt>
-                <dd className="slds-item_detail slds-truncate" title="Description for first label">{this.calcTotal()+800}</dd>
+                <dd className="slds-item_detail slds-truncate" title="Description for first label"><span className=" fa fa-inr">{this.calcTotal()+800}</span></dd>
             </dl>
             </div>
+            </>
             }
             </div>
           </div>
+        </div>
+        <div className="row">
+            <div className="col">
+              <div className="pull-right">
+                <button className="btn btn-outline-info">Continue Shopping</button>&nbsp;
+                <button className="btn brand">Proceed Checkout</button>
+              </div>
+            </div>
         </div>
       </div>
     )

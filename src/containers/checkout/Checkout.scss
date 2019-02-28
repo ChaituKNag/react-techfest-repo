@@ -1,3 +1,5 @@
+@import '../../scss/variables';
+
 .media-image{
   width: 5rem !important;
   height: auto !important;
@@ -17,4 +19,21 @@
 
 .cust-width{
   width:60px;
+}
+
+.slds-item_label{
+  width:60% !important;
+}
+
+.slds-item_detail{
+  width: 40% !important;
+}
+
+hr{
+  margin :0.5rem 0 !important; 
+}
+
+.brand{
+  background: $brand-territory;
+  color: #fff
 }
