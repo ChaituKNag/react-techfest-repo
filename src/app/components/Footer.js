@@ -35,10 +35,20 @@ const FooterLinks = styled.div`
     margin-top: 10px;
     color: ${fontblack};
     font-size: 14px;
+
+    a {
+      color: ${fontblack};
+      text-decoration: none;
+    }
+    a:hover{      
+      text-decoration: underline;
+    }
+
     a:after{
       content: '|';
       margin: 0 10px;
     }
+
     a:last-child:after{
       content: '';
     }
