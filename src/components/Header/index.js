@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
 
@@ -63,7 +63,7 @@ class Header extends React.Component {
   }
 
   render() {
-    const { suggestionsList, cartCount, searchTerm } = this.props;
+    const { suggestionsList, cartCount } = this.props;
     return (
       <section className="header">
         <Container>

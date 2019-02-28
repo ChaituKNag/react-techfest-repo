@@ -16,7 +16,7 @@ class ProductsList extends Component {
     const productsList = this.props.productsList || [];
     return (
       <Container>
-        <Banner></Banner>
+        <Banner bannerImage="./assets/banner.png"></Banner>
         <Row>
           <Col md={3}>
             <Categories></Categories>

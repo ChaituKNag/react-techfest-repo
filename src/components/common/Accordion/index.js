@@ -24,6 +24,7 @@ class Accordion extends React.Component {
     }
     render() {
         const { } = this.props;
+
         return (
             <section className="accordion">
                 <ul className="list-unstyled accordion-list">

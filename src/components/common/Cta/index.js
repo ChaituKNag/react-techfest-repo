@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'reactstrap';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Cta = ({ className, ctaColor, ctaText, ctaType, ctaPath, onClickHandler , outlineVal }) => {
     switch(ctaType) {
