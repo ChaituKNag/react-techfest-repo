@@ -29,11 +29,7 @@ export default class CartCardComponent extends Component{
            }
             
           
-<<<<<<< HEAD
-            if((/^[0-9]+$/.test(tValue))&&tValue<=12){
-=======
             if((/^[0-9]+$/.test(tValue))&&tValue<=this.props.product.inStock){
->>>>>>> e1d78f93121bdcceb3500bb2b20dbe6a3fa6b7fe
                     this.setState(
                         {
                             quantity:tValue
