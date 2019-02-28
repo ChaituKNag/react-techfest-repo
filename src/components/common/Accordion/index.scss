@@ -10,7 +10,12 @@
     }
 
     .accordion-grand-children {
-        margin-left: 20px;
+        margin-left: 10px;
+        padding-left: 10px;
         cursor: pointer;
+
+        &.active {
+            background: $light-grey;
+        }
     }
 }

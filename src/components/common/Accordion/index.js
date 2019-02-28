@@ -7,7 +7,8 @@ class Accordion extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeId: {}
+      activeId: {},
+      initialdata: {}
     };
     this.setActiveElement = this.setActiveElement.bind(this);
   }
@@ -19,23 +20,25 @@ class Accordion extends React.Component {
       activeId[eachObject.name] = false;
     });
     this.setState({
-      activeId
+      activeId,
+      initialdata: activeId
     });
   }
 
-  setActiveElement(id) {
-    const activeId = this.state.activeId;
-    activeId[id] = !activeId[id];
+  setActiveElement = (id, name) => {
+    const activeId = Object.assign({}, this.state.initialdata);
+    activeId[name] = !activeId[name];
     this.setState({
       activeId
     });
+    this.props.onClickAccordion(id);
   }
 
   renderGrandChildren(data) {
     return (
       <div
-        className="accordion-grand-children"
-        onClick={this.props.onClickAccordion.bind(this, data.id)}
+        className={`accordion-grand-children ${this.state.activeId[data.name] ? 'active' : ''}`}
+        onClick={() => this.setActiveElement(data.id, data.name)}
       >
         {data.name}
       </div>
@@ -43,7 +46,7 @@ class Accordion extends React.Component {
   }
 
   renderChildren(data) {
-    return <div className ="accordion-children"> {data.name} </div>
+    return <div className ="accordion-children">{data.name}</div>
 }
 
   render() {
@@ -67,7 +70,8 @@ class Accordion extends React.Component {
 
 Accordion.propTypes = {
   accordionData: PropTypes.array.isRequired,
-  onClickAccordion: PropTypes.func.isRequired
+  onClickAccordion: PropTypes.func.isRequired,
+  resetFilter: PropTypes.bool
 };
 
 export default Accordion;

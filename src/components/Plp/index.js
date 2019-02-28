@@ -1,29 +1,44 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Container, Row, Col } from 'reactstrap';
+import propTypes from 'prop-types';
 
-import { getProductsList } from "../../actions/PlpActions";
+import { getProductsList, updatePaginationResults } from "../../actions/PlpActions";
+import Pagination from '../common/Pagination';
 import GridComponent from "../common/GridComponent";
 import Banner from "../Banner";
 import Categories from "../Categories";
-import propTypes from 'prop-types';
 
 class ProductsList extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(getProductsList());
+    this.onChangePage = this.onChangePage.bind(this);
   }
+
+  onChangePage(pageData) {
+    if(this.props) {
+      const { dispatch } = this.props;
+      dispatch(updatePaginationResults(pageData));
+    }
+  }
+
   render() {
-    const productsList = this.props.filteredProducts || [];
+    const { filteredProducts, paginationData } = this.props;
     return (
       <Container>
         <Banner bannerImage="./assets/banner.png" className="banner-img" headingTitle="Republic day sale" headingDesc=" Upto 60% Off" subHeading="Google Home and Google Home mini" ctaPath="/product/6" ctaText="Explore"></Banner>
         <Row>
           <Col md={3}>
-            <Categories></Categories>
+            <Categories />
           </Col>
           <Col md={9}>
-            <GridComponent productsList={productsList}></GridComponent> 
+            <GridComponent productsList={paginationData}></GridComponent>
+            {filteredProducts.length > 12 ? 
+              <Col md={12}>
+                <Pagination paginationData={filteredProducts} onChangePage={this.onChangePage} />
+              </Col>
+            : null} 
           </Col>
         </Row>
       </Container>
@@ -34,13 +49,16 @@ class ProductsList extends Component {
 const mapStateToProps = state => {
   return {
     productsList: state.plpData.productsList,
-    filteredProducts: state.plpData.filteredProducts
+    filteredProducts: state.plpData.filteredProducts,
+    paginationData: state.plpData.paginationData
   };
 };
 
 ProductsList.propTypes = {
   productsList: propTypes.array,
-  filteredProducts: propTypes.array
+  filteredProducts: propTypes.array,
+  paginationData: propTypes.array,
+  dispatch: propTypes.func
 }
 
 export default connect(mapStateToProps)(ProductsList);

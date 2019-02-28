@@ -3,14 +3,11 @@ import CardComponent from "../CardComponent";
 import propTypes from 'prop-types';
 import {
   Row,
-  Col,
-  Pagination,
-  PaginationItem,
-  PaginationLink
+  Col
 } from "reactstrap";
 
-import "./index.scss";
 import Icon from "../Icon";
+import "./index.scss";
 
 class GridComponent extends React.Component {
   constructor(props) {
@@ -57,39 +54,6 @@ class GridComponent extends React.Component {
            : 
             null
           }
-          {!isCart ? 
-          <Col md={12}>
-            <Pagination aria-label="Page navigation example">
-              <PaginationItem disabled>
-                <PaginationLink first="true" href="#" />
-              </PaginationItem>
-              <PaginationItem disabled>
-                <PaginationLink previous href="#" />
-              </PaginationItem>
-              <PaginationItem active>
-                <PaginationLink href="#">1</PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink href="#">2</PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink href="#">3</PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink href="#">4</PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink href="#">5</PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink next href="#" />
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink last="true" href="#" />
-              </PaginationItem>
-            </Pagination>
-          </Col>
-          : null}
         </Row>
       </section>
     );
