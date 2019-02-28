@@ -28,7 +28,7 @@ class ProductDetails extends Component {
     }
 
     const { match, productData } = this.props;
-    if (productData.id !== match.params.productId) {
+    if (productData.id !== match.params.productId * 1) {
       this.props.getProductData(match.params.productId);
     }
   }
