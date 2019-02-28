@@ -1,0 +1,49 @@
+.primary-button{
+    border: none;
+    padding: 12px 60px;
+    border-radius: 3px;
+    background: $yellow3;
+    @include font(Helvetica, 16px, bold, $grey2);
+
+    &:hover{
+        cursor: pointer;
+        background: $yellow4;
+    }
+}
+
+.secondary-button{
+    border: 1px solid $yellow3;
+    padding: 12px 15px;
+    border-radius: 3px;
+    background-color: $grey5;
+    text-decoration:none;
+    @include font(Helvetica, 14px, bold, $grey2);
+     
+    &:hover{
+        cursor: pointer;
+        background-color: $grey9;
+    }
+}
+.disable{
+    opacity:0.4;
+}
+
+.main-container{
+    background-color: $grey5;
+    min-height: calc(100vh - (71px + 116px)); //Total minus height of Header + Footer 
+}
+
+.card-shadow{
+    box-shadow: 0 0 15px rgba(195, 195, 195, 0.5);
+    background: $white;
+    border: none;
+}
+
+.page-title{
+    @include font($Helvetica, 22px, bold, $grey7);
+    padding-bottom: 40px;
+}
+
+a:visited{
+    color: inherit;
+}

@@ -1,0 +1,42 @@
+@import "../../Styles/index.scss";
+
+.footer-component{
+    margin: 0 auto;
+    width: 1200px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: $white;
+    color: $yellow1;
+    padding: 10px 0 20px;
+
+    .footer-title{
+        padding: 5px 0;
+        font-size: 24px;
+        font-weight: bolder;
+    }
+
+    .footer-sub-title{
+        margin-bottom: 20px;
+        font-family: Helvetica-light;
+        font-size: 16px;
+    }
+
+    .footer-nav{
+        color: $grey1;
+
+        li{
+            padding: 0 10px;
+            border-right: 1px solid $black;
+
+            &:hover{
+                cursor: pointer;
+                color: $yellow1;
+            }
+        }
+        li:first-child{
+            padding-left: 0;
+        }
+        li:last-child{
+            border-right: none;
+        }
+    }
+}

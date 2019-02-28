@@ -1,0 +1,17 @@
+
+.star-size{
+    display:inline-block;
+    width:20px;
+    height:20px;
+}
+.highlighted-star{
+    @extend  .star-size;
+    background-image: url('../../../Images/highlightedStar.svg');
+    background-repeat:no-repeat;
+
+}
+.vacant-star{
+    @extend .star-size;
+    background-image: url('../../../Images/vacantStar.svg');
+    background-repeat:no-repeat;
+}

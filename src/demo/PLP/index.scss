@@ -1,0 +1,53 @@
+@import "../../Styles/index.scss";
+
+.plp-container{
+    margin: 0 auto;
+    max-width: 1200px;
+
+    .banner-container{
+        min-height: 300px;
+        background: url("../../Images/banner-image.jpg");
+        margin-top: 30px;
+        @include font($Helvetica, 25px, bold, $white);
+
+        .banner-content{
+            position: relative;
+            top: 45px;
+            left: 70px;
+            line-height: 1.5;
+
+            .banner-hd-1{
+                font-size: 40px;
+            }
+
+            .banner-hd-2{
+                font-size: 33px;
+            }
+
+            .banner-hd-3{
+                @include font($Helvetica, 20px, normal, $white);
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    .page-title{
+        padding: 30px 0 10px;
+    }
+    
+    .pagination{
+        @include font($Helvetica, 16px, normal, $grey7);
+        text-align: right;
+        padding: 10px 30px 40px 0;
+
+        span{
+            margin: 0 10px;
+
+            &:hover{
+                cursor: pointer;
+                font-weight: bold;
+                color: $yellow1;
+            }
+        }
+    }
+}
