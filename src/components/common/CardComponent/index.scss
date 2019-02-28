@@ -1,0 +1,14 @@
+@import '../../../styles/variables.scss';
+
+.card {
+    .card-body {
+        a {
+            color: $black;
+            
+            &.product-title {
+                text-decoration: none;
+                color: $black;
+            }
+        }
+    }
+}

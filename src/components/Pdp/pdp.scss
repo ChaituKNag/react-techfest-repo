@@ -1,0 +1,35 @@
+@import '../../styles/variables.scss';
+
+.product-details {
+    margin-top: 40px;
+
+    .product-image-section {
+        text-align: center;
+
+        .product-image {
+            max-width: 100%;
+        }
+
+        .product-add-cart {
+            width: 80%;
+            margin-top: 20px;
+        }
+    }
+
+    .product-details-section {
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding-right: 50px;
+        }
+
+        .product-features {
+            margin-top: 30px;
+
+            .list-header {
+                font-weight: 600;
+                font-size: 1rem;
+            }
+        }
+    }
+}

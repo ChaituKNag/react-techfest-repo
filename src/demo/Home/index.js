@@ -10,7 +10,7 @@ class Home extends React.Component {
     }
     componentDidMount(){
         const homeObj = this;
-        axios.get("https://jsonplaceholder.typicode.com/users")
+        axios.get("http://localhost:4567/api/category")
             .then(response => {
                 homeObj.setState({
                     users: response.data

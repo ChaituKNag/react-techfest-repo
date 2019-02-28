@@ -1,0 +1,176 @@
+@import '../../styles/variables.scss';
+
+.header {
+    background-color: $header_bg;
+    .navbar {
+        background-color: $header_bg !important;
+        z-index: 1;
+        padding-left: 0;
+        padding-right: 0;
+
+        a {
+            color: $logo_color;
+            text-decoration: none;
+            line-height: normal;
+
+            p {
+                margin-bottom: 0;
+                font-size: 24px;
+            }
+
+            span {
+                font-size: 16px;
+            }
+        }
+
+        .navbar-toggler {
+            outline: 0;
+
+            .fa-bars {
+                color: $logo_color;
+            }
+        }
+        .search-desktop {
+            margin-bottom: 0;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 65%;
+            margin-left: 3%;
+            @media (min-width: 768px) and (max-width: 991px) {
+                width: 55%;
+                margin-left: 5%;
+            }
+
+            li {
+                .search {
+                    background-color: $header_bg;
+                    color: $header_text;
+                    outline: 0;
+                    box-shadow: none;
+                    padding-left: 40px;
+                    border-radius: 0;
+                }
+
+                .fa-search {
+                    position: absolute;
+                    top: 8px;
+                    font-size: 24px;
+                    left: 10px;
+                    color: $header_text;
+                }
+
+                .search-suggestions {
+                    position: absolute;
+                    top: 45px;
+                    background-color: $suggestions_bg;
+                    color: $suggestions_text;
+                    width: 100%;
+                    padding-bottom: 5px;
+
+                    li {
+                        padding: 5px 15px;
+                    }
+                }
+            }
+
+            @media (max-width: 767px) {
+                display: none;
+            }
+        }
+
+        .navbar-collapse {
+            .navbar-nav {
+                .nav-item {
+                    @media (max-width: 767px) {
+                        position: relative;
+                        margin-top: 20px;
+                    }
+
+                    .search-mobile {
+                        background-color: $suggestions_bg;
+                        padding-left: 40px;
+                        color: $suggestions_text;
+
+                        @media (min-width: 768px) {
+                            display: none;
+                        }
+                    }
+
+                    .search-suggestions-mobile {
+                        position: absolute;
+                        top: 45px;
+                        background-color: $suggestions_bg;
+                        color: $suggestions_text;
+                        padding: 10px 15px;
+                        z-index: 1;
+
+                        @media (min-width: 768px) {
+                            display: none;
+                        }
+                    }
+
+                    .fa-search {
+                        position: absolute;
+                        top: 8px;
+                        font-size: 24px;
+                        left: 10px;
+                        color: $header_text;
+                        @media (min-width: 768px) {
+                            display: none;
+                        }
+                    }
+
+                    a {
+                        color: $logo_color;
+                        position: relative;
+
+                        .fa-shopping-cart {
+                            font-size: 24px;
+                            line-height: 40px;
+                        }
+
+                        .cart-count {
+                            position: absolute;
+                            top: -15px;
+                            background: $white;
+                            border-radius: 50%;
+                            width: 15px;
+                            height: 15px;
+                            left: 17px;
+                            line-height: 15px;
+                            font-size: 10px;
+                            text-align: center;
+                            color: $black;
+                        }
+
+                        &.user-img {
+                            width: 40px;
+                            height: 40px;
+                            margin-left: 20px;
+                            padding: 0;
+
+                            @media (max-width: 767px) {
+                                margin-left: 0;
+                                display: inline-block;
+                            }
+
+                            img {
+                                border-radius: 50%;
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+                    }
+                    
+                    &.dropdown {
+                        @media (max-width: 767px) {
+                            margin-top: -50px;
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

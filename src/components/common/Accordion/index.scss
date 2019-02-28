@@ -1,0 +1,21 @@
+@import '../../../styles/variables.scss';
+
+.accordion {
+    .accordion-parent {
+        margin-top: 12px;
+    }
+
+    .accordion-children {
+        margin-left: 10px;
+    }
+
+    .accordion-grand-children {
+        margin-left: 10px;
+        padding-left: 10px;
+        cursor: pointer;
+
+        &.active {
+            background: $light-grey;
+        }
+    }
+}
