@@ -73,11 +73,11 @@ class Products extends PureComponent {
         <ProductsList>
           {paginatedData.filter(product => product.inStock).map((product) => (
             <Link key={product.id} to={`/product/${product.id}`}>
-              <ProductCard key={product.id} name={product.name} rating={product.rating} numberOfRaters={140} bestSelling={true} imageUrl={product.imageUrl} />
+              <ProductCard key={product.id} name={product.name} rating={product.rating} numberOfRaters={140} bestSelling imageUrl={product.imageUrl} />
             </Link>
           ))}
           {paginatedData.filter(product => !product.inStock).map((product) => (
-            <ProductCard outOfStock={true} key={product.id} name={product.name} rating={product.rating} numberOfRaters={140} bestSelling={true} imageUrl={product.imageUrl} />
+            <ProductCard outOfStock key={product.id} name={product.name} rating={product.rating} numberOfRaters={140} bestSelling imageUrl={product.imageUrl} />
           ))}
           {!data.length && (
             <p>No Products found for selected category.</p>
