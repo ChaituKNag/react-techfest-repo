@@ -2,11 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Provider } from 'react-redux';
 import {
-  Home,
-  About,
-  Heroes,
-  Todos,
-  TodosHooks,
   HeaderComponent,
   FooterComponent,
   PLPComponent,

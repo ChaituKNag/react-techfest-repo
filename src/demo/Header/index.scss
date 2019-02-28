@@ -47,10 +47,12 @@
         }
 
         .header-right-content{
+            width: 20%;
+            text-align: right;
             display: inline-block;
             vertical-align: middle;
             .cart-icon{
-                margin-right: 30px;
+                margin-right: 50px;
             }
             .profile-image{
                border-radius: 150px;
