@@ -31,7 +31,7 @@ export const loadProducts = (jsonData) => {
     };
 }
 
-export const filterProductsByCategory = (categoryId) => {
+export const filterProductsByCategory = (categoryId) => {    
     return {
         type: "FILTER_PRODUCTS_BY_CATEGORY",
         filteredProducts: categoryId
@@ -44,7 +44,6 @@ export const fetchProducts = () => {
     return (dispatch) => {
         return axios.get('http://localhost:4567/api/product')
         .then(products => {
-            console.log('Products', products);
           dispatch(loadProducts(products.data));
         });
     }

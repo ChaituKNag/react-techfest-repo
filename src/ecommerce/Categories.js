@@ -23,7 +23,7 @@ export default class Categories extends Component {
               {
                 categories[0][key].map((list) => {
                   return(
-                    <p className="category-name ml-4" key={list.id} data-category-id={list.id} onClick={(e) => this.props.filterProductsByCategory(list.id, e)}>{list.name}</p>
+                    <p className="category-name ml-4" key={list.id} data-category-id={list.id} onClick={(e) => this.props.filterProductsByCategory(list)}>{list.name}</p>
                   )
                 })
               }
