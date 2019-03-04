@@ -14,6 +14,7 @@ export default class Categories extends Component {
 
     return (
       <div className="col-sm-3">
+        {/* <p onClick={() => this.props.clearAllFilters()}>Clear All Filters</p> */}
         <h2 className="title">CATEGORIES</h2>
       {
         categories && categories.length > 0 && Object.keys(categories[0]).map((key) => {
