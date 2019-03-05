@@ -1,21 +1,17 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 
 
 //convert this into function component & Use memo
 
-export default class Pagination extends PureComponent {
-    constructor(props){
-        super(props);
-        // this.getPageResults = this.getPageResults.bind(this);
-        this.renderPageResults = this.renderPageResults.bind(this);
-    }
-
-    renderPageResults(){
-        // alert('renderPageResults');
-    }
-
+export default class Pagination extends Component {
     shouldComponentUpdate(nextProps, nextState){
-        return nextProps.isPageLinkClicked === this.props.isPageLinkClicked;
+        debugger;
+
+        if(nextProps.rerenderPagination === "true"){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     render() {
@@ -37,7 +33,7 @@ export default class Pagination extends PureComponent {
                     pageNumbers && pageNumbers.map((link, index)=>{
                         {
                             return(
-                                <li><a href="#" className="link" onClick={(e) => this.props.renderPageResults(link-1, pageSize, "true")} key={index}>{link}</a></li>
+                                <li><a href="javascript:void(0)" className="link" onClick={(e) => this.props.renderPageResults(link-1, pageSize)} key={index}>{link}</a></li>
                             )
                         }
                     })

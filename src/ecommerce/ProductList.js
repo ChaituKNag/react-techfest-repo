@@ -14,7 +14,9 @@ export class ProductList extends Component {
       'prodList': [],
       'filteredProdList': [],
       'paginatedProdList': [],
-      'isCategoryFiltered': false
+      'isCategoryFiltered': false,
+      "rerenderPagination": "true",
+      "isPaginated": false
     } 
 
     this.filterProductsByCategory = this.filterProductsByCategory.bind(this);
@@ -34,7 +36,8 @@ export class ProductList extends Component {
     this.setState({
       "filteredProdList": filteredProductList,
       "isCategoryFiltered": true,
-      "paginatedProdList": filteredProductList.slice(0, 5)
+      "paginatedProdList": filteredProductList.slice(0, 5),
+      "rerenderPagination": "true"
     });
   }
 
@@ -42,10 +45,15 @@ export class ProductList extends Component {
   renderPageResults(pageNumber, pageSize){
     let startIndex = pageNumber * parseInt(pageSize),
         endIndex = startIndex + parseInt(pageSize),
-        currentProducts = this.state.filteredProdList;
+        filteredProdList = this.state.filteredProdList,
+        currentProducts = filteredProdList.length <= 0 ? this.state.prodList : filteredProdList;
 
         this.setState({
-          "paginatedProdList": currentProducts.slice(startIndex, endIndex)
+          "isCategoryFiltered": filteredProdList.length <= 0 ? false : true,
+          "filteredProdList": filteredProdList,
+          "paginatedProdList": currentProducts.slice(startIndex, endIndex),
+          "rerenderPagination" : "false",
+          "isPaginated": true
         });
   }
 
@@ -66,7 +74,23 @@ export class ProductList extends Component {
   }
 
   render() {
-    let products = (this.state && this.state.isCategoryFiltered && this.state.isCategoryFiltered === true) ? this.state.paginatedProdList : this.state.prodList;
+    let products ;
+    // (this.state && this.state.isCategoryFiltered && this.state.isCategoryFiltered === true) ? this.state.paginatedProdList : this.state.prodList && this.state.prodList.slice(0,5);
+
+    let paginationLinks ;
+    // = (this.state.isCategoryFiltered && this.state.isCategoryFiltered === true) ? this.state.filteredProdList.length : this.state.prodList && this.state.prodList.length;
+
+
+    if(this.state && this.state.isCategoryFiltered){
+      products = this.state.paginatedProdList;
+      paginationLinks = this.state.filteredProdList.length;
+    }else if (this.state && this.state.isPaginated){
+      products = this.state.paginatedProdList;
+      paginationLinks = this.state.filteredProdList.length <= 0 ? this.state && this.state.prodList.length : this.state.filteredProdList.length;
+    }else {
+      products = this.state && this.state.prodList && this.state.prodList.slice(0,5);
+      paginationLinks = this.state && this.state.prodList && this.state.prodList.length;
+    }
 
     return (
       <React.Fragment>
@@ -83,7 +107,7 @@ export class ProductList extends Component {
         </div>
       </div>
 
-      <Pagination totalRecords={this.state && this.state.filteredProdList.length} pageSize='5' renderPageResults = {this.renderPageResults} clearAllFilters = {this.clearAllFilters} isPageLinkClicked="false"></Pagination>
+      <Pagination totalRecords={paginationLinks} pageSize='5' renderPageResults = {this.renderPageResults} clearAllFilters = {this.clearAllFilters} rerenderPagination={this.state.rerenderPagination}></Pagination>
       </React.Fragment>
     )
   }
