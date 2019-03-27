@@ -9,6 +9,7 @@ import ProductListContainer from "./containers/ProductListContainer";
 import { withRouter } from 'react-router-dom';
 import PdpContainer from "./containers/PdpContainer";
 import CartContainer from "./containers/CartContainer";
+import Login from "./ecommerce/Login";
 
 
 const App = () => (
@@ -19,7 +20,8 @@ const App = () => (
         <Switch>
             <Route path="/pdp" component={PdpContainer} />
             <Route path="/cart" component={CartContainer} />
-            <Route path="/" exact component={ProductListContainer} />
+            <Route path="/plp" component={ProductListContainer} />
+            <Route path="/" exact component={Login} />
             <Route component={Default} />
         </Switch>
     {/* </Router> */}
