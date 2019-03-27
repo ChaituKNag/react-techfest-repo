@@ -6,9 +6,6 @@ import Product from './Product';
 export class ProductList extends Component {
   constructor(props){
     super(props);
-    let isCategoryFiltered = false;
-    let pageSize = 5;
-    let isPageLinkClicked = false;
 
     this.state = {
       'prodList': [],
@@ -26,11 +23,9 @@ export class ProductList extends Component {
 
   //this method filters the products by category and pageSize and renders the products
   filterProductsByCategory(categoryObj){
-    this.setState({isCategoryFiltered : true});
-
     //update the products result set
     let filteredProductList = this.state.prodList.filter(function(product){
-	    return product.category.id === categoryObj.id;
+      return product.category.id === categoryObj.id;
     });
 
     this.setState({
@@ -75,19 +70,24 @@ export class ProductList extends Component {
 
   render() {
     let products ;
-    // (this.state && this.state.isCategoryFiltered && this.state.isCategoryFiltered === true) ? this.state.paginatedProdList : this.state.prodList && this.state.prodList.slice(0,5);
-
     let paginationLinks ;
-    // = (this.state.isCategoryFiltered && this.state.isCategoryFiltered === true) ? this.state.filteredProdList.length : this.state.prodList && this.state.prodList.length;
+    let searchedProdList = this.state && this.state.prodList && this.state.prodList.filter(prod => {
+      return prod.isSearched === true;
+    });
 
+    
 
-    if(this.state && this.state.isCategoryFiltered){
+    if(this.state && this.state.isCategoryFiltered){ // on category change
       products = this.state.paginatedProdList;
       paginationLinks = this.state.filteredProdList.length;
-    }else if (this.state && this.state.isPaginated){
+    }else if (this.state && this.state.isPaginated){ // on pagination links click
       products = this.state.paginatedProdList;
       paginationLinks = this.state.filteredProdList.length <= 0 ? this.state && this.state.prodList.length : this.state.filteredProdList.length;
-    }else {
+    }else if(searchedProdList && searchedProdList.length > 0){
+      products = searchedProdList;
+      paginationLinks = searchedProdList.length;
+    }
+    else {// on load scenario
       products = this.state && this.state.prodList && this.state.prodList.slice(0,5);
       paginationLinks = this.state && this.state.prodList && this.state.prodList.length;
     }
@@ -100,7 +100,7 @@ export class ProductList extends Component {
           {
             products && products.length > 0 && products.map((dataItem, index) => {
               return(
-                <Product dataItem={dataItem} key={index}></Product>
+                <Product dataItem={dataItem} key={index} redirectToPdp={this.redirectToPdp}></Product>
               )
             })
           }

@@ -1,8 +1,5 @@
 import axios from 'axios';
 
-// export const getProducts = () => ({
-//     type: "GET_PRODUCTS"
-// });
 
 // this groupBy is used to group an object based on an desired attribute 
 Array.prototype.groupBy = function(prop) {
@@ -38,6 +35,13 @@ export const filterProductsByCategory = (categoryId) => {
     }
 }
 
+export const loadProductDetail = (productData) => {
+    return {
+        type: "GET_PRODUCT_DETAIL_BY_ID",
+        productData: productData
+    }
+}
+
 
 //async - impure
 export const fetchProducts = () => {
@@ -57,5 +61,41 @@ export const fetchCategories = () => {
         .then(categories => {
           dispatch(loadCategories(categories.data));
         });
+    }
+}
+
+export const fetchProductDetailsById = (productId) => {
+    return (dispatch) => {
+        return axios.get(`http://localhost:4567/api/product/description/${productId}`)
+                .then(productDetails => {
+                    dispatch(loadProductDetail(productDetails.data));
+                });
+    }
+}
+
+export const fetchProductsInBag = () => {
+    return {
+        type: 'GET_PRODUCTS_IN_BAG'
+    }
+}
+
+export const fetchProductsOnSearchTerm = (searchTerm) => {
+    return {
+        type: 'FETCH_PRODUCTS_ON_SEARCH',
+        searchTerm
+    }
+}
+
+export const addProductToBag = (product) => {
+    return {
+        type: 'ADD_PRODUCT_TO_BAG',
+        product
+    }
+}
+
+export const deleteProdFromBag = (product) => {
+    return {
+        type: 'DELETE_PRODUCT_FROM_BAG',
+        product
     }
 }

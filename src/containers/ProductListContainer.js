@@ -2,6 +2,8 @@ import {ProductList} from '../ecommerce/ProductList';
 import { connect }  from 'react-redux';
 import { fetchProducts, fetchCategories } from '../store/actions';
 
+import ProductListHook from '../ecommerce/ProductListHook';
+
 const mapStateToProps = (state, ownProps) => {
     return ({
         products: state.products,
@@ -24,4 +26,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(ProductList)
+)(ProductListHook)

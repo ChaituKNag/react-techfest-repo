@@ -5,8 +5,6 @@ import React, { Component } from 'react'
 
 export default class Pagination extends Component {
     shouldComponentUpdate(nextProps, nextState){
-        debugger;
-
         if(nextProps.rerenderPagination === "true"){
             return true;
         }else{
@@ -15,30 +13,23 @@ export default class Pagination extends Component {
     }
 
     render() {
-        let totalProds = parseInt(this.props && this.props.totalRecords);
-        let pageSize = this.props.pageSize;
-        let pageLinksNo = totalProds && Math.ceil(totalProds / 5);
-
-        const pageNumbers = [];
-
-        for(var i=0; i<pageLinksNo; i++){
-            pageNumbers.push(i+1);
-        }
+        let pageNumbers = this.props.paginationLinks;
 
         return (
         <div className="col-sm-12">
+        {this.props.rerenderPagination}
             <ul className="pagination-list">
-                <li><a href="javascript:void()" className="link" >«</a></li>
+                {/* <li><a href="javascript:void()" className="link" onClick={(e) => this.props.renderPageResults("left", this.props.pageSize-1)}>«</a></li> */}
                 {
                     pageNumbers && pageNumbers.map((link, index)=>{
                         {
                             return(
-                                <li><a href="javascript:void(0)" className="link" onClick={(e) => this.props.renderPageResults(link-1, pageSize)} key={index}>{link}</a></li>
+                                <li><a href="javascript:void(0)" key={index} className="link" key={index} onClick={(e) => this.props.renderPageResults(link-1, this.props.pageSize)}>{link} </a></li>
                             )
                         }
                     })
                 }
-                <li><a href="javascript:void()">»</a></li>
+                {/* <li><a href="javascript:void()" onClick={(e) => this.props.renderPageResults("right", this.props.pageSize+1)}>»</a></li> */}
             </ul>
         </div>
         )

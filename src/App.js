@@ -1,14 +1,15 @@
 import React from "react";import Header from "./ecommerce/Header";
 import Footer from "./ecommerce/Footer";
-// import {ProductList} from "./ecommerce/ProductList";
-import Pdp from "./ecommerce/Pdp";
-import Cart from "./ecommerce/Cart";
 import Default from "./ecommerce/Default";
 // import browserHistory from 'react-router';
 import { Switch, Route } from "react-router-dom";
 import { Provider } from 'react-redux';
 import store from './store';
 import ProductListContainer from "./containers/ProductListContainer";
+import { withRouter } from 'react-router-dom';
+import PdpContainer from "./containers/PdpContainer";
+import CartContainer from "./containers/CartContainer";
+
 
 const App = () => (
   <Provider store={store}>
@@ -16,8 +17,8 @@ const App = () => (
     <Header></Header>
     {/* <Router> */} 
         <Switch>
-            <Route path="/pdp" component={Pdp} />
-            <Route path="/cart" component={Cart} />
+            <Route path="/pdp" component={PdpContainer} />
+            <Route path="/cart" component={CartContainer} />
             <Route path="/" exact component={ProductListContainer} />
             <Route component={Default} />
         </Switch>
@@ -29,4 +30,4 @@ const App = () => (
 
 
 
-export default App;
+export default withRouter(App);
