@@ -8,7 +8,8 @@ const store = createStore(combineReducers({
     "products": (state = [], action) => {
         switch(action.type){
             case 'GET_PRODUCTS':
-                return [...state, action.products];
+                // return [...state, action.products];
+                return {...state, "a": action.products}
 
             case 'FETCH_PRODUCTS_ON_SEARCH':
                 let newState3 = [...state];

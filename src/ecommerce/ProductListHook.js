@@ -54,7 +54,7 @@ const ProductListHook = (props) => {
     const renderPageResults = (pageNumber) => {
         setRerenderPagination("false");
         setCurrentPage(pageNumber+1);
-    }
+    } 
 
     return (  
     <React.Fragment>

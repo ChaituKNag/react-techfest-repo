@@ -6,6 +6,8 @@ export default class Cart extends Component {
 
     this.deleteProdFromBag = this.deleteProdFromBag.bind(this);
     this.orderTotal = this.orderTotal.bind(this);
+    this.updateTotal = this.updateTotal.bind(this);
+    this.ot = 0;
 
     this.state = {
       'qty': 1,
@@ -31,16 +33,20 @@ export default class Cart extends Component {
     return orderTotal;
   }
 
+  updateTotal(e, product): Number{
+    this.setState({'qty': e.target.value });
+    this.ot = this.ot + parseInt(this.state.qty)* parseInt(product.product.price);
+  }
+
   render() {
     let productsInBag = this.props.productData;
 
     console.log('productsInBag', productsInBag);
 
-    let ot = 0;
 
     productsInBag.map((product) => {
       if(product.isAddedToBag ){
-        ot = ot + parseInt(product.product.price);
+        this.ot = this.ot + parseInt(product.product.price);
       }
     });
 
@@ -56,7 +62,7 @@ export default class Cart extends Component {
                   <p className="subTitle">{product.product.name}</p>
                   <p className="rating">{product.product.rating}</p>
                   <p className="rating">Category ID: {product.product.category.id}</p>
-                  <input type="text" className="qty" placeholder="1* qty" onChange = {(e) => this.setState({'qty': e.target.value })}/> * <span className="price">{product.product.price}</span> = <span className="total-price">{this.state.qty* product.product.price}</span>
+                  <input type="text" className="qty" placeholder="1* qty" onChange = {(e) => this.updateTotal(e, product)}/> * <span className="price">{product.product.price}</span> = <span className="total-price">{this.state.qty* product.product.price}</span>
                 </div>
                 <div className="user-actions">
                     <button className="delete-prod ml-5" onClick = {(e) => this.deleteProdFromBag(product)}>Delete Item</button>
@@ -67,7 +73,7 @@ export default class Cart extends Component {
         })
       }
 
-      <p>Order Total:<span className="order-total">{ot}</span></p>
+      <p>Order Total:<span className="order-total" data-order-total={this.ot}>{this.ot}</span></p>
 
       <button className="proceed-to-checkout">Proceed to checkout</button>
       <button className="continue-shopping ml-5">Continue Shopping</button>

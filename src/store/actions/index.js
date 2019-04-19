@@ -41,7 +41,7 @@ export const loadProductDetail = (productData) => {
         productData: productData
     }
 }
-
+    
 
 //async - impure
 export const fetchProducts = () => {
