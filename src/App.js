@@ -1,50 +1,37 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import React from "react";import Header from "./ecommerce/Header";
+import Footer from "./ecommerce/Footer";
+import Default from "./ecommerce/Default";
+// import browserHistory from 'react-router';
+import { Switch, Route } from "react-router-dom";
 import { Provider } from 'react-redux';
-import {
-  Home,
-  About,
-  Heroes,
-  Todos,
-  TodosHooks
-} from './demo';
 import store from './store';
+import ProductListContainer from "./containers/ProductListContainer";
+import { withRouter } from 'react-router-dom';
+import PdpContainer from "./containers/PdpContainer";
+import CartContainer from "./containers/CartContainer";
+import {Redirect} from "@reach/router";
+import Login from "./ecommerce/Login";
 
 
 const App = () => (
   <Provider store={store}>
-    <Router>
-      <div>
-        <ul>
-          <li>
-            <Link to="/"><span role="img" aria-label="Home">🏠</span></Link>
-          </li>
-          <li>
-            <Link to="/about"><span role="img" aria-label="About">😂</span></Link>
-          </li>
-          <li>
-            <Link to="/heroes"><span role="img" aria-label="Heroes">🔥</span></Link>
-          </li>
-          <li>
-            <Link to="/todos"><span role="img" aria-label="Todos">😎</span></Link>
-          </li>
-          <li>
-            <Link to="/todos-hooks"><span role="img" aria-label="Todos Hooks">💩</span></Link>
-          </li>
-        </ul>
-
-        <hr />
-
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/heroes" component={Heroes} />
-        <Route path="/todos" exact component={Todos} />
-        <Route path="/todos-hooks" component={TodosHooks} />
-      </div>
-    </Router>
-  </Provider>
+  <div >
+    <Header></Header>
+    {/* <Router> */} 
+        <Switch>
+            <Route path="/pdp" component={PdpContainer} />
+            <Route path="/cart" component={CartContainer} />
+            <Redirect from="/" to="pdp" noThrow default />
+            {/* <Route path="/plp" component={ProductListContainer} /> */}
+            <Route path="/" exact component={ProductListContainer} />
+            <Route component={Default} />
+        </Switch>
+    {/* </Router> */}
+    <Footer></Footer>
+  </div>
+</Provider>
 );
 
 
 
-export default App;
+export default withRouter(App);

@@ -31,3 +31,45 @@
     transform: rotate(360deg);
   }
 }
+
+
+.product{
+  border:  1px solid grey;
+  border-radius: 5px;
+  box-shadow: #282c34;
+  max-width: 31%;
+}
+
+.prodTitle{
+  word-break: break-all;
+}
+
+.prod-image{
+  width: 200px;
+  background-size: contain;
+}
+
+.product-detail-img{
+  width: 600px;
+  height: 500px;
+  background-size: contain;
+}
+
+.cart-img{
+  width: 100px;
+  height: 100px;
+}
+
+.cart-count[data-count]:after{
+  position:absolute;
+  top:0;
+  content: attr(data-count);
+  font-size:40%;
+  padding:.2em;
+  border-radius:50%;
+  line-height:1em;
+  color: white;
+  background:blueviolet;
+  text-align:center;
+  min-width: 1em;
+}
